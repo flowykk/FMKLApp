@@ -51,7 +51,7 @@ extension SettingsViewController {
     
     private func configureTitleView() {
         titleView.text = "Settings"
-        titleView.font = UIFont(name: "Jellee-Roman", size: 16)
+        titleView.font = UIFont(name: "Jellee-Roman", size: 18)
         titleView.textColor = Constants.accentColor
     }
     
@@ -75,7 +75,7 @@ extension SettingsViewController {
         
         view.addSubview(appIconLabel)
         appIconLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 5)
-        appIconLabel.pinLeft(to: view.leadingAnchor, 25)
+        appIconLabel.pinLeft(to: view.leadingAnchor, 20)
     }
     
     private func configureAppIconCollectionView() {
@@ -92,7 +92,7 @@ extension SettingsViewController {
         
         view.addSubview(developerInfoLabel)
         developerInfoLabel.pinTop(to: appIconCollectionView.bottomAnchor, 20)
-        developerInfoLabel.pinLeft(to: view.leadingAnchor, 25)
+        developerInfoLabel.pinLeft(to: view.leadingAnchor, 20)
     }
     
     private func configureDeveloperInfoTable() {

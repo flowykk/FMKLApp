@@ -24,7 +24,7 @@ final class SettingsPresenter {
     // MARK: - CollectionView To Presenter
     func appIconSelected(_ icon: AppIcon, at index: Int) {
         print(icon.rawValue)
-        if icon == .AppIconWhite {
+        if icon == .AppIconBlack {
             UIApplication.shared.setAlternateIconName(nil)
         } else {
             UIApplication.shared.setAlternateIconName(icon.rawValue)
@@ -35,7 +35,6 @@ final class SettingsPresenter {
     func devInfoRowSelected(_ row: PrimaryTableView.DevInfoRow) {
             switch row {
             case .viewInfo:
-                print(1)
                 router.presentDeveloperInfo()
             }
         }
