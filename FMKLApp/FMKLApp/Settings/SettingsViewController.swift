@@ -12,10 +12,20 @@ final class SettingsViewController: UIViewController {
     
     private let titleView: UILabel = UILabel()
     
+    private let appIconLabel: UILabel = UILabel()
+    private var appIconCollectionView: AppIconCollectionView = AppIconCollectionView()
+    
+    private let developerInfoLabel: UILabel = UILabel()
+    private let developerInfoTable: PrimaryTableView = PrimaryTableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         view.backgroundColor = Constants.backgroundColor
+        
+        developerInfoTable.presenter = presenter
+        appIconCollectionView.presenter = presenter
+        presenter?.collectionView = appIconCollectionView
         
         configureUI()
     }
@@ -31,6 +41,12 @@ extension SettingsViewController {
         configureTitleView()
         configureNavigationBar()
         configureSettingsButton()
+        
+        configureAppIconLabel()
+        configureAppIconCollectionView()
+        
+        configureDeveloperInfoLabel()
+        configureDeveloperInfoTable()
     }
     
     private func configureTitleView() {
@@ -50,6 +66,40 @@ extension SettingsViewController {
         let image = UIImage(systemName: "chevron.right", withConfiguration: configuration)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.rightBarButtonItem?.tintColor = Constants.accentColor
+    }
+    
+    private func configureAppIconLabel() {
+        appIconLabel.text = "App icon"
+        appIconLabel.font = UIFont(name: "Jellee-Roman", size: 14)
+        appIconLabel.textColor = Constants.accentColor
+        
+        view.addSubview(appIconLabel)
+        appIconLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 5)
+        appIconLabel.pinLeft(to: view.leadingAnchor, 25)
+    }
+    
+    private func configureAppIconCollectionView() {
+        view.addSubview(appIconCollectionView)
+        appIconCollectionView.pinLeft(to: view.leadingAnchor, 20)
+        appIconCollectionView.pinRight(to: view.trailingAnchor, 20)
+        appIconCollectionView.pinTop(to: appIconLabel.bottomAnchor, 5)
+    }
+    
+    private func configureDeveloperInfoLabel() {
+        developerInfoLabel.text = "Developer info"
+        developerInfoLabel.font = UIFont(name: "Jellee-Roman", size: 14)
+        developerInfoLabel.textColor = Constants.accentColor
+        
+        view.addSubview(developerInfoLabel)
+        developerInfoLabel.pinTop(to: appIconCollectionView.bottomAnchor, 20)
+        developerInfoLabel.pinLeft(to: view.leadingAnchor, 25)
+    }
+    
+    private func configureDeveloperInfoTable() {
+        view.addSubview(developerInfoTable)
+        developerInfoTable.pinLeft(to: view.leadingAnchor, 20)
+        developerInfoTable.pinRight(to: view.trailingAnchor, 20)
+        developerInfoTable.pinTop(to: developerInfoLabel.bottomAnchor, 5)
     }
 }
 
