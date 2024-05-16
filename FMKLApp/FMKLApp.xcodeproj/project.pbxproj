@@ -24,6 +24,14 @@
 		0DE7042E2BF6574B00315374 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7042D2BF6574B00315374 /* SettingsBuilder.swift */; };
 		0DE704302BF6584C00315374 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7042F2BF6584C00315374 /* Constants.swift */; };
 		0DE704332BF659AB00315374 /* Jellee-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE704322BF659AB00315374 /* Jellee-Roman.otf */; };
+		0DE704372BF65E9A00315374 /* AppIconCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE704362BF65E9A00315374 /* AppIconCollectionView.swift */; };
+		0DE7043A2BF65EB800315374 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE704392BF65EB800315374 /* AppIcon.swift */; };
+		0DE7043C2BF65F2000315374 /* AppIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7043B2BF65F2000315374 /* AppIconCell.swift */; };
+		0DE7043E2BF663C500315374 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7043D2BF663C500315374 /* CustomTableViewCell.swift */; };
+		0DE704402BF663DC00315374 /* PrimaryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7043F2BF663DC00315374 /* PrimaryTableView.swift */; };
+		0DE704432BF6679100315374 /* DevInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE704422BF6679100315374 /* DevInfoViewController.swift */; };
+		0DE704452BF6679900315374 /* DevInfoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE704442BF6679900315374 /* DevInfoBuilder.swift */; };
+		0DE7044B2BF669F700315374 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7044A2BF669F700315374 /* UILabelExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +54,14 @@
 		0DE7042D2BF6574B00315374 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
 		0DE7042F2BF6584C00315374 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0DE704322BF659AB00315374 /* Jellee-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Jellee-Roman.otf"; sourceTree = "<group>"; };
+		0DE704362BF65E9A00315374 /* AppIconCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconCollectionView.swift; sourceTree = "<group>"; };
+		0DE704392BF65EB800315374 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
+		0DE7043B2BF65F2000315374 /* AppIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconCell.swift; sourceTree = "<group>"; };
+		0DE7043D2BF663C500315374 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		0DE7043F2BF663DC00315374 /* PrimaryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTableView.swift; sourceTree = "<group>"; };
+		0DE704422BF6679100315374 /* DevInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevInfoViewController.swift; sourceTree = "<group>"; };
+		0DE704442BF6679900315374 /* DevInfoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevInfoBuilder.swift; sourceTree = "<group>"; };
+		0DE7044A2BF669F700315374 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,7 @@
 		0DE703FF2BF6539600315374 /* FMKLApp */ = {
 			isa = PBXGroup;
 			children = (
+				0DE704382BF65EA200315374 /* Models */,
 				0DE704312BF6598C00315374 /* Fonts */,
 				0DE704262BF6572A00315374 /* Settings */,
 				0DE7041D2BF6563300315374 /* Main */,
@@ -114,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				0DE7041B2BF6561700315374 /* UIViewExtension.swift */,
+				0DE7044A2BF669F700315374 /* UILabelExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -132,6 +150,8 @@
 		0DE704262BF6572A00315374 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				0DE704412BF6677B00315374 /* DevInfo */,
+				0DE704342BF65E7200315374 /* Views */,
 				0DE7042D2BF6574B00315374 /* SettingsBuilder.swift */,
 				0DE7042B2BF6574400315374 /* SettingsPresenter.swift */,
 				0DE704292BF6573B00315374 /* SettingsRouter.swift */,
@@ -146,6 +166,42 @@
 				0DE704322BF659AB00315374 /* Jellee-Roman.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0DE704342BF65E7200315374 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0DE704352BF65E7A00315374 /* Cells */,
+				0DE704362BF65E9A00315374 /* AppIconCollectionView.swift */,
+				0DE7043F2BF663DC00315374 /* PrimaryTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0DE704352BF65E7A00315374 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0DE7043B2BF65F2000315374 /* AppIconCell.swift */,
+				0DE7043D2BF663C500315374 /* CustomTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		0DE704382BF65EA200315374 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0DE704392BF65EB800315374 /* AppIcon.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0DE704412BF6677B00315374 /* DevInfo */ = {
+			isa = PBXGroup;
+			children = (
+				0DE704442BF6679900315374 /* DevInfoBuilder.swift */,
+				0DE704422BF6679100315374 /* DevInfoViewController.swift */,
+			);
+			path = DevInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,12 +275,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DE7043E2BF663C500315374 /* CustomTableViewCell.swift in Sources */,
 				0DE704212BF6564B00315374 /* MainBuilder.swift in Sources */,
+				0DE7044B2BF669F700315374 /* UILabelExtension.swift in Sources */,
+				0DE704372BF65E9A00315374 /* AppIconCollectionView.swift in Sources */,
+				0DE7043A2BF65EB800315374 /* AppIcon.swift in Sources */,
 				0DE7041F2BF6564500315374 /* MainViewController.swift in Sources */,
 				0DE7042E2BF6574B00315374 /* SettingsBuilder.swift in Sources */,
+				0DE704402BF663DC00315374 /* PrimaryTableView.swift in Sources */,
 				0DE704282BF6573500315374 /* SettingsViewController.swift in Sources */,
+				0DE704432BF6679100315374 /* DevInfoViewController.swift in Sources */,
 				0DE704302BF6584C00315374 /* Constants.swift in Sources */,
 				0DE704012BF6539600315374 /* AppDelegate.swift in Sources */,
+				0DE704452BF6679900315374 /* DevInfoBuilder.swift in Sources */,
 				0DE704232BF6565C00315374 /* MainPresenter.swift in Sources */,
 				0DE704252BF6566100315374 /* MainRouter.swift in Sources */,
 				0DE7042C2BF6574400315374 /* SettingsPresenter.swift in Sources */,
@@ -232,6 +295,7 @@
 				0DE704172BF655C200315374 /* UIViewPin.swift in Sources */,
 				0DE7042A2BF6573B00315374 /* SettingsRouter.swift in Sources */,
 				0DE7041C2BF6561700315374 /* UIViewExtension.swift in Sources */,
+				0DE7043C2BF65F2000315374 /* AppIconCell.swift in Sources */,
 				0DE704032BF6539600315374 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,8 +438,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBlack;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MV84AF3V6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FMKLApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -400,8 +466,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBlack;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MV84AF3V6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FMKLApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -17,4 +17,13 @@ final class SettingsRouter {
     func navigateToMain() {
         view?.navigationController?.popViewController(animated: true)
     }
+    
+    func presentDeveloperInfo() {
+        let vc = DevInfoBuilder.build()
+        vc.modalPresentationStyle = .custom
+        if (view?.navigationController) != nil {
+            vc.viewDistanceTop = 300
+        }
+        view?.present(vc, animated: true)
+    }
 }
