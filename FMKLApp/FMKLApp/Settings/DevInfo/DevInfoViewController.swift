@@ -81,7 +81,7 @@ extension DevInfoViewController {
         telegramLabel.textColor = Constants.popupTextColor
         telegramLabel.textAlignment = .center
         
-        telegramLabel.halfTextColorChange(fullText: instLabel.text!, changeText: "flowykk")
+        telegramLabel.halfTextColorChange(fullText: telegramLabel.text!, changeText: "flowykk")
         
         view.addSubview(telegramLabel)
         telegramLabel.pinTop(to: instLabel.bottomAnchor, 3)
