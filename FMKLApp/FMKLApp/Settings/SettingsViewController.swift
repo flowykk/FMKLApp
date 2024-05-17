@@ -61,7 +61,7 @@ extension SettingsViewController {
     }
     
     private func configureSettingsButton() {
-        let largeFont = UIFont.systemFont(ofSize: 20, weight: .bold)
+        let largeFont = UIFont.systemFont(ofSize: 18, weight: .medium)
         let configuration = UIImage.SymbolConfiguration(font: largeFont)
         let image = UIImage(systemName: "chevron.right", withConfiguration: configuration)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(backButtonTapped))
