@@ -51,7 +51,7 @@ extension SettingsViewController {
     
     private func configureTitleView() {
         titleView.text = "Settings"
-        titleView.font = UIFont(name: "Jellee-Roman", size: 18)
+        titleView.font = UIFont(name: "Jellee-Roman", size: 17)
         titleView.textColor = Constants.accentColor
     }
     
@@ -61,7 +61,7 @@ extension SettingsViewController {
     }
     
     private func configureSettingsButton() {
-        let largeFont = UIFont.systemFont(ofSize: 18, weight: .medium)
+        let largeFont = UIFont.systemFont(ofSize: 18, weight: .bold)
         let configuration = UIImage.SymbolConfiguration(font: largeFont)
         let image = UIImage(systemName: "chevron.right", withConfiguration: configuration)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(backButtonTapped))
