@@ -23,7 +23,6 @@ final class SettingsPresenter {
     
     // MARK: - CollectionView To Presenter
     func appIconSelected(_ icon: AppIcon, at index: Int) {
-        print(icon.rawValue)
         if icon == .AppIconBlack {
             UIApplication.shared.setAlternateIconName(nil)
         } else {
