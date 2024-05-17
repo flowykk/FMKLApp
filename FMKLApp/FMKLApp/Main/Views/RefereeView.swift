@@ -1,5 +1,5 @@
 //
-//  RefereeView.swift
+//  RefereeView.swift 
 //  FMKLApp
 //
 //  Created by Данила Рахманов on 16.05.2024.
@@ -23,9 +23,6 @@ final class RefereeView: UIView {
         super.init(frame: .zero)
 
         configureUI()
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideImage))
-        addGestureRecognizer(tapGesture)
     }
     
     override func layoutSubviews() {
@@ -37,16 +34,8 @@ final class RefereeView: UIView {
     
     @objc
     private func goButtonTapped() {
-        print(1)
+        // print(1)
     }
-    
-    @objc
-        private func handleTapOutsideImage(sender: UITapGestureRecognizer) {
-            let location = sender.location(in: self)
-            if goButton.frame.contains(location) {
-                print(2)
-            }
-        }
 }
 
 extension RefereeView {

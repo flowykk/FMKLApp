@@ -72,9 +72,7 @@ extension AppIconCollectionView: UICollectionViewDataSource {
         guard let appIconCell = cell as? AppIconCell else { return cell }
         let name = AppIcon.allCases[indexPath.row].rawValue
         appIconCell.configure(withImage: name)
-        
-        print(name)
-        
+                
         return appIconCell
     }
 }

@@ -14,4 +14,9 @@ struct Constants {
     
     static let popupColor = UIColor(named: "PopupColor")
     static let popupTextColor = UIColor(named: "PopupTextColor")
+    
+    static let firstPlaceColor = UIColor(named: "FirstPlaceColor")
+    static let secondPlaceColor = UIColor(named: "SecondPlaceColor")
+    static let thirdPlaceColor = UIColor(named: "ThirdPlaceColor")
+    static let eliminationColor = UIColor(named: "EliminationColor")
 }

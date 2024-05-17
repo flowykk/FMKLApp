@@ -20,12 +20,20 @@ final class MainViewController: UIViewController {
     private let refereeWarningLabel: UILabel = UILabel()
     private let refereeGoButton: UIButton = UIButton()
     
+    private let group1Label: UILabel = UILabel()
+    private let group1TableView: GamesStatsTableView = GamesStatsTableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.delegate = self
         view.backgroundColor = Constants.backgroundColor
         
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        group1TableView.fetchData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,7 +51,7 @@ final class MainViewController: UIViewController {
     
     @objc
     private func goButtonTapped() {
-        print(1)
+        print("go referee")
     }
 }
 
@@ -58,6 +66,9 @@ extension MainViewController {
         configureRefereeLabel()
         configureRefereeWarningLabel()
         configureRefereeGoButton()
+        
+        configureGroup1Label()
+        configureGroup1TableView()
     }
     
     private func configureTitleView() {
@@ -139,8 +150,26 @@ extension MainViewController {
         view.addSubview(refereeGoButton)
         refereeGoButton.setHeight(55)
         refereeGoButton.pinTop(to: fmklImageView.bottomAnchor, -10)
-        refereeGoButton.pinLeft(to: refereeLeftView.trailingAnchor, 10)
+        refereeGoButton.pinLeft(to: refereeLeftView.trailingAnchor, 5)
         refereeGoButton.pinRight(to: view.trailingAnchor, 10)
+    }
+    
+    private func configureGroup1Label() {
+        group1Label.text = "Group 1"
+        group1Label.font = UIFont(name: "Jellee-Roman", size: 16)
+        group1Label.textColor = Constants.accentColor
+        
+        view.addSubview(group1Label)
+        group1Label.pinTop(to: refereeWarningLabel.bottomAnchor, 20)
+        group1Label.pinLeft(to: view.leadingAnchor, 10)
+    }
+    
+    private func configureGroup1TableView() {
+        group1TableView.presenter = presenter
+        
+        view.addSubview(group1TableView)
+        group1TableView.pinTop(to: group1Label.bottomAnchor, 5)
+        group1TableView.pinHorizontal(to: view, 10)
     }
 }
 
