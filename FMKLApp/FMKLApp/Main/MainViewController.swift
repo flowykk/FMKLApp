@@ -62,7 +62,7 @@ extension MainViewController {
     
     private func configureTitleView() {
         titleView.text = "FMKL"
-        titleView.font = UIFont(name: "Jellee-Roman", size: 16)
+        titleView.font = UIFont(name: "Jellee-Roman", size: 17)
         titleView.textColor = Constants.accentColor
     }
     
@@ -71,7 +71,7 @@ extension MainViewController {
     }
     
     private func configureSettingsButton() {
-        let largeFont = UIFont.systemFont(ofSize: 20, weight: .bold)
+        let largeFont = UIFont.systemFont(ofSize: 18, weight: .medium)
         let configuration = UIImage.SymbolConfiguration(font: largeFont)
         let image = UIImage(systemName: "gearshape.fill", withConfiguration: configuration)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(settingsButtonTapped))
