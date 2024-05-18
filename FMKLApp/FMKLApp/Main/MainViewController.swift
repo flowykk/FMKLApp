@@ -103,7 +103,7 @@ extension MainViewController {
         scrollView.delaysContentTouches = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.backgroundColor = .systemBackground
+        scrollView.backgroundColor = Constants.backgroundColor
         
         view.addSubview(scrollView)
         scrollView.pinLeft(to: view.leadingAnchor)
