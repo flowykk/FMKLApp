@@ -35,6 +35,8 @@ final class MainViewController: UIViewController {
     private let assistersLabel: UILabel = UILabel()
     private let assistersTableView: PlayersTableView = PlayersTableView()
     
+    private let lastUpdateLabel: UILabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.delegate = self
@@ -93,6 +95,8 @@ extension MainViewController {
         
         configureAssistersLabel()
         configureAssistersTableView()
+        
+        configureLastUpdateLabel()
     }
     
     private func configureScrollView() {
@@ -117,7 +121,7 @@ extension MainViewController {
         contentView.pinTop(to: scrollView.topAnchor)
         contentView.pinBottom(to: scrollView.bottomAnchor)
         contentView.pinWidth(to: scrollView.widthAnchor)
-        contentView.setHeight(2040)
+        contentView.setHeight(1740)
     }
     
     private func configureTitleView() {
@@ -269,6 +273,17 @@ extension MainViewController {
         contentView.addSubview(assistersTableView)
         assistersTableView.pinTop(to: assistersLabel.bottomAnchor, 5)
         assistersTableView.pinHorizontal(to: contentView, 10)
+    }
+    
+    private func configureLastUpdateLabel() {
+        lastUpdateLabel.text = "Table last updated 05.05.2024 at 16:13"
+        lastUpdateLabel.font = UIFont(name: "Jellee-Roman", size: 12)
+        lastUpdateLabel.textColor = Constants.popupTextColor
+        lastUpdateLabel.textAlignment = .center
+        
+        contentView.addSubview(lastUpdateLabel)
+        lastUpdateLabel.pinCenterX(to: contentView)
+        lastUpdateLabel.pinTop(to: assistersTableView.bottomAnchor, 20)
     }
 }
 
