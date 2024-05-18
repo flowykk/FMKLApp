@@ -12,6 +12,9 @@ final class MainViewController: UIViewController {
     
     private let titleView: UILabel = UILabel()
     
+    private let scrollView: UIScrollView = UIScrollView()
+    private let contentView: UIView = UIView()
+    
     private let fmklImageView: UIImageView = UIImageView()
     private let refereeView: RefereeView = RefereeView()
     
@@ -23,6 +26,15 @@ final class MainViewController: UIViewController {
     private let group1Label: UILabel = UILabel()
     private let group1TableView: GamesStatsTableView = GamesStatsTableView()
     
+    private let group2Label: UILabel = UILabel()
+    private let group2TableView: GamesStatsTableView = GamesStatsTableView()
+    
+    private let scorersLabel: UILabel = UILabel()
+    private let scorersTableView: PlayersTableView = PlayersTableView()
+    
+    private let assistersLabel: UILabel = UILabel()
+    private let assistersTableView: PlayersTableView = PlayersTableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.delegate = self
@@ -33,7 +45,7 @@ final class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        group1TableView.fetchData()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +69,9 @@ final class MainViewController: UIViewController {
 
 extension MainViewController {
     private func configureUI() {
+        configureScrollView()
+        configureContentView()
+        
         configureTitleView()
         configureNavigationBar()
         configureSettingsButton()
@@ -69,6 +84,40 @@ extension MainViewController {
         
         configureGroup1Label()
         configureGroup1TableView()
+        
+        configureGroup2Label()
+        configureGroup2TableView()
+        
+        configureScorersLabel()
+        configureScorersTableView()
+        
+        configureAssistersLabel()
+        configureAssistersTableView()
+    }
+    
+    private func configureScrollView() {
+        scrollView.delaysContentTouches = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.backgroundColor = .systemBackground
+        
+        view.addSubview(scrollView)
+        scrollView.pinLeft(to: view.leadingAnchor)
+        scrollView.pinRight(to: view.trailingAnchor)
+        scrollView.pinTop(to: view.topAnchor)
+        scrollView.pinBottom(to: view.bottomAnchor)
+    }
+    
+    private func configureContentView() {
+        contentView.backgroundColor = Constants.backgroundColor
+        
+        scrollView.addSubview(contentView)
+        contentView.pinLeft(to: scrollView.leadingAnchor)
+        contentView.pinRight(to: scrollView.trailingAnchor)
+        contentView.pinTop(to: scrollView.topAnchor)
+        contentView.pinBottom(to: scrollView.bottomAnchor)
+        contentView.pinWidth(to: scrollView.widthAnchor)
+        contentView.setHeight(2040)
     }
     
     private func configureTitleView() {
@@ -95,21 +144,21 @@ extension MainViewController {
         
         let size = UIScreen.main.bounds.width * 0.7
         
-        view.addSubview(fmklImageView)
-        fmklImageView.pinCenterX(to: view)
+        contentView.addSubview(fmklImageView)
+        fmklImageView.pinCenterX(to: contentView)
         fmklImageView.setWidth(size)
         fmklImageView.setHeight(size)
-        fmklImageView.pinTop(to: view.safeAreaLayoutGuide.topAnchor, -20)
+        fmklImageView.pinTop(to: contentView.safeAreaLayoutGuide.topAnchor, -20)
     }
     
     private func configureRefereeLeftView() {
         refereeLeftView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.2)
         
-        view.addSubview(refereeLeftView)
+        contentView.addSubview(refereeLeftView)
         refereeLeftView.setWidth(UIScreen.main.bounds.width * 0.65)
         refereeLeftView.setHeight(55)
         refereeLeftView.pinTop(to: fmklImageView.bottomAnchor, -10)
-        refereeLeftView.pinLeft(to: view.leadingAnchor, 10)
+        refereeLeftView.pinLeft(to: contentView.leadingAnchor, 10)
     }
     
     private func configureRefereeLabel() {
@@ -132,8 +181,8 @@ extension MainViewController {
         refereeWarningLabel.font = UIFont(name: "Jellee-Roman", size: 10)
         refereeWarningLabel.textColor = Constants.secondColor?.withAlphaComponent(0.3)
         
-        view.addSubview(refereeWarningLabel)
-        refereeWarningLabel.pinLeft(to: view.leadingAnchor, 15)
+        contentView.addSubview(refereeWarningLabel)
+        refereeWarningLabel.pinLeft(to: contentView.leadingAnchor, 15)
         refereeWarningLabel.pinTop(to: refereeLeftView.bottomAnchor, 5)
     }
     
@@ -147,11 +196,11 @@ extension MainViewController {
         refereeGoButton.setImage(image, for: .normal)
         refereeGoButton.tintColor = Constants.backgroundColor
         
-        view.addSubview(refereeGoButton)
+        contentView.addSubview(refereeGoButton)
         refereeGoButton.setHeight(55)
         refereeGoButton.pinTop(to: fmklImageView.bottomAnchor, -10)
         refereeGoButton.pinLeft(to: refereeLeftView.trailingAnchor, 5)
-        refereeGoButton.pinRight(to: view.trailingAnchor, 10)
+        refereeGoButton.pinRight(to: contentView.trailingAnchor, 10)
     }
     
     private func configureGroup1Label() {
@@ -159,17 +208,67 @@ extension MainViewController {
         group1Label.font = UIFont(name: "Jellee-Roman", size: 16)
         group1Label.textColor = Constants.accentColor
         
-        view.addSubview(group1Label)
-        group1Label.pinTop(to: refereeWarningLabel.bottomAnchor, 20)
-        group1Label.pinLeft(to: view.leadingAnchor, 10)
+        contentView.addSubview(group1Label)
+        group1Label.pinTop(to: refereeWarningLabel.bottomAnchor, 30)
+        group1Label.pinLeft(to: contentView.leadingAnchor, 10)
     }
     
     private func configureGroup1TableView() {
         group1TableView.presenter = presenter
         
-        view.addSubview(group1TableView)
+        contentView.addSubview(group1TableView)
         group1TableView.pinTop(to: group1Label.bottomAnchor, 5)
-        group1TableView.pinHorizontal(to: view, 10)
+        group1TableView.pinHorizontal(to: contentView, 10)
+    }
+    
+    private func configureGroup2Label() {
+        group2Label.text = "Group 2"
+        group2Label.font = UIFont(name: "Jellee-Roman", size: 16)
+        group2Label.textColor = Constants.accentColor
+        
+        contentView.addSubview(group2Label)
+        group2Label.pinTop(to: group1TableView.bottomAnchor, 20)
+        group2Label.pinLeft(to: contentView.leadingAnchor, 10)
+    }
+    
+    private func configureGroup2TableView() {
+        group2TableView.presenter = presenter
+        
+        contentView.addSubview(group2TableView)
+        group2TableView.pinTop(to: group2Label.bottomAnchor, 5)
+        group2TableView.pinHorizontal(to: contentView, 10)
+    }
+    
+    private func configureScorersLabel() {
+        scorersLabel.text = "Scorers"
+        scorersLabel.font = UIFont(name: "Jellee-Roman", size: 16)
+        scorersLabel.textColor = Constants.accentColor
+        
+        contentView.addSubview(scorersLabel)
+        scorersLabel.pinTop(to: group2TableView.bottomAnchor, 20)
+        scorersLabel.pinLeft(to: contentView.leadingAnchor, 10)
+    }
+    
+    private func configureScorersTableView() {
+        contentView.addSubview(scorersTableView)
+        scorersTableView.pinTop(to: scorersLabel.bottomAnchor, 5)
+        scorersTableView.pinHorizontal(to: contentView, 10)
+    }
+    
+    private func configureAssistersLabel() {
+        assistersLabel.text = "Assisters"
+        assistersLabel.font = UIFont(name: "Jellee-Roman", size: 16)
+        assistersLabel.textColor = Constants.accentColor
+        
+        contentView.addSubview(assistersLabel)
+        assistersLabel.pinTop(to: scorersTableView.bottomAnchor, 20)
+        assistersLabel.pinLeft(to: contentView.leadingAnchor, 10)
+    }
+    
+    private func configureAssistersTableView() {
+        contentView.addSubview(assistersTableView)
+        assistersTableView.pinTop(to: assistersLabel.bottomAnchor, 5)
+        assistersTableView.pinHorizontal(to: contentView, 10)
     }
 }
 

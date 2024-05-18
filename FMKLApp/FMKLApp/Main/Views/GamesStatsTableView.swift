@@ -31,7 +31,6 @@ final class GamesStatsTableView: UITableView {
         delegate = self
         dataSource = self
         register(GamesStatsCell.self, forCellReuseIdentifier: "GamesStatsCell")
-        //layer.cornerRadius = 15
         rowHeight = 50
         
         separatorStyle = .none

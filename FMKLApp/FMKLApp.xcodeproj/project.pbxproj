@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D4F98082BF8BA2200E82383 /* PlayersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F98072BF8BA2200E82383 /* PlayersTableView.swift */; };
+		0D4F980A2BF8BA3200E82383 /* PlayerStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F98092BF8BA3200E82383 /* PlayerStatsCell.swift */; };
+		0D4F980C2BF8BA6200E82383 /* PlayerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F980B2BF8BA6200E82383 /* PlayerStats.swift */; };
 		0DE704012BF6539600315374 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE704002BF6539600315374 /* AppDelegate.swift */; };
 		0DE704032BF6539600315374 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE704022BF6539600315374 /* SceneDelegate.swift */; };
 		0DE7040A2BF6539700315374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE704092BF6539700315374 /* Assets.xcassets */; };
@@ -39,6 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D4F98072BF8BA2200E82383 /* PlayersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableView.swift; sourceTree = "<group>"; };
+		0D4F98092BF8BA3200E82383 /* PlayerStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsCell.swift; sourceTree = "<group>"; };
+		0D4F980B2BF8BA6200E82383 /* PlayerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStats.swift; sourceTree = "<group>"; };
 		0DE703FD2BF6539600315374 /* FMKLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMKLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DE704002BF6539600315374 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DE704022BF6539600315374 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +207,7 @@
 			children = (
 				0DE704392BF65EB800315374 /* AppIcon.swift */,
 				0DE704542BF7C9AA00315374 /* TeamGamesStats.swift */,
+				0D4F980B2BF8BA6200E82383 /* PlayerStats.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +227,7 @@
 				0DE704512BF7C89000315374 /* Cells */,
 				0DE7044D2BF6912000315374 /* RefereeView.swift */,
 				0DE7044F2BF7C88900315374 /* GamesStatsTableView.swift */,
+				0D4F98072BF8BA2200E82383 /* PlayersTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				0DE704522BF7C8BF00315374 /* GamesStatsCell.swift */,
+				0D4F98092BF8BA3200E82383 /* PlayerStatsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -316,8 +325,10 @@
 				0DE704282BF6573500315374 /* SettingsViewController.swift in Sources */,
 				0DE704432BF6679100315374 /* DevInfoViewController.swift in Sources */,
 				0DE704302BF6584C00315374 /* Constants.swift in Sources */,
+				0D4F98082BF8BA2200E82383 /* PlayersTableView.swift in Sources */,
 				0DE704532BF7C8BF00315374 /* GamesStatsCell.swift in Sources */,
 				0DE704012BF6539600315374 /* AppDelegate.swift in Sources */,
+				0D4F980C2BF8BA6200E82383 /* PlayerStats.swift in Sources */,
 				0DE704452BF6679900315374 /* DevInfoBuilder.swift in Sources */,
 				0DE704232BF6565C00315374 /* MainPresenter.swift in Sources */,
 				0DE704502BF7C88900315374 /* GamesStatsTableView.swift in Sources */,
@@ -326,6 +337,7 @@
 				0DE704192BF655DF00315374 /* CustomTransitioning.swift in Sources */,
 				0DE704172BF655C200315374 /* UIViewPin.swift in Sources */,
 				0DE7042A2BF6573B00315374 /* SettingsRouter.swift in Sources */,
+				0D4F980A2BF8BA3200E82383 /* PlayerStatsCell.swift in Sources */,
 				0DE7041C2BF6561700315374 /* UIViewExtension.swift in Sources */,
 				0DE7043C2BF65F2000315374 /* AppIconCell.swift in Sources */,
 				0DE704032BF6539600315374 /* SceneDelegate.swift in Sources */,
@@ -476,10 +488,12 @@
 				DEVELOPMENT_TEAM = MV84AF3V6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FMKLApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,10 +518,12 @@
 				DEVELOPMENT_TEAM = MV84AF3V6Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FMKLApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
