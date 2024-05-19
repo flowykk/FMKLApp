@@ -116,7 +116,7 @@ extension PlayerStatsCell {
         playerNameLabel.font = UIFont(name: "Jellee-Roman", size: 18)
         
         addSubview(playerNameLabel)
-        playerNameLabel.pinLeft(to: playerNameView.leadingAnchor, 5)
+        playerNameLabel.pinLeft(to: playerNameView.leadingAnchor, 10)
         playerNameLabel.pinWidth(to: playerNameView)
         playerNameLabel.pinCenterY(to: centerYAnchor)
     }
