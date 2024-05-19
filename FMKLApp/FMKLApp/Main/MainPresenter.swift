@@ -19,4 +19,8 @@ final class MainPresenter {
     func settingsButtonTapped() {
         router.navigateToSettings()
     }
+    
+    func viewTeamButtonTapped(for teamName: String) {
+        router.navigateToTeam(for: teamName)
+    }
 }

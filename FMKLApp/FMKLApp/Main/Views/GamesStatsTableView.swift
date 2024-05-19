@@ -55,6 +55,7 @@ extension GamesStatsTableView: UITableViewDelegate, UITableViewDataSource {
         let teamStats = teamStats[indexPath.row]
         
         cell.set(teamPlace: indexPath.row + 1, teamStats: teamStats)
+        cell.presenter = presenter
         
         return cell
     }

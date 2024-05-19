@@ -8,6 +8,8 @@
 import UIKit
 
 final class GamesStatsCell: UITableViewCell {
+    weak var presenter: MainPresenter?
+    
     private let teamPlaceLabel: UILabel = UILabel()
     
     private let pointsView: UIView = UIView()
@@ -93,7 +95,7 @@ final class GamesStatsCell: UITableViewCell {
     
     @objc
     private func viewTeamButtonTapped() {
-        print("go to team \(teamName)")
+        presenter?.viewTeamButtonTapped(for: teamName)
     }
 }
 

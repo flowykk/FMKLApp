@@ -18,4 +18,10 @@ final class MainRouter {
         let vc = SettingsBuilder.build()
         view?.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func navigateToTeam(for teamName: String) {
+        let vc = TeamBuilder.build()
+        vc.teamName = teamName
+        view?.navigationController?.pushViewController(vc, animated: true)
+    }
 }
