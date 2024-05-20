@@ -73,7 +73,7 @@ final class MainViewController: UIViewController {
     
     @objc
     private func goButtonTapped() {
-        print("go referee")
+        presenter?.goRefereeButtonTapped()
     }
 }
 

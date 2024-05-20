@@ -22,6 +22,10 @@ final class MainPresenter {
         router.navigateToSettings()
     }
     
+    func goRefereeButtonTapped() {
+        router.presentRefereeCodeView()
+    }
+    
     func viewTeamButtonTapped(for teamName: String) {
         router.navigateToTeam(for: teamName)
     }
