@@ -24,22 +24,31 @@ final class MainViewController: UIViewController {
     private let refereeGoButton: UIButton = UIButton()
     
     private let group1Label: UILabel = UILabel()
-    private let group1TableView: GamesStatsTableView = GamesStatsTableView()
+    private var group1TableView: GamesStatsTableView = GamesStatsTableView()
     
     private let group2Label: UILabel = UILabel()
-    private let group2TableView: GamesStatsTableView = GamesStatsTableView()
+    private var group2TableView: GamesStatsTableView = GamesStatsTableView()
     
     private let scorersLabel: UILabel = UILabel()
-    private let scorersTableView: PlayersTableView = PlayersTableView()
+    private var scorersTableView: PlayersTableView = PlayersTableView()
     
     private let assistersLabel: UILabel = UILabel()
-    private let assistersTableView: PlayersTableView = PlayersTableView()
+    private var assistersTableView: PlayersTableView = PlayersTableView()
     
     private let lastUpdateLabel: UILabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.delegate = self
+
+        group1TableView.presenter = presenter
+        group2TableView.presenter = presenter
+        
+        group1TableView = GamesStatsTableView(groupNumber: 1)
+        group2TableView = GamesStatsTableView(groupNumber: 2)
+        scorersTableView = PlayersTableView(dataNumber: 1)
+        assistersTableView = PlayersTableView(dataNumber: 2)
+                
         view.backgroundColor = Constants.backgroundColor
         
         configureUI()
@@ -47,7 +56,6 @@ final class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -218,8 +226,6 @@ extension MainViewController {
     }
     
     private func configureGroup1TableView() {
-        group1TableView.presenter = presenter
-        
         contentView.addSubview(group1TableView)
         group1TableView.pinTop(to: group1Label.bottomAnchor, 5)
         group1TableView.pinHorizontal(to: contentView, 10)
@@ -236,8 +242,6 @@ extension MainViewController {
     }
     
     private func configureGroup2TableView() {
-        group2TableView.presenter = presenter
-        
         contentView.addSubview(group2TableView)
         group2TableView.pinTop(to: group2Label.bottomAnchor, 5)
         group2TableView.pinHorizontal(to: contentView, 10)

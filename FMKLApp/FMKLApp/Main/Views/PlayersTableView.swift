@@ -12,7 +12,7 @@ class PlayersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
-        fetchData()
+        
         configure()
     }
     
@@ -20,8 +20,19 @@ class PlayersTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         fatalError("init(coder:) has not been implemented")
     }
     
-    func isEmpty() -> Bool {
-        return playerStats.count == 0
+    init(dataNumber: Int) {
+        super.init(frame: .zero, style: .plain)
+        
+        loadData(dataNumber: dataNumber)
+        configure()
+    }
+    
+    private func loadData(dataNumber: Int) {
+        if dataNumber == 1 {
+            fetchData1()
+        } else {
+            fetchData2()
+        }
     }
     
     private func configure() {
@@ -60,22 +71,30 @@ extension PlayersTableView {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowHeight
     }
-        
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("go to team")
-//        //let favourite = favouriteFollowers[indexPath.row]
-//        //presenter?.favouriteTapped(by: favourite)
-//    }
 }
 
 extension PlayersTableView {
-    func fetchData() {
+    func fetchData1() {
         self.playerStats = [
             PlayerStats(points: 28, playerName: "Afitov A."),
             PlayerStats(points: 24, playerName: "Mudrov N."),
             PlayerStats(points: 23, playerName: "Kruglov V."),
             PlayerStats(points: 20, playerName: "Zhuravlev A."),
             PlayerStats(points: 16, playerName: "Ziden' E.")
+        ]
+        
+        DispatchQueue.main.async {
+            self.reloadData()
+        }
+    }
+    
+    func fetchData2() {
+        self.playerStats = [
+            PlayerStats(points: 12, playerName: "Skotnikov A."),
+            PlayerStats(points: 10, playerName: "Galcev I."),
+            PlayerStats(points: 10, playerName: "Zhuravlev A."),
+            PlayerStats(points: 9 , playerName: "Larin E."),
+            PlayerStats(points: 8 , playerName: "Mudrov N.")
         ]
         
         DispatchQueue.main.async {

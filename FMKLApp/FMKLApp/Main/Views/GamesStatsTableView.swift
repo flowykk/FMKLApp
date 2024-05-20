@@ -8,13 +8,13 @@
 import UIKit
 
 final class GamesStatsTableView: UITableView {
-    var presenter: MainPresenter?
-        
-    private var teamStats: [TeamGamesStats] = []
+    weak var presenter: MainPresenter?
+    
+    var teamStats: [TeamGamesStats] = []
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
-        fetchData()
+        
         configure()
     }
     
@@ -22,14 +22,26 @@ final class GamesStatsTableView: UITableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func isEmpty() -> Bool {
-        return teamStats.count == 0
+    init(groupNumber: Int) {
+        super.init(frame: .zero, style: .plain)
+        
+        loadData(groupNumber: groupNumber)
+        configure()
+    }
+    
+    private func loadData(groupNumber: Int) {
+        if groupNumber == 1 {
+            fetchGroup1()
+        } else {
+            fetchGroup2()
+        }
     }
     
     private func configure() {
         backgroundColor = Constants.backgroundColor
         delegate = self
         dataSource = self
+
         register(GamesStatsCell.self, forCellReuseIdentifier: "GamesStatsCell")
         rowHeight = 50
         
@@ -63,16 +75,10 @@ extension GamesStatsTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowHeight
     }
-        
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("go to team")
-//        //let favourite = favouriteFollowers[indexPath.row]
-//        //presenter?.favouriteTapped(by: favourite)
-//    }
 }
 
 extension GamesStatsTableView {
-    func fetchData() {
+    func fetchGroup1() {
         self.teamStats = [
             TeamGamesStats(points: 18, teamName: "BUSUS", wins: 6, loses: 6, goalsScored: 37, goalsMissed: 19),
             TeamGamesStats(points: 15, teamName: "MEMPH", wins: 6, loses: 5, goalsScored: 51, goalsMissed: 8 ),
@@ -81,6 +87,22 @@ extension GamesStatsTableView {
             TeamGamesStats(points: 6 , teamName: "FTR"  , wins: 6, loses: 2, goalsScored: 26, goalsMissed: 27),
             TeamGamesStats(points: 3 , teamName: "AVGRS", wins: 6, loses: 1, goalsScored: 33, goalsMissed: 66),
             TeamGamesStats(points: 0 , teamName: "KFC"  , wins: 6, loses: 0, goalsScored: 23, goalsMissed: 49)
+        ]
+        
+        DispatchQueue.main.async {
+            self.reloadData()
+        }
+    }
+    
+    func fetchGroup2() {
+        self.teamStats = [
+            TeamGamesStats(points: 17, teamName: "KUBN"  , wins: 6, loses: 6, goalsScored: 46, goalsMissed: 16),
+            TeamGamesStats(points: 10, teamName: "VSPRST", wins: 6, loses: 3, goalsScored: 35, goalsMissed: 29),
+            TeamGamesStats(points: 9 , teamName: "WNNRS" , wins: 6, loses: 3, goalsScored: 25, goalsMissed: 28),
+            TeamGamesStats(points: 6 , teamName: "ALGRS" , wins: 6, loses: 2, goalsScored: 27, goalsMissed: 30),
+            TeamGamesStats(points: 5 , teamName: "BEER"  , wins: 6, loses: 1, goalsScored: 31, goalsMissed: 26),
+            TeamGamesStats(points: 5 , teamName: "CEMUN" , wins: 6, loses: 2, goalsScored: 21, goalsMissed: 37),
+            TeamGamesStats(points: 4 , teamName: "OLMP"  , wins: 5, loses: 1, goalsScored: 23, goalsMissed: 37)
         ]
         
         DispatchQueue.main.async {
