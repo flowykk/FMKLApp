@@ -22,7 +22,7 @@ final class DevInfoViewController: UIViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         view.addGestureRecognizer(panGesture)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideImage))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         view.addGestureRecognizer(tapGesture)
     }
     

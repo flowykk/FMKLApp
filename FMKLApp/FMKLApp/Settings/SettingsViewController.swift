@@ -40,7 +40,7 @@ extension SettingsViewController {
     private func configureUI() {
         configureTitleView()
         configureNavigationBar()
-        configureSettingsButton()
+        configureBackButton()
         
         configureAppIconLabel()
         configureAppIconCollectionView()
@@ -60,7 +60,7 @@ extension SettingsViewController {
         navigationItem.titleView = titleView
     }
     
-    private func configureSettingsButton() {
+    private func configureBackButton() {
         let largeFont = UIFont.systemFont(ofSize: 18, weight: .bold)
         let configuration = UIImage.SymbolConfiguration(font: largeFont)
         let image = UIImage(systemName: "chevron.right", withConfiguration: configuration)
