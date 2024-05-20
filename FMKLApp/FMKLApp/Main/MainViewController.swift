@@ -40,14 +40,14 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.delegate = self
-
-        group1TableView.presenter = presenter
-        group2TableView.presenter = presenter
         
         group1TableView = GamesStatsTableView(groupNumber: 1)
         group2TableView = GamesStatsTableView(groupNumber: 2)
         scorersTableView = PlayersTableView(dataNumber: 1)
         assistersTableView = PlayersTableView(dataNumber: 2)
+        
+        group1TableView.presenter = presenter
+        group2TableView.presenter = presenter
                 
         view.backgroundColor = Constants.backgroundColor
         

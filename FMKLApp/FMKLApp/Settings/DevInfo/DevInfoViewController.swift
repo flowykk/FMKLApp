@@ -92,7 +92,7 @@ extension DevInfoViewController {
 // MARK: - Private funcs
 extension DevInfoViewController {
     @objc
-    private func handleTapOutsideImage(sender: UITapGestureRecognizer) {
+    private func handleTapGesture(sender: UITapGestureRecognizer) {
         dismiss(animated: true, completion: nil)
     }
     
