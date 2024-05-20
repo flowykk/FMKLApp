@@ -282,7 +282,7 @@ extension MainViewController {
     private func configureLastUpdateLabel() {
         lastUpdateLabel.text = "Table last updated 05.05.2024 at 16:13"
         lastUpdateLabel.font = UIFont(name: "Jellee-Roman", size: 12)
-        lastUpdateLabel.textColor = Constants.popupTextColor
+        lastUpdateLabel.textColor = Constants.secondColor?.withAlphaComponent(0.3)
         lastUpdateLabel.textAlignment = .center
         
         contentView.addSubview(lastUpdateLabel)
