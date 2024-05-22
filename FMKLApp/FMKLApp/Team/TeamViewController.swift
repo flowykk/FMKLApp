@@ -35,7 +35,7 @@ final class TeamViewController: UIViewController {
 
         guard !(hitView is UIControl) else { return }
 
-        presenter?.goToAvatarPreview(with: imageView.image!)
+        presenter?.goToAvatarPreview(with: UIImage(named: shortTeamName!)!)
     }
 }
 
