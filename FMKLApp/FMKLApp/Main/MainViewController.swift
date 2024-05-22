@@ -164,7 +164,7 @@ extension MainViewController {
     }
     
     private func configureRefereeLeftView() {
-        refereeLeftView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.2)
+        refereeLeftView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
         
         contentView.addSubview(refereeLeftView)
         refereeLeftView.setWidth(UIScreen.main.bounds.width * 0.65)

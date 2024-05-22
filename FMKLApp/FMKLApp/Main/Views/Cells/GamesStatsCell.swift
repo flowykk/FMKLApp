@@ -48,9 +48,6 @@ final class GamesStatsCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        //contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-        //separatorInset = UIEdgeInsets(top: 10, left: .zero, bottom: 10, right: .zero)
-        //let left = 12 + UIScreen.main.bounds.width * 0.09 + 12
         configureCorners()
     }
     
@@ -58,7 +55,7 @@ final class GamesStatsCell: UITableViewCell {
         teamPlaceLabel.text     = String(teamPlace)
         pointsLabel.text        = String(teamStats.points)
         teamNameLabel.text      = teamStats.teamName
-        teamName                = teamStats.teamName
+        teamName                = teamStats.fullTeamName
         winsLabel.text          = String(teamStats.wins)
         losesLabel.text         = String(teamStats.loses)
         scoredGoalsLabel.text   = String(teamStats.goalsScored)
@@ -79,7 +76,7 @@ final class GamesStatsCell: UITableViewCell {
         } else if teamPlace == 3 {
             pointsView.backgroundColor  = Constants.thirdPlaceColor
         } else if teamPlace > 4 {
-            pointsView.backgroundColor  = Constants.secondColor?.withAlphaComponent(0.2)
+            pointsView.backgroundColor  = Constants.secondColor?.withAlphaComponent(0.15)
             
             teamPlaceLabel.textColor    = Constants.eliminationColor
             pointsLabel.textColor       = Constants.eliminationColor
@@ -89,13 +86,13 @@ final class GamesStatsCell: UITableViewCell {
             scoredGoalsLabel.textColor  = Constants.eliminationColor
             missedGoalsLabel.textColor  = Constants.eliminationColor
         } else {
-            pointsView.backgroundColor  = Constants.secondColor?.withAlphaComponent(0.2)
+            pointsView.backgroundColor  = Constants.secondColor?.withAlphaComponent(0.15)
         }
     }
     
     @objc
     private func viewTeamButtonTapped() {
-        presenter?.viewTeamButtonTapped(for: teamName)
+        presenter?.viewTeamButtonTapped(forFullName: teamName, withShortName: teamNameLabel.text!)
     }
 }
 
@@ -162,7 +159,7 @@ extension GamesStatsCell {
     }
     
     private func configureTeamNameView() {
-        teamNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.2)
+        teamNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
         
         addSubview(teamNameView)
         teamNameView.pinLeft(to: pointsView.trailingAnchor, 4)
@@ -171,7 +168,7 @@ extension GamesStatsCell {
     }
     
     private func configureGoalsWinsInfoViews(accentView: UIView, secondaryView: UIView) {
-        accentView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.2)
+        accentView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
         
         addSubview(accentView)
         accentView.pinLeft(to: secondaryView.trailingAnchor, 4)
