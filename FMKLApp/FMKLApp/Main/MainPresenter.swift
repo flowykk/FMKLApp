@@ -29,4 +29,13 @@ final class MainPresenter {
     func viewTeamButtonTapped(forFullName teamName: String, withShortName shortName: String) {
         router.navigateToTeam(forFullName: teamName, withShortName: shortName)
     }
+    
+    func continueButtonTapped(for code: String?) {
+//        guard code != "" else {
+//            AlertHelper.showAlert(from: view, withTitle: "Error", message: "Code can't be empty!")
+//            return
+//        }
+        
+        router.navigateToMatchSettings()
+    }
 }

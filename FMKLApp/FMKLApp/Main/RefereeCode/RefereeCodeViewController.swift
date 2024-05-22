@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class RefereeCodeViewController: UIViewController, UITextFieldDelegate {
+final class RefereeCodeViewController: UIViewController {
     var presenter: RefereeCodePresenter?
-
+    var mainVC: MainViewController?
     var viewDistanceTop: CGFloat = 40
     
     private let refereeCodeLabel: UILabel = UILabel()
@@ -30,6 +30,26 @@ final class RefereeCodeViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    @objc
+    private func continueButtonTapped() {
+        mainVC?.presenter?.continueButtonTapped(for: refereeCodeField.text)
+    }
+    
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
+        view.frame.origin.y = viewDistanceTop
+        view.layer.cornerRadius = 40
+    }
+}
+
+extension RefereeCodeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        continueButtonTapped()
+        return false
+    }
+    
     @objc func keyboardWillShow(_ notification: Notification) {
         adjustButtonForKeyboard(notification: notification, show: true)
     }
@@ -48,13 +68,6 @@ final class RefereeCodeViewController: UIViewController, UITextFieldDelegate {
             self.continueButton.transform = show ? CGAffineTransform(translationX: 0, y: -keyboardHeight) : .identity
         }
     }
-    
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
-        view.frame.origin.y = viewDistanceTop
-        view.layer.cornerRadius = 30
-    }
 }
 
 // MARK: - UI Configuration
@@ -70,7 +83,7 @@ extension RefereeCodeViewController {
     
     private func configureRefereeCodeLabel() {
         refereeCodeLabel.text = "Enter referee code"
-        refereeCodeLabel.font = UIFont(name: "Jellee-Roman", size: 18)
+        refereeCodeLabel.font = UIFont(name: "Jellee-Roman", size: 20)
         refereeCodeLabel.textColor = Constants.secondColor
 
         refereeCodeLabel.halfTextColorChange(fullText: refereeCodeLabel.text!, changeText: "referee")
@@ -124,7 +137,7 @@ extension RefereeCodeViewController {
         continueButton.layer.cornerRadius = 30
         continueButton.backgroundColor = Constants.accentColor
         
-//        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
         
         view.addSubview(continueButton)
         continueButton.pinBottom(to: view.bottomAnchor, 30)
