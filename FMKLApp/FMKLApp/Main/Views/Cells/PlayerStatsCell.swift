@@ -29,9 +29,6 @@ class PlayerStatsCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        //contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-        //separatorInset = UIEdgeInsets(top: 10, left: .zero, bottom: 10, right: .zero)
-        //let left = 12 + UIScreen.main.bounds.width * 0.09 + 12
         configureCorners()
     }
     
@@ -51,7 +48,7 @@ class PlayerStatsCell: UITableViewCell {
         } else if playerPlace == 3 {
             pointsView.backgroundColor  = Constants.thirdPlaceColor
         } else {
-            pointsView.backgroundColor  = Constants.secondColor?.withAlphaComponent(0.2)
+            pointsView.backgroundColor  = Constants.secondColor?.withAlphaComponent(0.15)
         }
     }
 }
@@ -70,7 +67,6 @@ extension PlayerStatsCell {
     private func configureViewsTexts() {
         configureViewText(in: pointsView, withLabel: pointsLabel)
         configurePlayerNameLabel()
-        //configureViewText(in: playerNameView, withLabel: playerNameLabel)
     }
     
     private func configureViewText(in view: UIView, withLabel label: UILabel) {
@@ -104,7 +100,7 @@ extension PlayerStatsCell {
     }
     
     private func configurePlayerNameView() {
-        playerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.2)
+        playerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
         
         addSubview(playerNameView)
         playerNameView.pinLeft(to: pointsView.trailingAnchor, 4)

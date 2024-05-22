@@ -10,8 +10,10 @@ import Foundation
 struct TeamGamesStats {
     var points: Int
     var teamName: String
+    var fullTeamName: String
     var wins: Int
     var loses: Int
     var goalsScored: Int
     var goalsMissed: Int
+    
 }

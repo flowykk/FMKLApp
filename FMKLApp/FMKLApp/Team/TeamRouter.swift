@@ -17,4 +17,11 @@ final class TeamRouter {
     func navigateToMain() {
         view?.navigationController?.popViewController(animated: true)
     }
+    
+    func navigateToAvatarPreview(with image: UIImage) {
+        let vc = PreviewAvatarBuilder.build(with: image)
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle = .crossDissolve
+        view?.present(vc, animated: true)
+    }
 }

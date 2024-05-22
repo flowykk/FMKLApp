@@ -5,7 +5,7 @@
 //  Created by Данила Рахманов on 19.05.2024.
 //
 
-import Foundation
+import UIKit
 
 final class TeamPresenter {
     private weak var view: TeamViewController?
@@ -18,5 +18,9 @@ final class TeamPresenter {
     
     func backButtonTapped() {
         router.navigateToMain()
+    }
+    
+    func goToAvatarPreview(with image: UIImage) {
+        router.navigateToAvatarPreview(with: image)
     }
 }
