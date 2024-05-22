@@ -53,7 +53,7 @@ final class RefereeCodeViewController: UIViewController, UITextFieldDelegate {
         super.updateViewConstraints()
         view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
         view.frame.origin.y = viewDistanceTop
-        view.layer.cornerRadius = 30
+        view.layer.cornerRadius = 40
     }
 }
 
@@ -70,7 +70,7 @@ extension RefereeCodeViewController {
     
     private func configureRefereeCodeLabel() {
         refereeCodeLabel.text = "Enter referee code"
-        refereeCodeLabel.font = UIFont(name: "Jellee-Roman", size: 18)
+        refereeCodeLabel.font = UIFont(name: "Jellee-Roman", size: 20)
         refereeCodeLabel.textColor = Constants.secondColor
 
         refereeCodeLabel.halfTextColorChange(fullText: refereeCodeLabel.text!, changeText: "referee")
