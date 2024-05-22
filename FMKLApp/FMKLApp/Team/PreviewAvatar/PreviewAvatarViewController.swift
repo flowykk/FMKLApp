@@ -5,8 +5,6 @@
 //  Created by Данила Рахманов on 22.05.2024.
 //
 
-import Foundation
-
 import UIKit
 
 final class PreviewAvatarViewController: UIViewController {
