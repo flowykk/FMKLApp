@@ -74,7 +74,7 @@ extension TeamViewController {
         usernameLabel.text = fullTeamName
         usernameLabel.textColor = Constants.accentColor
         usernameLabel.sizeToFit()
-        usernameLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        usernameLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         
         titleView.addSubview(usernameLabel)
         usernameLabel.pinTop(to: titleView)
