@@ -10,6 +10,9 @@ import UIKit
 final class TeamViewController: UIViewController {
     var presenter: TeamPresenter?
     
+    private let scrollView: UIScrollView = UIScrollView()
+    private let contentView: UIView = UIView()
+    
     var fullTeamName: String?
     var shortTeamName: String?
     
@@ -53,6 +56,9 @@ extension TeamViewController {
 
 extension TeamViewController {
     private func configureUI() {
+        configureScrollView()
+        configureContentView()
+        
         configureTitleView()
         configureNavigationBar()
         configureBackButton()
@@ -60,6 +66,31 @@ extension TeamViewController {
         configurePlayersLabel()
         configurePlayersTableView()
         //configureImageView()
+    }
+    
+    private func configureScrollView() {
+        scrollView.delaysContentTouches = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.backgroundColor = Constants.backgroundColor
+        
+        view.addSubview(scrollView)
+        scrollView.pinLeft(to: view.leadingAnchor)
+        scrollView.pinRight(to: view.trailingAnchor)
+        scrollView.pinTop(to: view.topAnchor)
+        scrollView.pinBottom(to: view.bottomAnchor)
+    }
+    
+    private func configureContentView() {
+        contentView.backgroundColor = Constants.backgroundColor
+        
+        scrollView.addSubview(contentView)
+        contentView.pinLeft(to: scrollView.leadingAnchor)
+        contentView.pinRight(to: scrollView.trailingAnchor)
+        contentView.pinTop(to: scrollView.topAnchor)
+        contentView.pinBottom(to: scrollView.bottomAnchor)
+        contentView.pinWidth(to: scrollView.widthAnchor)
+        contentView.setHeight(1740)
     }
     
     private func configureTitleView() {
@@ -111,15 +142,15 @@ extension TeamViewController {
         playersLabel.font = UIFont(name: "Jellee-Roman", size: 16)
         playersLabel.textColor = Constants.accentColor
         
-        view.addSubview(playersLabel)
-        playersLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 15)
-        playersLabel.pinLeft(to: view.leadingAnchor, 10)
+        contentView.addSubview(playersLabel)
+        playersLabel.pinTop(to: contentView.safeAreaLayoutGuide.topAnchor, 15)
+        playersLabel.pinLeft(to: contentView.leadingAnchor, 10)
     }
     
     private func configurePlayersTableView() {
-        view.addSubview(playersTableView)
+        contentView.addSubview(playersTableView)
         playersTableView.pinTop(to: playersLabel.bottomAnchor, 5)
-        playersTableView.pinHorizontal(to: view, 10)
+        playersTableView.pinHorizontal(to: contentView, 10)
     }
     
     private func configureImageView() {
@@ -130,10 +161,10 @@ extension TeamViewController {
         let size = UIScreen.main.bounds.width * 0.4
         imageView.layer.cornerRadius = size / 2
         
-        view.addSubview(imageView)
-        imageView.pinLeft(to: view.leadingAnchor, 20)
+        contentView.addSubview(imageView)
+        imageView.pinLeft(to: contentView.leadingAnchor, 20)
         imageView.setWidth(size)
         imageView.setHeight(size)
-        imageView.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 20)
+        imageView.pinTop(to: contentView.safeAreaLayoutGuide.topAnchor, 20)
     }
 }
