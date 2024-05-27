@@ -20,7 +20,6 @@ final class MainRouter {
         if let nc = view?.navigationController {
             vc.viewDistanceTop = nc.navigationBar.frame.height + 10
         }
-        vc.mainVC = view as? MainViewController
         view?.present(vc, animated: true)
     }
     
@@ -34,15 +33,6 @@ final class MainRouter {
         vc.fullTeamName = teamName
         vc.shortTeamName = shortName
         
-        view?.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func navigateToMatchSettings() {
-        if let groupsMenuVC = view?.presentedViewController {
-            groupsMenuVC.dismiss(animated: true)
-        }
-        
-        let vc = MatchBuilder.build()
         view?.navigationController?.pushViewController(vc, animated: true)
     }
 }
