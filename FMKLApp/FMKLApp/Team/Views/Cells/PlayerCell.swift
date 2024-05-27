@@ -8,6 +8,8 @@
 import UIKit
 
 class PlayerCell: UITableViewCell {
+    weak var presenter: TeamPresenter?
+    
     private let teamPlaceLabel: UILabel = UILabel()
     
     private let rankView: UIView = UIView()
@@ -20,6 +22,7 @@ class PlayerCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        configureTapGesture()
         configureUI()
     }
     
@@ -37,10 +40,19 @@ class PlayerCell: UITableViewCell {
         teamPlaceLabel.text     = String(playerNumber)
         rankLabel.text        = player.rank
         playerNameLabel.text    = player.name
+        playerImageView.image = player.image
         
         teamPlaceLabel.textColor    = Constants.secondColor
         rankLabel.textColor       = Constants.secondColor
         playerNameLabel.textColor   = Constants.secondColor
+    }
+    
+    @objc
+    private func handleTapOnPlayer(sender: UITapGestureRecognizer) {
+        let location = sender.location(in: self)
+        if playerNameView.frame.contains(location) {
+            presenter?.goToAvatarPreview(with: playerImageView.image!)
+        }
     }
 }
 
@@ -76,7 +88,7 @@ extension PlayerCell {
     }
     
     private func configureRankView() {
-        rankView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.10)
+        rankView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
         
         addSubview(rankView)
         rankView.pinLeft(to: teamPlaceLabel.trailingAnchor, 8)
@@ -92,7 +104,7 @@ extension PlayerCell {
     }
     
     private func configurePlayerNameView() {
-        playerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.10)
+        playerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
         
         addSubview(playerNameView)
         playerNameView.pinLeft(to: rankView.trailingAnchor, 4)
@@ -101,7 +113,6 @@ extension PlayerCell {
     }
     
     private func configurePlayerImageView() {
-        playerImageView.image = UIImage(named: "BUSUS")
         playerImageView.contentMode = .scaleAspectFill
         playerImageView.clipsToBounds = true
         
@@ -122,6 +133,11 @@ extension PlayerCell {
         playerNameLabel.pinLeft(to: playerImageView.trailingAnchor, 10)
         playerNameLabel.pinWidth(to: playerNameView)
         playerNameLabel.pinCenterY(to: centerYAnchor)
+    }
+    
+    private func configureTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnPlayer))
+        addGestureRecognizer(tapGesture)
     }
 }
 

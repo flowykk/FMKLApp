@@ -23,6 +23,8 @@ final class TeamViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Constants.backgroundColor
         
+        playersTableView.presenter = presenter
+        
         configureUI()
         configureTapGesture()
     }

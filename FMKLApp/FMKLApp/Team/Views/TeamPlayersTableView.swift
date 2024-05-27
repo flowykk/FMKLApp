@@ -8,6 +8,8 @@
 import UIKit
 
 class TeamPlayersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+    weak var presenter: TeamPresenter?
+    
     private var players: [Player] = []
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -56,6 +58,7 @@ extension TeamPlayersTableView {
         let player = players[indexPath.row]
         
         cell.set(playerNumber: indexPath.row + 1, player: player)
+        cell.presenter = presenter
         
         return cell
     }
@@ -68,11 +71,11 @@ extension TeamPlayersTableView {
 extension TeamPlayersTableView {
     func fetchData() {
         self.players = [
-            Player(name: "Player P.", rank: "M", image: UIImage(named: "BUSUS")),
-            Player(name: "Player P.", rank: "P", image: UIImage(named: "BUSUS")),
-            Player(name: "Player P.", rank: "M", image: UIImage(named: "BUSUS")),
-            Player(name: "Player P.", rank: "P", image: UIImage(named: "BUSUS")),
-            Player(name: "Player P.", rank: "P", image: UIImage(named: "BUSUS")),
+            Player(name: "Martynov D.", rank: "M", image: UIImage(named: "Basmak")),
+            Player(name: "Filatov K.", rank: "P", image: UIImage(named: "Fil")),
+            Player(name: "Klyuev D.", rank: "M", image: UIImage(named: "Klyu")),
+            Player(name: "Kolosov P.", rank: "P", image: UIImage(named: "Kolos")),
+            Player(name: "Nachinkin I.", rank: "P", image: UIImage(named: "Kraken")),
         ]
         
         DispatchQueue.main.async {
