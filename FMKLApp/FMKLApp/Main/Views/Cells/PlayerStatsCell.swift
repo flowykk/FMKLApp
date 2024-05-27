@@ -8,7 +8,7 @@
 import UIKit
 
 class PlayerStatsCell: UITableViewCell {
-    private let teamPlaceLabel: UILabel = UILabel()
+    private let playerPlaceLabel: UILabel = UILabel()
     
     private let pointsView: UIView = UIView()
     private let pointsLabel: UILabel = UILabel()
@@ -33,11 +33,11 @@ class PlayerStatsCell: UITableViewCell {
     }
     
     func set(playerPlace: Int, playerStats: PlayerStats) {
-        teamPlaceLabel.text     = String(playerPlace)
+        playerPlaceLabel.text     = String(playerPlace)
         pointsLabel.text        = String(playerStats.points)
         playerNameLabel.text      = playerStats.playerName
         
-        teamPlaceLabel.textColor    = Constants.secondColor
+        playerPlaceLabel.textColor    = Constants.secondColor
         pointsLabel.textColor       = Constants.secondColor
         playerNameLabel.textColor     = Constants.secondColor
         
@@ -58,7 +58,7 @@ extension PlayerStatsCell {
         backgroundColor = Constants.backgroundColor
         selectionStyle = .none
         
-        configureTeamPlaceLabel()
+        configurePlayerPlaceLabel()
         configurePointsView()
         configurePlayerNameView()
         configureViewsTexts()
@@ -83,18 +83,18 @@ extension PlayerStatsCell {
         separatorInset = UIEdgeInsets(top: .zero, left: .zero, bottom: .zero, right: .zero)
     }
     
-    private func configureTeamPlaceLabel() {
-        teamPlaceLabel.font = UIFont(name: "Jellee-Roman", size: 18)
+    private func configurePlayerPlaceLabel() {
+        playerPlaceLabel.font = UIFont(name: "Jellee-Roman", size: 18)
         
-        addSubview(teamPlaceLabel)
-        teamPlaceLabel.setWidth(13)
-        teamPlaceLabel.pinLeft(to: self, 0)
-        teamPlaceLabel.pinCenterY(to: self)
+        addSubview(playerPlaceLabel)
+        playerPlaceLabel.setWidth(13)
+        playerPlaceLabel.pinLeft(to: self, 0)
+        playerPlaceLabel.pinCenterY(to: self)
     }
     
     private func configurePointsView() {
         addSubview(pointsView)
-        pointsView.pinLeft(to: teamPlaceLabel.trailingAnchor, 8)
+        pointsView.pinLeft(to: playerPlaceLabel.trailingAnchor, 8)
         pointsView.setWidth(UIScreen.main.bounds.width * 0.14)
         pointsView.pinVertical(to: self, 2)
     }
