@@ -16,6 +16,9 @@ final class TeamViewController: UIViewController {
     private var titleView: UIView = UIView()
     private let imageView: UIImageView = UIImageView()
     
+    private let playersLabel: UILabel = UILabel()
+    private let playersTableView: TeamPlayersTableView = TeamPlayersTableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.backgroundColor
@@ -52,36 +55,38 @@ extension TeamViewController {
         configureNavigationBar()
         configureBackButton()
         
+        configurePlayersLabel()
+        configurePlayersTableView()
         //configureImageView()
     }
     
     private func configureTitleView() {
-        let userImageView = UIImageView()
-        userImageView.contentMode = .scaleAspectFill
-        userImageView.clipsToBounds = true
-        userImageView.layer.cornerRadius = 15
-        userImageView.image = UIImage(named: shortTeamName!)
+        let teamimageView = UIImageView()
+        teamimageView.contentMode = .scaleAspectFill
+        teamimageView.clipsToBounds = true
+        teamimageView.layer.cornerRadius = 15
+        teamimageView.image = UIImage(named: shortTeamName!)
         
-        let imageSize: Double = 32.0
+        let imageSize: Double = 30.0
         
-        titleView.addSubview(userImageView)
-        userImageView.setWidth(imageSize)
-        userImageView.setHeight(imageSize)
-        userImageView.pinTop(to: titleView)
-        userImageView.pinCenterY(to: titleView.centerYAnchor)
+        titleView.addSubview(teamimageView)
+        teamimageView.setWidth(imageSize)
+        teamimageView.setHeight(imageSize)
+        teamimageView.pinTop(to: titleView)
+        teamimageView.pinCenterY(to: titleView.centerYAnchor)
         
-        let usernameLabel = UILabel()
-        usernameLabel.text = fullTeamName
-        usernameLabel.textColor = Constants.accentColor
-        usernameLabel.sizeToFit()
-        usernameLabel.font = UIFont(name: "Jellee-Roman", size: 17)
+        let teamNameLabel = UILabel()
+        teamNameLabel.text = fullTeamName
+        teamNameLabel.textColor = Constants.accentColor
+        teamNameLabel.sizeToFit()
+        teamNameLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         
-        titleView.addSubview(usernameLabel)
-        usernameLabel.pinTop(to: titleView)
-        usernameLabel.pinLeft(to: userImageView.trailingAnchor, 7)
-        usernameLabel.pinCenterY(to: titleView.centerYAnchor)
+        titleView.addSubview(teamNameLabel)
+        teamNameLabel.pinTop(to: titleView)
+        teamNameLabel.pinLeft(to: teamimageView.trailingAnchor, 5)
+        teamNameLabel.pinCenterY(to: titleView.centerYAnchor)
                 
-        let width = imageSize + 7.0 + usernameLabel.frame.width
+        let width = imageSize + 5.0 + teamNameLabel.bounds.width
         titleView.setWidth(width)
         titleView.setHeight(imageSize)
     }
@@ -97,6 +102,22 @@ extension TeamViewController {
         let image = UIImage(systemName: "chevron.left", withConfiguration: configuration)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem?.tintColor = Constants.accentColor
+    }
+    
+    private func configurePlayersLabel() {
+        playersLabel.text = "Players"
+        playersLabel.font = UIFont(name: "Jellee-Roman", size: 16)
+        playersLabel.textColor = Constants.accentColor
+        
+        view.addSubview(playersLabel)
+        playersLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 15)
+        playersLabel.pinLeft(to: view.leadingAnchor, 10)
+    }
+    
+    private func configurePlayersTableView() {
+        view.addSubview(playersTableView)
+        playersTableView.pinTop(to: playersLabel.bottomAnchor, 5)
+        playersTableView.pinHorizontal(to: view, 10)
     }
     
     private func configureImageView() {
