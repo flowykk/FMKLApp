@@ -27,6 +27,7 @@
 		0DCFF9702C064C4200DA858A /* MatchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF96B2C064C4200DA858A /* MatchPresenter.swift */; };
 		0DCFF9712C064C4200DA858A /* MatchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF96C2C064C4200DA858A /* MatchRouter.swift */; };
 		0DCFF9722C064C4200DA858A /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF96D2C064C4200DA858A /* MatchViewController.swift */; };
+		0DCFF9762C064E7800DA858A /* AppTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF9742C064E7800DA858A /* AppTagView.swift */; };
 		0DDB12D42BFA426A00ADA2D1 /* TeamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB12D32BFA426900ADA2D1 /* TeamBuilder.swift */; };
 		0DDB12D62BFA426F00ADA2D1 /* TeamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB12D52BFA426F00ADA2D1 /* TeamPresenter.swift */; };
 		0DDB12D82BFA427500ADA2D1 /* TeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB12D72BFA427500ADA2D1 /* TeamRouter.swift */; };
@@ -82,6 +83,7 @@
 		0DCFF96B2C064C4200DA858A /* MatchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchPresenter.swift; sourceTree = "<group>"; };
 		0DCFF96C2C064C4200DA858A /* MatchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchRouter.swift; sourceTree = "<group>"; };
 		0DCFF96D2C064C4200DA858A /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
+		0DCFF9742C064E7800DA858A /* AppTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTagView.swift; sourceTree = "<group>"; };
 		0DDB12D32BFA426900ADA2D1 /* TeamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamBuilder.swift; sourceTree = "<group>"; };
 		0DDB12D52BFA426F00ADA2D1 /* TeamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPresenter.swift; sourceTree = "<group>"; };
 		0DDB12D72BFA427500ADA2D1 /* TeamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRouter.swift; sourceTree = "<group>"; };
@@ -174,6 +176,14 @@
 			path = Match;
 			sourceTree = "<group>";
 		};
+		0DCFF9752C064E7800DA858A /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				0DCFF9742C064E7800DA858A /* AppTagView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		0DDB12D22BFA425800ADA2D1 /* Team */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +227,7 @@
 		0DE703FF2BF6539600315374 /* FMKLApp */ = {
 			isa = PBXGroup;
 			children = (
+				0DCFF9752C064E7800DA858A /* CustomViews */,
 				0DE704382BF65EA200315374 /* Models */,
 				0DE704312BF6598C00315374 /* Fonts */,
 				0DDB12D22BFA425800ADA2D1 /* Team */,
@@ -477,6 +488,7 @@
 				0DDB12D42BFA426A00ADA2D1 /* TeamBuilder.swift in Sources */,
 				0D3438472BFE5BC4000B20CC /* (null) in Sources */,
 				0DE7041C2BF6561700315374 /* UIViewExtension.swift in Sources */,
+				0DCFF9762C064E7800DA858A /* AppTagView.swift in Sources */,
 				0DE7043C2BF65F2000315374 /* AppIconCell.swift in Sources */,
 				0DDB12DA2BFA427B00ADA2D1 /* TeamViewController.swift in Sources */,
 				0DDB12E32BFBB0B100ADA2D1 /* RefereeCodeViewController.swift in Sources */,

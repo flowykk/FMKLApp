@@ -38,7 +38,7 @@ final class AppTagView: UIView {
 
 extension AppTagView {
     private func configureUI() {
-        setWidth(65)
+        setWidth(70)
         setHeight(21)
         
         configureAppLabel()

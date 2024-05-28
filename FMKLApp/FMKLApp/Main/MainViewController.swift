@@ -10,6 +10,7 @@ import UIKit
 final class MainViewController: UIViewController {
     var presenter: MainPresenter?
     
+    private let appTag: AppTagView = AppTagView()
     private let titleView: UILabel = UILabel()
     
     private let scrollView: UIScrollView = UIScrollView()
@@ -61,9 +62,16 @@ final class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        appTag.isHidden = false
+        configureAppTagView()
+        
         navigationController?.delegate = self
         refereeLeftView.roundCorners(topLeft: 15, topRight: 5, bottomRight: 5, bottomLeft: 15)
         refereeGoButton.roundCorners(topLeft: 5, topRight: 15, bottomRight: 15, bottomLeft: 5)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        appTag.isHidden = true
     }
     
     @objc
@@ -130,6 +138,15 @@ extension MainViewController {
         contentView.pinBottom(to: scrollView.bottomAnchor)
         contentView.pinWidth(to: scrollView.widthAnchor)
         contentView.setHeight(1740)
+    }
+    
+    private func configureAppTagView() {
+        appTag.backgroundColor = Constants.accentColor
+        appTag.layer.cornerRadius = 10.5
+        
+        self.navigationController?.view.addSubview(appTag)
+        appTag.pinCenterX(to: view.centerXAnchor)
+        appTag.pinTop(to: view.topAnchor, 11)
     }
     
     private func configureTitleView() {
