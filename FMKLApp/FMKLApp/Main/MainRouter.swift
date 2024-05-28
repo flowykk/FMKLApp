@@ -30,9 +30,11 @@ final class MainRouter {
         view?.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func navigateToTeam(for teamName: String) {
+    func navigateToTeam(forFullName teamName: String, withShortName shortName: String) {
         let vc = TeamBuilder.build()
-        vc.teamName = teamName
+        vc.fullTeamName = teamName
+        vc.shortTeamName = shortName
+        
         view?.navigationController?.pushViewController(vc, animated: true)
     }
     

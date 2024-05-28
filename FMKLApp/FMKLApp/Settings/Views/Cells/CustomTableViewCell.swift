@@ -33,7 +33,7 @@ final class CustomTableViewCell: UITableViewCell {
         iconImageView.image = UIImage(systemName: imageName)
         iconImageView.tintColor = Constants.secondColor
         nameLabel.textColor = Constants.secondColor
-        nameLabel.font = UIFont(name: "Jellee-Roman", size: 14)
+        nameLabel.font = UIFont(name: "Jellee-Roman", size: 15)
         chevronImageView.tintColor = Constants.secondColor
         iconBackgroundView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.1)
     }

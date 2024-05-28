@@ -30,7 +30,7 @@ final class DevInfoViewController: UIViewController {
         super.updateViewConstraints()
         view.frame.size.height = viewDistanceTop
         view.frame.origin.y = UIScreen.main.bounds.height - viewDistanceTop
-        view.layer.cornerRadius = 30
+        view.layer.cornerRadius = 40
     }
 }
 
