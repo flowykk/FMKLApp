@@ -71,11 +71,15 @@ extension TeamPlayersTableView {
 extension TeamPlayersTableView {
     func fetchData() {
         self.players = [
-            Player(name: "Martynov D.", rank: "M", image: UIImage(named: "Basmak")),
-            Player(name: "Filatov K.", rank: "P", image: UIImage(named: "Fil")),
-            Player(name: "Klyuev D.", rank: "M", image: UIImage(named: "Klyu")),
-            Player(name: "Kolosov P.", rank: "P", image: UIImage(named: "Kolos")),
+            Player(name: "Martynov D.",  rank: "M", image: UIImage(named: "Basmak")),
+            Player(name: "Filatov K.",   rank: "P", image: UIImage(named: "Fil")),
+            Player(name: "Klyuev D.",    rank: "M", image: UIImage(named: "Klyu")),
+            Player(name: "Kolosov P.",   rank: "P", image: UIImage(named: "Kolos")),
             Player(name: "Nachinkin I.", rank: "P", image: UIImage(named: "Kraken")),
+            Player(name: "Flofer",       rank: "M", image: UIImage(named: "Flofer")),
+            Player(name: "Bashmak2",     rank: "M", image: UIImage(named: "Bashmak2")),
+            Player(name: "Zek",          rank: "P", image: UIImage(named: "Zek")),
+            Player(name: "Krasava",      rank: "M", image: UIImage(named: "Krasava")),
         ]
         
         DispatchQueue.main.async {
