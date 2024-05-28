@@ -30,21 +30,12 @@ final class MainPresenter {
         router.navigateToTeam(for: teamName)
     }
     
-    func loadTables() {
-        self.fetchData()
-    }
-    
-    func fetchData() {
-        self.group1Table!.teamStats = [
-            TeamGamesStats(points: 18, teamName: "BUSUS", wins: 6, loses: 6, goalsScored: 37, goalsMissed: 19),
-            TeamGamesStats(points: 15, teamName: "MEMPH", wins: 6, loses: 5, goalsScored: 51, goalsMissed: 8 ),
-            TeamGamesStats(points: 10, teamName: "ZVZD" , wins: 6, loses: 3, goalsScored: 31, goalsMissed: 25),
-            TeamGamesStats(points: 10, teamName: "XTRM" , wins: 6, loses: 3, goalsScored: 22, goalsMissed: 29),
-            TeamGamesStats(points: 6 , teamName: "FTR"  , wins: 6, loses: 2, goalsScored: 26, goalsMissed: 27),
-            TeamGamesStats(points: 3 , teamName: "AVGRS", wins: 6, loses: 1, goalsScored: 33, goalsMissed: 66),
-            TeamGamesStats(points: 0 , teamName: "KFC"  , wins: 6, loses: 0, goalsScored: 23, goalsMissed: 49)
-        ]
-    
-        self.group1Table!.reloadData()
+    func continueButtonTapped(for code: String) {
+//        guard code != "" else {
+//            AlertHelper.showAlert(from: view, withTitle: "Error", message: "Code can't be empty!")
+//            return
+//        }
+        
+        router.navigateToMatchSettings()
     }
 }
