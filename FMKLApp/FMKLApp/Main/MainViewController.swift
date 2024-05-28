@@ -216,8 +216,8 @@ extension MainViewController {
     }
     
     private func configureGroup1Label() {
-        group1Label.text = "Group 1"
-        group1Label.font = UIFont(name: "Jellee-Roman", size: 16)
+        group1Label.text = "Group A"
+        group1Label.font = UIFont(name: "Jellee-Roman", size: 17)
         group1Label.textColor = Constants.accentColor
         
         contentView.addSubview(group1Label)
@@ -232,8 +232,8 @@ extension MainViewController {
     }
     
     private func configureGroup2Label() {
-        group2Label.text = "Group 2"
-        group2Label.font = UIFont(name: "Jellee-Roman", size: 16)
+        group2Label.text = "Group B"
+        group2Label.font = UIFont(name: "Jellee-Roman", size: 17)
         group2Label.textColor = Constants.accentColor
         
         contentView.addSubview(group2Label)
@@ -249,7 +249,7 @@ extension MainViewController {
     
     private func configureScorersLabel() {
         scorersLabel.text = "Scorers"
-        scorersLabel.font = UIFont(name: "Jellee-Roman", size: 16)
+        scorersLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         scorersLabel.textColor = Constants.accentColor
         
         contentView.addSubview(scorersLabel)
@@ -265,7 +265,7 @@ extension MainViewController {
     
     private func configureAssistersLabel() {
         assistersLabel.text = "Assisters"
-        assistersLabel.font = UIFont(name: "Jellee-Roman", size: 16)
+        assistersLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         assistersLabel.textColor = Constants.accentColor
         
         contentView.addSubview(assistersLabel)
