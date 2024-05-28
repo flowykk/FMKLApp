@@ -12,6 +12,9 @@ class PlayerCell: UITableViewCell {
     
     private let teamPlaceLabel: UILabel = UILabel()
     
+    private let birthView: UIView = UIView()
+    private let birthLabel: UILabel = UILabel()
+    
     private let rankView: UIView = UIView()
     private let rankLabel: UILabel = UILabel()
     
@@ -38,12 +41,14 @@ class PlayerCell: UITableViewCell {
     
     func set(playerNumber: Int, player: Player) {
         teamPlaceLabel.text     = String(playerNumber)
-        rankLabel.text        = player.rank
+        rankLabel.text          = player.rank
         playerNameLabel.text    = player.name
-        playerImageView.image = player.image
+        playerImageView.image   = player.image
+        birthLabel.text         = player.birth
         
+        birthLabel.textColor        = Constants.secondColor
         teamPlaceLabel.textColor    = Constants.secondColor
-        rankLabel.textColor       = Constants.secondColor
+        rankLabel.textColor         = Constants.secondColor
         playerNameLabel.textColor   = Constants.secondColor
     }
     
@@ -69,11 +74,15 @@ extension PlayerCell {
         configurePlayerNameView()
         configurePlayerImageView()
         configurePlayerNameLabel()
+        
+        configureBirthView()
+        configureBirthLabel()
     }
     
     private func configureCorners() {
         rankView.roundCorners(topLeft: 15, topRight: 5, bottomRight: 5, bottomLeft: 15)
-        playerNameView.roundCorners(topLeft: 5, topRight: 15, bottomRight: 15, bottomLeft: 5)
+        playerNameView.roundCorners(topLeft: 5, topRight: 5, bottomRight: 5, bottomLeft: 5)
+        birthView.roundCorners(topLeft: 5, topRight: 15, bottomRight: 15, bottomLeft: 5)
         
         separatorInset = UIEdgeInsets(top: .zero, left: .zero, bottom: .zero, right: .zero)
     }
@@ -92,7 +101,7 @@ extension PlayerCell {
         
         addSubview(rankView)
         rankView.pinLeft(to: teamPlaceLabel.trailingAnchor, 8)
-        rankView.setWidth(UIScreen.main.bounds.width * 0.12)
+        rankView.setWidth(UIScreen.main.bounds.width * 0.11)
         rankView.pinVertical(to: self, 2)
     }
     
@@ -108,7 +117,7 @@ extension PlayerCell {
         
         addSubview(playerNameView)
         playerNameView.pinLeft(to: rankView.trailingAnchor, 4)
-        playerNameView.pinRight(to: self, 0)
+        playerNameView.setWidth(UIScreen.main.bounds.width * 0.6)
         playerNameView.pinVertical(to: self, 2)
     }
     
@@ -133,6 +142,22 @@ extension PlayerCell {
         playerNameLabel.pinLeft(to: playerImageView.trailingAnchor, 10)
         playerNameLabel.pinWidth(to: playerNameView)
         playerNameLabel.pinCenterY(to: centerYAnchor)
+    }
+    
+    private func configureBirthView() {
+        birthView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
+        
+        addSubview(birthView)
+        birthView.pinLeft(to: playerNameView.trailingAnchor, 4)
+        birthView.pinRight(to: self, 0)
+        birthView.pinVertical(to: self, 2)
+    }
+    
+    private func configureBirthLabel() {
+        birthLabel.font = UIFont(name: "Jellee-Roman", size: 18)
+        
+        birthView.addSubview(birthLabel)
+        birthLabel.pinCenter(to: birthView)
     }
     
     private func configureTapGesture() {
