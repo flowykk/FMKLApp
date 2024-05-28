@@ -70,7 +70,7 @@ extension SettingsViewController {
     
     private func configureAppIconLabel() {
         appIconLabel.text = "App icon"
-        appIconLabel.font = UIFont(name: "Jellee-Roman", size: 14)
+        appIconLabel.font = UIFont(name: "Jellee-Roman", size: 15)
         appIconLabel.textColor = Constants.accentColor
         
         view.addSubview(appIconLabel)
@@ -87,7 +87,7 @@ extension SettingsViewController {
     
     private func configureDeveloperInfoLabel() {
         developerInfoLabel.text = "Developer info"
-        developerInfoLabel.font = UIFont(name: "Jellee-Roman", size: 14)
+        developerInfoLabel.font = UIFont(name: "Jellee-Roman", size: 15)
         developerInfoLabel.textColor = Constants.accentColor
         
         view.addSubview(developerInfoLabel)
