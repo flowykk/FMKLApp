@@ -18,4 +18,3 @@ final class MatchPresenter {
         router.navigateToMain()
     }
 }
-
