@@ -26,8 +26,8 @@ final class MainPresenter {
         router.presentRefereeCodeView()
     }
     
-    func viewTeamButtonTapped(for teamName: String) {
-        router.navigateToTeam(for: teamName)
+    func viewTeamButtonTapped(forFullName teamName: String, withShortName shortName: String) {
+        router.navigateToTeam(forFullName: teamName, withShortName: shortName)
     }
     
     func continueButtonTapped(for code: String) {

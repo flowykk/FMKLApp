@@ -23,6 +23,10 @@
 		0DCFF9502C0509E700DA858A /* TeamPlayersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF94F2C0509E700DA858A /* TeamPlayersTableView.swift */; };
 		0DCFF9522C050A0200DA858A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF9512C050A0200DA858A /* Player.swift */; };
 		0DCFF9542C050A1C00DA858A /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF9532C050A1C00DA858A /* PlayerCell.swift */; };
+		0DCFF96F2C064C4200DA858A /* MatchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF96A2C064C4200DA858A /* MatchBuilder.swift */; };
+		0DCFF9702C064C4200DA858A /* MatchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF96B2C064C4200DA858A /* MatchPresenter.swift */; };
+		0DCFF9712C064C4200DA858A /* MatchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF96C2C064C4200DA858A /* MatchRouter.swift */; };
+		0DCFF9722C064C4200DA858A /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF96D2C064C4200DA858A /* MatchViewController.swift */; };
 		0DDB12D42BFA426A00ADA2D1 /* TeamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB12D32BFA426900ADA2D1 /* TeamBuilder.swift */; };
 		0DDB12D62BFA426F00ADA2D1 /* TeamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB12D52BFA426F00ADA2D1 /* TeamPresenter.swift */; };
 		0DDB12D82BFA427500ADA2D1 /* TeamRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB12D72BFA427500ADA2D1 /* TeamRouter.swift */; };
@@ -74,6 +78,10 @@
 		0DCFF94F2C0509E700DA858A /* TeamPlayersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPlayersTableView.swift; sourceTree = "<group>"; };
 		0DCFF9512C050A0200DA858A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0DCFF9532C050A1C00DA858A /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		0DCFF96A2C064C4200DA858A /* MatchBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchBuilder.swift; sourceTree = "<group>"; };
+		0DCFF96B2C064C4200DA858A /* MatchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchPresenter.swift; sourceTree = "<group>"; };
+		0DCFF96C2C064C4200DA858A /* MatchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchRouter.swift; sourceTree = "<group>"; };
+		0DCFF96D2C064C4200DA858A /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		0DDB12D32BFA426900ADA2D1 /* TeamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamBuilder.swift; sourceTree = "<group>"; };
 		0DDB12D52BFA426F00ADA2D1 /* TeamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPresenter.swift; sourceTree = "<group>"; };
 		0DDB12D72BFA427500ADA2D1 /* TeamRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamRouter.swift; sourceTree = "<group>"; };
@@ -155,6 +163,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		0DCFF96E2C064C4200DA858A /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				0DCFF96A2C064C4200DA858A /* MatchBuilder.swift */,
+				0DCFF96B2C064C4200DA858A /* MatchPresenter.swift */,
+				0DCFF96C2C064C4200DA858A /* MatchRouter.swift */,
+				0DCFF96D2C064C4200DA858A /* MatchViewController.swift */,
+			);
+			path = Match;
+			sourceTree = "<group>";
+		};
 		0DDB12D22BFA425800ADA2D1 /* Team */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +223,7 @@
 				0DE704262BF6572A00315374 /* Settings */,
 				0DE7041D2BF6563300315374 /* Main */,
 				0DE7041A2BF655EE00315374 /* Extensions */,
+				0DCFF96E2C064C4200DA858A /* Match */,
 				0DE704152BF655A800315374 /* Utils */,
 				0DE704142BF6559400315374 /* Application */,
 				0DE704092BF6539700315374 /* Assets.xcassets */,
@@ -414,6 +434,7 @@
 				0DE704372BF65E9A00315374 /* AppIconCollectionView.swift in Sources */,
 				0DE7043A2BF65EB800315374 /* AppIcon.swift in Sources */,
 				0D34383C2BFE2490000B20CC /* PreviewAvatarRouter.swift in Sources */,
+				0DCFF9702C064C4200DA858A /* MatchPresenter.swift in Sources */,
 				0DE704552BF7C9AA00315374 /* TeamGamesStats.swift in Sources */,
 				0DE7041F2BF6564500315374 /* MainViewController.swift in Sources */,
 				0D34383A2BFE247D000B20CC /* PreviewAvatarPresenter.swift in Sources */,
@@ -423,6 +444,7 @@
 				0DE704282BF6573500315374 /* SettingsViewController.swift in Sources */,
 				0DE704432BF6679100315374 /* DevInfoViewController.swift in Sources */,
 				0D3438422BFE59BF000B20CC /* (null) in Sources */,
+				0DCFF9712C064C4200DA858A /* MatchRouter.swift in Sources */,
 				0DE704302BF6584C00315374 /* Constants.swift in Sources */,
 				0DCFF9522C050A0200DA858A /* Player.swift in Sources */,
 				0D3438382BFE2451000B20CC /* PreviewAvatarBuilder.swift in Sources */,
@@ -431,7 +453,9 @@
 				0D34383E2BFE249E000B20CC /* PreviewAvatarViewController.swift in Sources */,
 				0DE704532BF7C8BF00315374 /* GamesStatsCell.swift in Sources */,
 				0DDB12E52BFBB7FE00ADA2D1 /* UIViewControllerExtension.swift in Sources */,
+				0DCFF96F2C064C4200DA858A /* MatchBuilder.swift in Sources */,
 				0DE704012BF6539600315374 /* AppDelegate.swift in Sources */,
+				0DCFF9722C064C4200DA858A /* MatchViewController.swift in Sources */,
 				0D34384B2BFE5BD3000B20CC /* (null) in Sources */,
 				0D4F980C2BF8BA6200E82383 /* PlayerStats.swift in Sources */,
 				0DE704452BF6679900315374 /* DevInfoBuilder.swift in Sources */,

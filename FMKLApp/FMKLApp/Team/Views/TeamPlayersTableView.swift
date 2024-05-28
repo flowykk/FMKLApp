@@ -71,7 +71,7 @@ extension TeamPlayersTableView {
 extension TeamPlayersTableView {
     func fetchData() {
         self.players = [
-            Player(name: "Martynov D.",  rank: "M", image: UIImage(named: "Basmak"),    birth: "2005"),
+            Player(name: "Martynov D.",  rank: "M", image: UIImage(named: "basmak"),    birth: "2005"),
             Player(name: "Filatov K.",   rank: "P", image: UIImage(named: "Fil"),       birth: "2003"),
             Player(name: "Klyuev D.",    rank: "M", image: UIImage(named: "Klyu"),      birth: "2003"),
             Player(name: "Kolosov P.",   rank: "P", image: UIImage(named: "Kolos"),     birth: "2004"),
