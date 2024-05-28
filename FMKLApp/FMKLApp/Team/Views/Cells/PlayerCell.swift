@@ -136,7 +136,7 @@ extension PlayerCell {
     }
     
     private func configurePlayerNameLabel() {
-        playerNameLabel.font = UIFont(name: "Jellee-Roman", size: 18)
+        playerNameLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         
         playerNameView.addSubview(playerNameLabel)
         playerNameLabel.pinLeft(to: playerImageView.trailingAnchor, 10)
@@ -154,7 +154,7 @@ extension PlayerCell {
     }
     
     private func configureBirthLabel() {
-        birthLabel.font = UIFont(name: "Jellee-Roman", size: 18)
+        birthLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         
         birthView.addSubview(birthLabel)
         birthLabel.pinCenter(to: birthView)
