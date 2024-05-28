@@ -139,7 +139,7 @@ extension TeamViewController {
     
     private func configurePlayersLabel() {
         playersLabel.text = "Players"
-        playersLabel.font = UIFont(name: "Jellee-Roman", size: 16)
+        playersLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         playersLabel.textColor = Constants.accentColor
         
         contentView.addSubview(playersLabel)

@@ -11,4 +11,5 @@ struct Player {
     var name: String
     var rank: String
     var image: UIImage?
+    var birth: String
 }
