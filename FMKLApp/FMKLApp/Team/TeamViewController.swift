@@ -22,6 +22,9 @@ final class TeamViewController: UIViewController {
     private let playersLabel: UILabel = UILabel()
     private let playersTableView: TeamPlayersTableView = TeamPlayersTableView()
     
+    private let playersCardsLabel: UILabel = UILabel()
+    private let playersCardsTableView: PlayersCardsTableView = PlayersCardsTableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.backgroundColor
@@ -65,7 +68,9 @@ extension TeamViewController {
         
         configurePlayersLabel()
         configurePlayersTableView()
-        //configureImageView()
+        
+        configurePlayersCardsLabel()
+        configurePlayersCardsTableView()
     }
     
     private func configureScrollView() {
@@ -119,7 +124,8 @@ extension TeamViewController {
         teamNameLabel.pinLeft(to: teamimageView.trailingAnchor, 5)
         teamNameLabel.pinCenterY(to: titleView.centerYAnchor)
                 
-        let width = imageSize + 5.0 + teamNameLabel.bounds.width
+        let teamNameSize = teamNameLabel.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
+        let width = imageSize + 5.0 + teamNameSize.width
         titleView.setWidth(width)
         titleView.setHeight(imageSize)
     }
@@ -151,6 +157,22 @@ extension TeamViewController {
         contentView.addSubview(playersTableView)
         playersTableView.pinTop(to: playersLabel.bottomAnchor, 5)
         playersTableView.pinHorizontal(to: contentView, 10)
+    }
+    
+    private func configurePlayersCardsLabel() {
+        playersCardsLabel.text = "Players' Cards"
+        playersCardsLabel.font = UIFont(name: "Jellee-Roman", size: 17)
+        playersCardsLabel.textColor = Constants.accentColor
+        
+        contentView.addSubview(playersCardsLabel)
+        playersCardsLabel.pinTop(to: playersTableView.bottomAnchor, 20)
+        playersCardsLabel.pinLeft(to: contentView.leadingAnchor, 10)
+    }
+    
+    private func configurePlayersCardsTableView() {
+        contentView.addSubview(playersCardsTableView)
+        playersCardsTableView.pinTop(to: playersCardsLabel.bottomAnchor, 5)
+        playersCardsTableView.pinHorizontal(to: contentView, 10)
     }
     
     private func configureImageView() {

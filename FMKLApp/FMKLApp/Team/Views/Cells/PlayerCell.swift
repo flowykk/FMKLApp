@@ -97,7 +97,7 @@ extension PlayerCell {
     }
     
     private func configureRankView() {
-        rankView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
+        rankView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.10)
         
         addSubview(rankView)
         rankView.pinLeft(to: teamPlaceLabel.trailingAnchor, 8)
@@ -113,7 +113,7 @@ extension PlayerCell {
     }
     
     private func configurePlayerNameView() {
-        playerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
+        playerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.10)
         
         addSubview(playerNameView)
         playerNameView.pinLeft(to: rankView.trailingAnchor, 4)
@@ -145,7 +145,7 @@ extension PlayerCell {
     }
     
     private func configureBirthView() {
-        birthView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
+        birthView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.10)
         
         addSubview(birthView)
         birthView.pinLeft(to: playerNameView.trailingAnchor, 4)

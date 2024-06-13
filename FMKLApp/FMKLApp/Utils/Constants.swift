@@ -19,4 +19,7 @@ struct Constants {
     static let secondPlaceColor = UIColor(named: "SecondPlaceColor")
     static let thirdPlaceColor = UIColor(named: "ThirdPlaceColor")
     static let eliminationColor = UIColor(named: "EliminationColor")
+    
+    static let yellowCardColor = UIColor(named: "YellowCardColor")
+    static let redCardColor = UIColor(named: "RedCardColor")
 }
