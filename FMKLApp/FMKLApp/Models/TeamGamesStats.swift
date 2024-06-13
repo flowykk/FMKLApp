@@ -15,5 +15,4 @@ struct TeamGamesStats {
     var loses: Int
     var goalsScored: Int
     var goalsMissed: Int
-    
 }
