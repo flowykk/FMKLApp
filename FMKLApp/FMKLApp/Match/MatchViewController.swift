@@ -20,6 +20,11 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
     private let secondTeamLabel: UILabel = UILabel()
     private let secondTeamTextFieldPickerView: TextFieldPickerView = TextFieldPickerView()
     
+    private let goalsLabel: UILabel = UILabel()
+    private let goalsTableView: GoalsTableView = GoalsTableView()
+    
+    private let cardsLabel: UILabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.backgroundColor
@@ -44,6 +49,11 @@ extension MatchViewController {
         
         configureSecondTeamLabel()
         configureSecondTeamTextFieldPickerView()
+        
+        configureGoalsLabel()
+        configureGoalsTableView()
+        
+        configureCardsLabel()
     }
     
     private func configureTitleView() {
@@ -63,6 +73,7 @@ extension MatchViewController {
         let image = UIImage(systemName: "chevron.left", withConfiguration: configuration)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem?.tintColor = Constants.accentColor
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: .none)
     }
     
     private func configureFirstTeamLabel() {
@@ -97,5 +108,31 @@ extension MatchViewController {
         secondTeamTextFieldPickerView.pinTop(to: secondTeamLabel.bottomAnchor, 5)
         secondTeamTextFieldPickerView.pinHorizontal(to: view)
         secondTeamTextFieldPickerView.setHeight(50)
+    }
+    
+    private func configureGoalsLabel() {
+        goalsLabel.text = "Goals"
+        goalsLabel.font = UIFont(name: "Jellee-Roman", size: 17)
+        goalsLabel.textColor = Constants.accentColor
+        
+        view.addSubview(goalsLabel)
+        goalsLabel.pinTop(to: secondTeamTextFieldPickerView.bottomAnchor, 25)
+        goalsLabel.pinLeft(to: view.leadingAnchor, 10)
+    }
+    
+    private func configureCardsLabel() {
+        cardsLabel.text = "Cards"
+        cardsLabel.font = UIFont(name: "Jellee-Roman", size: 17)
+        cardsLabel.textColor = Constants.accentColor
+        
+        view.addSubview(cardsLabel)
+        cardsLabel.pinTop(to: goalsTableView.bottomAnchor, 25)
+        cardsLabel.pinLeft(to: view.leadingAnchor, 10)
+    }
+    
+    private func configureGoalsTableView() {
+        view.addSubview(goalsTableView)
+        goalsTableView.pinTop(to: goalsLabel.bottomAnchor, 5)
+        goalsTableView.pinHorizontal(to: view, 10)
     }
 }
