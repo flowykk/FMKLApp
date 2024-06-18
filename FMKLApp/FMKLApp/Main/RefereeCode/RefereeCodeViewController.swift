@@ -94,9 +94,6 @@ extension RefereeCodeViewController {
     }
     
     private func configureNameField() {
-        view.addSubview(refereeCodeField)
-        refereeCodeField.translatesAutoresizingMaskIntoConstraints = false
-        
         refereeCodeField.delegate = self
         
         refereeCodeField.backgroundColor = Constants.backgroundColor
@@ -114,6 +111,7 @@ extension RefereeCodeViewController {
         refereeCodeField.leftViewMode = .always
         refereeCodeField.rightViewMode = .always
         
+        view.addSubview(refereeCodeField)
         refereeCodeField.setWidth(350)
         refereeCodeField.setHeight(50)
         refereeCodeField.pinTop(to: refereeCodeLabel.bottomAnchor, 10)
