@@ -8,21 +8,7 @@
 import UIKit
 
 final class TextFieldPickerView: UIView, UITextFieldDelegate {
-    private let teams = [
-        "FC Bususiky",
-        "Kuban' Peski",
-        "Memphis",
-        "CSAK",
-        "FC Mentality",
-        "FC Nika",
-        "FC Alligators",
-        "Vse Prosto",
-        "Golden Boys",
-        "FC Zvezda",
-        "Na Laki",
-        "CEM UNITED",
-        "KFC",
-    ]
+    private var teams: [String] = [String]()
     
     public var teamTextField: UITextField = UITextField()
     private let teamPickerView: UIPickerView = UIPickerView()
@@ -38,6 +24,7 @@ final class TextFieldPickerView: UIView, UITextFieldDelegate {
     init() {
         super.init(frame: .zero)
 
+        fetchData()
         configureUI()
     }
 }
@@ -96,5 +83,25 @@ extension TextFieldPickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         teamTextField.text = teams[row]
         self.endEditing(true)
+    }
+}
+
+extension TextFieldPickerView {
+    private func fetchData() {
+        teams = [
+            "FC Bususiky",
+            "Kuban' Peski",
+            "Memphis",
+            "CSAK",
+            "FC Mentality",
+            "FC Nika",
+            "FC Alligators",
+            "Vse Prosto",
+            "Golden Boys",
+            "FC Zvezda",
+            "Na Laki",
+            "CEM UNITED",
+            "KFC",
+        ]
     }
 }
