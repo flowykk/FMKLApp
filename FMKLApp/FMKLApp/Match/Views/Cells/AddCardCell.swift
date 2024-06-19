@@ -112,7 +112,7 @@ extension AddCardCell {
     }
     
     private func configureScoredPlayerNameView() {
-        PlayerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
+        PlayerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.10)
         
         addSubview(PlayerNameView)
         PlayerNameView.pinLeft(to: teamNameView.trailingAnchor, 4)
@@ -121,7 +121,7 @@ extension AddCardCell {
     }
     
     private func configureAssistedPlayerNameView() {
-        cardView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
+        cardView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.10)
         
         addSubview(cardView)
         cardView.pinLeft(to: PlayerNameView.trailingAnchor, 4)
@@ -130,7 +130,7 @@ extension AddCardCell {
     }
     
     private func configureMinuteView() {
-        minuteView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
+        minuteView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.10)
         
         addSubview(minuteView)
         minuteView.pinLeft(to: cardView.trailingAnchor, 4)

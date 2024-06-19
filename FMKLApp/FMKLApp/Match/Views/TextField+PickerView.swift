@@ -39,7 +39,7 @@ extension TextFieldPickerView {
         teamTextField.delegate = self
         
         teamTextField.placeholder = "Tap to select"
-        teamTextField.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
+        teamTextField.backgroundColor = Constants.secondColor?.withAlphaComponent(0.08)
         teamTextField.font = UIFont(name: "Jellee-Roman", size: 18)
         teamTextField.textColor = Constants.secondColor
         teamTextField.layer.cornerRadius = 15
