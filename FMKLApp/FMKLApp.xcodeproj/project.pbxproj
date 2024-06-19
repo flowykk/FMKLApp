@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D2E65232C2312FE00704C1D /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E65222C2312FE00704C1D /* AlertHelper.swift */; };
 		0D3438382BFE2451000B20CC /* PreviewAvatarBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3438372BFE2451000B20CC /* PreviewAvatarBuilder.swift */; };
 		0D34383A2BFE247D000B20CC /* PreviewAvatarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3438392BFE247D000B20CC /* PreviewAvatarPresenter.swift */; };
 		0D34383C2BFE2490000B20CC /* PreviewAvatarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34383B2BFE2490000B20CC /* PreviewAvatarRouter.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D2E65222C2312FE00704C1D /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		0D3438372BFE2451000B20CC /* PreviewAvatarBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAvatarBuilder.swift; sourceTree = "<group>"; };
 		0D3438392BFE247D000B20CC /* PreviewAvatarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAvatarPresenter.swift; sourceTree = "<group>"; };
 		0D34383B2BFE2490000B20CC /* PreviewAvatarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAvatarRouter.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				0DE704162BF655C200315374 /* UIViewPin.swift */,
 				0DE704182BF655DF00315374 /* CustomTransitioning.swift */,
 				0DE7042F2BF6584C00315374 /* Constants.swift */,
+				0D2E65222C2312FE00704C1D /* AlertHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				0DCFF9702C064C4200DA858A /* MatchPresenter.swift in Sources */,
 				0DE704552BF7C9AA00315374 /* TeamGamesStats.swift in Sources */,
 				0DE7041F2BF6564500315374 /* MainViewController.swift in Sources */,
+				0D2E65232C2312FE00704C1D /* AlertHelper.swift in Sources */,
 				0D34383A2BFE247D000B20CC /* PreviewAvatarPresenter.swift in Sources */,
 				0DDB12E12BFBB0AB00ADA2D1 /* RefereeCodeRouter.swift in Sources */,
 				0DE7042E2BF6574B00315374 /* SettingsBuilder.swift in Sources */,
