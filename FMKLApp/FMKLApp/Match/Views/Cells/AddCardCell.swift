@@ -1,5 +1,5 @@
 //
-//  GoalsCell.swift
+//  AddCardCell.swift
 //  FMKLApp
 //
 //  Created by Данила Рахманов on 19.06.2024.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-class GoalCell: UITableViewCell {
+class AddCardCell: UITableViewCell {
     private let teamNameView: UIView = UIView()
     private let teamNameLabel: UILabel = UILabel()
     
-    private let scoredPlayerNameView: UIView = UIView()
-    private let scoredPlayerNameLabel: UILabel = UILabel()
+    private let PlayerNameView: UIView = UIView()
+    private let PlayerNameLabel: UILabel = UILabel()
     
-    private let assistedPlayerNameView: UIView = UIView()
-    private let assistedPlayerNameLabel: UILabel = UILabel()
+    private let cardView: UIView = UIView()
+    private let card: DefaultCardView = DefaultCardView()
     
     private let minuteView: UIView = UIView()
     private let minuteLabel: UILabel = UILabel()
@@ -40,18 +40,18 @@ class GoalCell: UITableViewCell {
         configureCorners()
     }
     
-    func set(goal: Goal) {
-        teamNameLabel.text                  = goal.scoredTeamName
-        scoredPlayerNameLabel.text          = goal.scoredPlayer
-        assistedPlayerNameLabel.text        = goal.assistedPlayer
-        minuteLabel.text                    = String(goal.minute) + "’"
+    func set(card: PlayerCard) {
+        self.card.set(isRed: card.isCardRed)
+        
+        teamNameLabel.text                  = card.team
+        PlayerNameLabel.text                = card.player
+        minuteLabel.text                    = String(card.minute) + "’"
         
         teamNameLabel.textColor             = Constants.backgroundColor
-        scoredPlayerNameLabel.textColor     = Constants.secondColor
-        assistedPlayerNameLabel.textColor   = Constants.secondColor
+        PlayerNameLabel.textColor           = Constants.secondColor
         minuteLabel.textColor               = Constants.secondColor
         
-        teamNameView.backgroundColor = Constants.accentColor
+        teamNameView.backgroundColor        = Constants.accentColor
     }
     
     @objc
@@ -60,7 +60,7 @@ class GoalCell: UITableViewCell {
     }
 }
 
-extension GoalCell {
+extension AddCardCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor
         selectionStyle = .none
@@ -69,15 +69,22 @@ extension GoalCell {
         configureScoredPlayerNameView()
         configureAssistedPlayerNameView()
         configureMinuteView()
+        configureCardView()
         configureDeleteRowButton()
+        
         configureViewsTexts()
     }
     
     private func configureViewsTexts() {
         configureViewText(in: teamNameView, withLabel: teamNameLabel)
         configureViewText(in: minuteView, withLabel: minuteLabel)
-        configureViewText(in: scoredPlayerNameView, withLabel: scoredPlayerNameLabel)
-        configureViewText(in: assistedPlayerNameView, withLabel: assistedPlayerNameLabel)
+        //configureViewText(in: PlayerNameView, withLabel: PlayerNameLabel)
+        
+        PlayerNameLabel.font = UIFont(name: "Jellee-Roman", size: 14)
+        
+        PlayerNameView.addSubview(PlayerNameLabel)
+        PlayerNameLabel.pinVertical(to: PlayerNameView)
+        PlayerNameLabel.pinLeft(to: PlayerNameView.leadingAnchor, 10)
     }
     
     private func configureViewText(in view: UIView, withLabel label: UILabel) {
@@ -89,8 +96,8 @@ extension GoalCell {
     
     private func configureCorners() {
         teamNameView.roundCorners(topLeft: 15, topRight: 5, bottomRight: 5, bottomLeft: 15)
-        scoredPlayerNameView.roundCorners(topLeft: 5, topRight: 5, bottomRight: 5, bottomLeft: 5)
-        assistedPlayerNameView.roundCorners(topLeft: 5, topRight: 5, bottomRight: 5, bottomLeft: 5)
+        PlayerNameView.roundCorners(topLeft: 5, topRight: 5, bottomRight: 5, bottomLeft: 5)
+        cardView.roundCorners(topLeft: 5, topRight: 5, bottomRight: 5, bottomLeft: 5)
         minuteView.roundCorners(topLeft: 5, topRight: 5, bottomRight: 5, bottomLeft: 5)
         deleteRowButton.roundCorners(topLeft: 5, topRight: 15, bottomRight: 15, bottomLeft: 5)
         
@@ -105,28 +112,28 @@ extension GoalCell {
     }
     
     private func configureScoredPlayerNameView() {
-        scoredPlayerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
+        PlayerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
         
-        addSubview(scoredPlayerNameView)
-        scoredPlayerNameView.pinLeft(to: teamNameView.trailingAnchor, 4)
-        scoredPlayerNameView.setWidth(UIScreen.main.bounds.width * 0.27)
-        scoredPlayerNameView.pinVertical(to: self, 2)
+        addSubview(PlayerNameView)
+        PlayerNameView.pinLeft(to: teamNameView.trailingAnchor, 4)
+        PlayerNameView.setWidth(UIScreen.main.bounds.width * 0.40)
+        PlayerNameView.pinVertical(to: self, 2)
     }
     
     private func configureAssistedPlayerNameView() {
-        assistedPlayerNameView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
+        cardView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
         
-        addSubview(assistedPlayerNameView)
-        assistedPlayerNameView.pinLeft(to: scoredPlayerNameView.trailingAnchor, 4)
-        assistedPlayerNameView.setWidth(UIScreen.main.bounds.width * 0.27)
-        assistedPlayerNameView.pinVertical(to: self, 2)
+        addSubview(cardView)
+        cardView.pinLeft(to: PlayerNameView.trailingAnchor, 4)
+        cardView.setWidth(UIScreen.main.bounds.width * 0.12)
+        cardView.pinVertical(to: self, 2)
     }
     
     private func configureMinuteView() {
         minuteView.backgroundColor = Constants.secondColor?.withAlphaComponent(0.15)
         
         addSubview(minuteView)
-        minuteView.pinLeft(to: assistedPlayerNameView.trailingAnchor, 4)
+        minuteView.pinLeft(to: cardView.trailingAnchor, 4)
         minuteView.setWidth(UIScreen.main.bounds.width * 0.09)
         minuteView.pinVertical(to: self, 2)
     }
@@ -145,5 +152,10 @@ extension GoalCell {
         deleteRowButton.pinLeft(to: minuteView.trailingAnchor, 4)
         deleteRowButton.pinRight(to: trailingAnchor, 0)
         deleteRowButton.pinVertical(to: self, 2)
+    }
+    
+    private func configureCardView() {
+        cardView.addSubview(card)
+        card.pinCenter(to: cardView)
     }
 }

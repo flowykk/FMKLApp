@@ -41,7 +41,7 @@ extension AddCell {
         let configuration = UIImage.SymbolConfiguration(font: largeFont)
         let image = UIImage(systemName: "plus.circle.fill", withConfiguration: configuration)
         addButton.setImage(image, for: .normal)
-        addButton.tintColor = Constants.backgroundColor
+        addButton.tintColor = .white
         
         contentView.addSubview(addButton)
         addButton.pinLeft(to: leadingAnchor, 0)

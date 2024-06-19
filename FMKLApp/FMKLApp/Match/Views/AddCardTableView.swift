@@ -1,5 +1,5 @@
 //
-//  GoalsTableView.swift
+//  AddCardTableView.swift
 //  FMKLApp
 //
 //  Created by Данила Рахманов on 19.06.2024.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
-    private var goals: [Goal] = []
+class AddCardTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+    private var playersCards: [PlayerCard] = []
     
     enum CellType {
         case addCell
-        case goal(Goal)
+        case playersCard(PlayerCard)
     }
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -37,7 +37,7 @@ class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         backgroundColor = Constants.backgroundColor
         delegate = self
         dataSource = self
-        register(GoalCell.self, forCellReuseIdentifier: "GoalCell")
+        register(AddCardCell.self, forCellReuseIdentifier: "AddCardCell")
         register(AddCell.self, forCellReuseIdentifier: "AddCell")
         rowHeight = 50
         
@@ -53,23 +53,23 @@ class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func deleteRow(rowIndex: Int) {
-        goals.remove(at: rowIndex)
+        playersCards.remove(at: rowIndex)
         
         updateHeight()
         reloadData()
     }
     
     func addRow(rowIndex: Int) {
-        goals.append(Goal(scoredTeamName: "NEW", scoredPlayer: "NEW", assistedPlayer: "NEW", minute: 0))
+        playersCards.append(PlayerCard(player: "Filatov K.", team: "BUSUS", minute: 54, isCardRed: true))
         
         updateHeight()
         reloadData()
     }
 }
 
-extension GoalsTableView {
+extension AddCardTableView {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return goals.count + 1
+        return playersCards.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,10 +87,10 @@ extension GoalsTableView {
             }
             
             return addButtonCell
-        case .goal(let goal):
-            let cell = dequeueReusableCell(withIdentifier: "GoalCell") as! GoalCell
+        case .playersCard(let card):
+            let cell = dequeueReusableCell(withIdentifier: "AddCardCell") as! AddCardCell
             
-            cell.set(goal: goal)
+            cell.set(card: card)
             
             cell.deleteButtonTapAction = { [weak self] in
                 self?.deleteRow(rowIndex: indexPath.row)
@@ -108,16 +108,16 @@ extension GoalsTableView {
         if indexPath.row == self.numberOfRows(inSection: 0) - 1 {
             return .addCell
         } else {
-            return .goal(goals[indexPath.row])
+            return .playersCard(playersCards[indexPath.row])
         }
     }
 }
 
-extension GoalsTableView {
+extension AddCardTableView {
     func fetchData() {
-        self.goals = [
-            //Goal(scoredTeamName: "BUSUS", scoredPlayer: "Rakhimov A.", assistedPlayer: "Filatov K.", minute: 14),
-            Goal(scoredTeamName: "MEMPH", scoredPlayer: "Prostoyadin N.", assistedPlayer: "Smirnov I.", minute: 44)
+        self.playersCards = [
+            PlayerCard(player: "Filatov K.", team: "BUSUS", minute: 1, isCardRed: true),
+            PlayerCard(player: "Prostoryadin N.", team: "MEMPH", minute: 65, isCardRed: false)
         ]
         
         DispatchQueue.main.async {
@@ -125,4 +125,3 @@ extension GoalsTableView {
         }
     }
 }
-
