@@ -146,7 +146,7 @@ extension AddCardCell {
         let configuration = UIImage.SymbolConfiguration(font: largeFont)
         let image = UIImage(systemName: "minus.circle.fill", withConfiguration: configuration)
         deleteRowButton.setImage(image, for: .normal)
-        deleteRowButton.tintColor = Constants.backgroundColor
+        deleteRowButton.tintColor = .white
         
         contentView.addSubview(deleteRowButton)
         deleteRowButton.pinLeft(to: minuteView.trailingAnchor, 4)
