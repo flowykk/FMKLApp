@@ -21,12 +21,6 @@ final class AddCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        let left = 12 + UIScreen.main.bounds.width * 0.09 + 12
-        separatorInset = UIEdgeInsets(top: .zero, left: left, bottom: .zero, right: .zero)
-    }
-    
     @objc
     private func addButtonTapped() {
         addButtonTapAction?()
@@ -35,7 +29,6 @@ final class AddCell: UITableViewCell {
 
 extension AddCell {
     private func configureUI() {
-        backgroundColor = .systemGray6
         configureButtonLabel()
     }
     

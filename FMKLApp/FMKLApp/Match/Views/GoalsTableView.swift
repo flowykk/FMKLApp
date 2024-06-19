@@ -44,12 +44,12 @@ class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         separatorStyle = .none
         isScrollEnabled = false
         
-        updateHeight(mode: .equal)
+        updateHeight()
     }
     
-    private func updateHeight(mode: ConstraintMode = .grOE) {
+    private func updateHeight() {
         let height = rowHeight * CGFloat(goals.count)
-        setHeight(mode: mode, height)
+        setHeight(height)
     }
     
     func deleteRow(rowIndex: Int) {
@@ -62,7 +62,7 @@ class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     func addRow(rowIndex: Int) {
         goals.append(Goal(scoredTeamName: "NEW", scoredPlayer: "NEW", assistedPlayer: "NEW", minute: 0))
         
-        updateHeight(mode: .grOE)
+        updateHeight()
         reloadData()
     }
 }
