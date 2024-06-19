@@ -1,8 +1,8 @@
 //
-//  AlertHelpter.swift
+//  AlertHelper.swift
 //  FMKLApp
 //
-//  Created by Данила Рахманов on 22.05.2024.
+//  Created by Данила Рахманов on 19.06.2024.
 //
 
 import UIKit

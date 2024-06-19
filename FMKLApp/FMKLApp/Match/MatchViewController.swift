@@ -36,6 +36,11 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
     private func backButtonTapped() {
         presenter?.backButtonTapped()
     }
+    
+    @objc
+    private func infoButtonTapped() {
+        presenter?.infoButtonTapped()
+    }
 }
 
 extension MatchViewController {
@@ -43,6 +48,7 @@ extension MatchViewController {
         configureTitleView()
         configureNavigationBar()
         configureBackButton()
+        configureInfoButton()
         
         configureFirstTeamLabel()
         configureFirstTeamTextFieldPickerView()
@@ -73,7 +79,14 @@ extension MatchViewController {
         let image = UIImage(systemName: "chevron.left", withConfiguration: configuration)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem?.tintColor = Constants.accentColor
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: .none)
+    }
+    
+    private func configureInfoButton() {
+        let largeFont = UIFont.systemFont(ofSize: 18, weight: .bold)
+        let configuration = UIImage.SymbolConfiguration(font: largeFont)
+        let image = UIImage(systemName: "info.circle", withConfiguration: configuration)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(infoButtonTapped))
+        navigationItem.rightBarButtonItem?.tintColor = Constants.eliminationColor
     }
     
     private func configureFirstTeamLabel() {
