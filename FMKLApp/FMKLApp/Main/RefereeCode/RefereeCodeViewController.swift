@@ -32,7 +32,7 @@ final class RefereeCodeViewController: UIViewController {
     
     @objc
     private func continueButtonTapped() {
-        mainVC?.presenter?.continueButtonTapped(for: refereeCodeField.text ?? "")
+        presenter?.continuteButtonTapped(code: refereeCodeField.text ?? "")
     }
     
     override func updateViewConstraints() {

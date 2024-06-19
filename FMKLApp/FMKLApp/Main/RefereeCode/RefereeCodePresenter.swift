@@ -15,4 +15,12 @@ final class RefereeCodePresenter {
         self.view = view
         self.router = router
     }
+    
+    func continuteButtonTapped(code: String) {
+        guard code != "" else {
+            AlertHelper.showAlert(from: view, withTitle: "Error", message: "Referee code can't be empty!")
+            return
+        }
+        self.view?.mainVC?.presenter?.continueButtonTapped(for: code)
+    }
 }
