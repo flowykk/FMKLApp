@@ -19,6 +19,14 @@ final class MatchPresenter {
     }
     
     func infoButtonTapped() {
-        AlertHelper.showAlert(from: view, withTitle: "Warning", message: "Be careful when entering values! Invalid or incorrect values on this screen will cause punishment for referee.")
+        AlertHelper.showAlert(
+            from: view,
+            withTitle: "Warning",
+            message: "Be careful when entering values! Invalid or incorrect values on this screen will cause punishment for referee."
+        )
+    }
+    
+    func continueButtonTapped() {
+        router.navigateToMain()
     }
 }

@@ -47,7 +47,7 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
     
     @objc
     private func continueButtonTapped() {
-        print(1)
+        presenter?.continueButtonTapped()
     }
 }
 
