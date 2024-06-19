@@ -42,7 +42,6 @@ extension CardView {
     }
     
     private func configureCard() {
-        //card.layer.borderWidth = 3
         card.layer.cornerRadius = 5
         
         self.addSubview(card)

@@ -24,6 +24,9 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
     private let goalsTableView: GoalsTableView = GoalsTableView()
     
     private let cardsLabel: UILabel = UILabel()
+    private let cardsTableView: AddCardTableView = AddCardTableView()
+    
+    private let continueButton: UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,11 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
     @objc
     private func infoButtonTapped() {
         presenter?.infoButtonTapped()
+    }
+    
+    @objc
+    private func continueButtonTapped() {
+        print(1)
     }
 }
 
@@ -60,6 +68,9 @@ extension MatchViewController {
         configureGoalsTableView()
         
         configureCardsLabel()
+        configureCardsTableView()
+        
+        configureContinueButton()
     }
     
     private func configureTitleView() {
@@ -147,5 +158,30 @@ extension MatchViewController {
         view.addSubview(goalsTableView)
         goalsTableView.pinTop(to: goalsLabel.bottomAnchor, 5)
         goalsTableView.pinHorizontal(to: view, 10)
+    }
+    
+    private func configureCardsTableView() {
+        view.addSubview(cardsTableView)
+        cardsTableView.pinTop(to: cardsLabel.bottomAnchor, 5)
+        cardsTableView.pinHorizontal(to: view, 10)
+    }
+    
+    private func configureContinueButton() {
+        continueButton.layer.cornerRadius = 30
+        continueButton.backgroundColor = Constants.accentColor
+        
+        let largeFont = UIFont.systemFont(ofSize: 30, weight: .bold)
+        let configuration = UIImage.SymbolConfiguration(font: largeFont)
+        let image = UIImage(systemName: "sportscourt.fill", withConfiguration: configuration)
+        continueButton.setImage(image, for: .normal)
+        continueButton.tintColor = Constants.backgroundColor
+        
+        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        
+        view.addSubview(continueButton)
+        continueButton.pinBottom(to: view.bottomAnchor, 30)
+        continueButton.pinCenterX(to: view.centerXAnchor)
+        continueButton.setHeight(60)
+        continueButton.setWidth(200)
     }
 }
