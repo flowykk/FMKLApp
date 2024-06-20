@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D28F9A22C245774004FEB07 /* SocialMediaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D28F9A12C245774004FEB07 /* SocialMediaButton.swift */; };
+		0D28F9A42C245B33004FEB07 /* DevInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D28F9A32C245B33004FEB07 /* DevInfoPresenter.swift */; };
+		0D28F9A62C245B63004FEB07 /* DevInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D28F9A52C245B63004FEB07 /* DevInfoRouter.swift */; };
 		0D2E65232C2312FE00704C1D /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E65222C2312FE00704C1D /* AlertHelper.swift */; };
 		0D2E65252C23154F00704C1D /* AddCardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E65242C23154F00704C1D /* AddCardTableView.swift */; };
 		0D2E65272C23156900704C1D /* AddCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E65262C23156900704C1D /* AddCardCell.swift */; };
@@ -83,6 +86,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D28F9A12C245774004FEB07 /* SocialMediaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaButton.swift; sourceTree = "<group>"; };
+		0D28F9A32C245B33004FEB07 /* DevInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevInfoPresenter.swift; sourceTree = "<group>"; };
+		0D28F9A52C245B63004FEB07 /* DevInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevInfoRouter.swift; sourceTree = "<group>"; };
 		0D2E65222C2312FE00704C1D /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		0D2E65242C23154F00704C1D /* AddCardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardTableView.swift; sourceTree = "<group>"; };
 		0D2E65262C23156900704C1D /* AddCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardCell.swift; sourceTree = "<group>"; };
@@ -368,6 +374,7 @@
 				0DE704352BF65E7A00315374 /* Cells */,
 				0DE704362BF65E9A00315374 /* AppIconCollectionView.swift */,
 				0DE7043F2BF663DC00315374 /* PrimaryTableView.swift */,
+				0D28F9A12C245774004FEB07 /* SocialMediaButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,6 +406,8 @@
 			isa = PBXGroup;
 			children = (
 				0DE704442BF6679900315374 /* DevInfoBuilder.swift */,
+				0D28F9A32C245B33004FEB07 /* DevInfoPresenter.swift */,
+				0D28F9A52C245B63004FEB07 /* DevInfoRouter.swift */,
 				0DE704422BF6679100315374 /* DevInfoViewController.swift */,
 			);
 			path = DevInfo;
@@ -500,6 +509,7 @@
 				0DE704212BF6564B00315374 /* MainBuilder.swift in Sources */,
 				0DE7044E2BF6912000315374 /* RefereeView.swift in Sources */,
 				0DE7044B2BF669F700315374 /* UILabelExtension.swift in Sources */,
+				0D28F9A22C245774004FEB07 /* SocialMediaButton.swift in Sources */,
 				0DE704372BF65E9A00315374 /* AppIconCollectionView.swift in Sources */,
 				0D6A5C3A2C2230B50055178A /* GoalsTableView.swift in Sources */,
 				0DE7043A2BF65EB800315374 /* AppIcon.swift in Sources */,
@@ -514,6 +524,7 @@
 				0D6A5C412C223A600055178A /* AddCell.swift in Sources */,
 				0DE704402BF663DC00315374 /* PrimaryTableView.swift in Sources */,
 				0D6A5C3D2C2230CA0055178A /* GoalCell.swift in Sources */,
+				0D28F9A42C245B33004FEB07 /* DevInfoPresenter.swift in Sources */,
 				0D753B4C2C1B4FC9002A2245 /* CardCell.swift in Sources */,
 				0DE704282BF6573500315374 /* SettingsViewController.swift in Sources */,
 				0DE704432BF6679100315374 /* DevInfoViewController.swift in Sources */,
@@ -541,6 +552,7 @@
 				0DE704232BF6565C00315374 /* MainPresenter.swift in Sources */,
 				0DCFF9542C050A1C00DA858A /* PlayerCell.swift in Sources */,
 				0D3438492BFE5BCB000B20CC /* (null) in Sources */,
+				0D28F9A62C245B63004FEB07 /* DevInfoRouter.swift in Sources */,
 				0DDB12DD2BFBB09800ADA2D1 /* RefereeCodeBuilder.swift in Sources */,
 				0DDB12D82BFA427500ADA2D1 /* TeamRouter.swift in Sources */,
 				0D6A5C372C22275E0055178A /* TextField+PickerView.swift in Sources */,
