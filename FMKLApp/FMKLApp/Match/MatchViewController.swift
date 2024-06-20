@@ -14,12 +14,15 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
     
     private let titleView: UILabel = UILabel()
     
+    private let refereeWarningLabel: UILabel = UILabel()
+    
     private let firstTeamLabel: UILabel = UILabel()
     private let firstTeamTextFieldPickerView: TextFieldPickerView = TextFieldPickerView()
     
     private let secondTeamLabel: UILabel = UILabel()
     private let secondTeamTextFieldPickerView: TextFieldPickerView = TextFieldPickerView()
     
+    private let tablesWarningLabel: UILabel = UILabel()
     private let goalsLabel: UILabel = UILabel()
     private let goalsTableView: GoalsTableView = GoalsTableView()
     
@@ -58,12 +61,15 @@ extension MatchViewController {
         configureBackButton()
         configureInfoButton()
         
+        configureRefereeWarningLabel()
+        
         configureFirstTeamLabel()
         configureFirstTeamTextFieldPickerView()
         
         configureSecondTeamLabel()
         configureSecondTeamTextFieldPickerView()
         
+        configureTablesWarningLabel()
         configureGoalsLabel()
         configureGoalsTableView()
         
@@ -100,13 +106,24 @@ extension MatchViewController {
         navigationItem.rightBarButtonItem?.tintColor = Constants.eliminationColor
     }
     
+    private func configureRefereeWarningLabel() {
+        refereeWarningLabel.text = "Referees, be careful! Read information by tapping on ℹ button"
+        refereeWarningLabel.numberOfLines = 1
+        refereeWarningLabel.font = UIFont(name: "Jellee-Roman", size: 10)
+        refereeWarningLabel.textColor = Constants.secondColor?.withAlphaComponent(0.3)
+        
+        view.addSubview(refereeWarningLabel)
+        refereeWarningLabel.pinLeft(to: view.leadingAnchor, 10)
+        refereeWarningLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+    }
+    
     private func configureFirstTeamLabel() {
         firstTeamLabel.text = "Select Team 1"
         firstTeamLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         firstTeamLabel.textColor = Constants.accentColor
         
         view.addSubview(firstTeamLabel)
-        firstTeamLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        firstTeamLabel.pinTop(to: refereeWarningLabel.bottomAnchor, 3)
         firstTeamLabel.pinLeft(to: view.leadingAnchor, 10)
     }
     
@@ -134,13 +151,24 @@ extension MatchViewController {
         secondTeamTextFieldPickerView.setHeight(50)
     }
     
+    private func configureTablesWarningLabel() {
+        tablesWarningLabel.text = "Swipe tables to add more informtaion"
+        tablesWarningLabel.numberOfLines = 1
+        tablesWarningLabel.font = UIFont(name: "Jellee-Roman", size: 10)
+        tablesWarningLabel.textColor = Constants.secondColor?.withAlphaComponent(0.3)
+        
+        view.addSubview(tablesWarningLabel)
+        tablesWarningLabel.pinLeft(to: view.leadingAnchor, 10)
+        tablesWarningLabel.pinTop(to: secondTeamTextFieldPickerView.bottomAnchor, 30)
+    }
+    
     private func configureGoalsLabel() {
         goalsLabel.text = "Goals"
         goalsLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         goalsLabel.textColor = Constants.accentColor
         
         view.addSubview(goalsLabel)
-        goalsLabel.pinTop(to: secondTeamTextFieldPickerView.bottomAnchor, 25)
+        goalsLabel.pinTop(to: tablesWarningLabel.bottomAnchor, 3)
         goalsLabel.pinLeft(to: view.leadingAnchor, 10)
     }
     
