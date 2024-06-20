@@ -7,12 +7,15 @@
 
 import UIKit
 
-final class DevInfoViewController: UIViewController {    
+final class DevInfoViewController: UIViewController { 
+    var presenter: DevInfoPresenter?
+
     var viewDistanceTop: CGFloat = 300
     
     private let appInfoLabel: UILabel = UILabel()
-    private let instLabel: UILabel = UILabel()
-    private let telegramLabel: UILabel = UILabel()
+    
+    private let instButton: SocialMediaButton = SocialMediaButton()
+    private let tgButton: SocialMediaButton = SocialMediaButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,16 @@ final class DevInfoViewController: UIViewController {
         view.frame.origin.y = UIScreen.main.bounds.height - viewDistanceTop
         view.layer.cornerRadius = 40
     }
+    
+    @objc
+    private func instButtonTapped() {
+        presenter?.instButtonTapped()
+    }
+    
+    @objc
+    private func tgButtonTapped() {
+        presenter?.tgButtonTapped()
+    }
 }
 
 // MARK: - UI Configuration
@@ -40,8 +53,8 @@ extension DevInfoViewController {
         view.backgroundColor = Constants.popupColor
         
         configureAppInfoLabel()
-        configureInstLabel()
-        configureTelegramLabel()
+        configureInstButton()
+        configureTgButton()
     }
     
     private func configureAppInfoLabel() {
@@ -62,30 +75,22 @@ extension DevInfoViewController {
         appInfoLabel.pinHorizontal(to: view, 15)
     }
     
-    private func configureInstLabel() {
-        instLabel.text = "inst: flowykk"
-        instLabel.font = UIFont(name: "Jellee-Roman", size: 12)
-        instLabel.textColor = Constants.popupTextColor
-        instLabel.textAlignment = .center
+    private func configureInstButton() {
+        instButton.set(text: "inst: flowykk")
+        instButton.addTarget(self, action: #selector(instButtonTapped), for: .touchUpInside)
         
-        instLabel.halfTextColorChange(fullText: instLabel.text!, changeText: "flowykk")
-        
-        view.addSubview(instLabel)
-        instLabel.pinTop(to: appInfoLabel.bottomAnchor, 20)
-        instLabel.pinCenterX(to: view.centerXAnchor)
+        view.addSubview(instButton)
+        instButton.pinTop(to: appInfoLabel.bottomAnchor, 25)
+        instButton.pinCenterX(to: view.centerXAnchor)
     }
     
-    private func configureTelegramLabel() {
-        telegramLabel.text = "telegram: flowykk"
-        telegramLabel.font = UIFont(name: "Jellee-Roman", size: 12)
-        telegramLabel.textColor = Constants.popupTextColor
-        telegramLabel.textAlignment = .center
+    private func configureTgButton() {
+        tgButton.set(text: "telegram: flowykk")
+        tgButton.addTarget(self, action: #selector(tgButtonTapped), for: .touchUpInside)
         
-        telegramLabel.halfTextColorChange(fullText: telegramLabel.text!, changeText: "flowykk")
-        
-        view.addSubview(telegramLabel)
-        telegramLabel.pinTop(to: instLabel.bottomAnchor, 3)
-        telegramLabel.pinCenterX(to: view.centerXAnchor)
+        view.addSubview(tgButton)
+        tgButton.pinTop(to: instButton.bottomAnchor, 5)
+        tgButton.pinCenterX(to: view.centerXAnchor)
     }
 }
 
@@ -93,7 +98,10 @@ extension DevInfoViewController {
 extension DevInfoViewController {
     @objc
     private func handleTapGesture(sender: UITapGestureRecognizer) {
-        dismiss(animated: true, completion: nil)
+        let location = sender.location(in: view)
+        if !instButton.frame.contains(location) {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc
