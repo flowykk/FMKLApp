@@ -20,6 +20,7 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
     private let secondTeamLabel: UILabel = UILabel()
     private let secondTeamTextFieldPickerView: TextFieldPickerView = TextFieldPickerView()
     
+    private let tablesWarningLabel: UILabel = UILabel()
     private let goalsLabel: UILabel = UILabel()
     private let goalsTableView: GoalsTableView = GoalsTableView()
     
@@ -64,6 +65,7 @@ extension MatchViewController {
         configureSecondTeamLabel()
         configureSecondTeamTextFieldPickerView()
         
+        configureTablesWarningLabel()
         configureGoalsLabel()
         configureGoalsTableView()
         
@@ -134,13 +136,24 @@ extension MatchViewController {
         secondTeamTextFieldPickerView.setHeight(50)
     }
     
+    private func configureTablesWarningLabel() {
+        tablesWarningLabel.text = "Swipe tables to add more informtaion"
+        tablesWarningLabel.numberOfLines = 1
+        tablesWarningLabel.font = UIFont(name: "Jellee-Roman", size: 12)
+        tablesWarningLabel.textColor = Constants.secondColor?.withAlphaComponent(0.3)
+        
+        view.addSubview(tablesWarningLabel)
+        tablesWarningLabel.pinLeft(to: view.leadingAnchor, 10)
+        tablesWarningLabel.pinTop(to: secondTeamTextFieldPickerView.bottomAnchor, 30)
+    }
+    
     private func configureGoalsLabel() {
         goalsLabel.text = "Goals"
         goalsLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         goalsLabel.textColor = Constants.accentColor
         
         view.addSubview(goalsLabel)
-        goalsLabel.pinTop(to: secondTeamTextFieldPickerView.bottomAnchor, 25)
+        goalsLabel.pinTop(to: tablesWarningLabel.bottomAnchor, 3)
         goalsLabel.pinLeft(to: view.leadingAnchor, 10)
     }
     
