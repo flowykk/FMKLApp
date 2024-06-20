@@ -14,6 +14,8 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
     
     private let titleView: UILabel = UILabel()
     
+    private let refereeWarningLabel: UILabel = UILabel()
+    
     private let firstTeamLabel: UILabel = UILabel()
     private let firstTeamTextFieldPickerView: TextFieldPickerView = TextFieldPickerView()
     
@@ -59,6 +61,8 @@ extension MatchViewController {
         configureBackButton()
         configureInfoButton()
         
+        configureRefereeWarningLabel()
+        
         configureFirstTeamLabel()
         configureFirstTeamTextFieldPickerView()
         
@@ -102,13 +106,24 @@ extension MatchViewController {
         navigationItem.rightBarButtonItem?.tintColor = Constants.eliminationColor
     }
     
+    private func configureRefereeWarningLabel() {
+        refereeWarningLabel.text = "Referees, be careful! Read information by tapping on ℹ button"
+        refereeWarningLabel.numberOfLines = 1
+        refereeWarningLabel.font = UIFont(name: "Jellee-Roman", size: 10)
+        refereeWarningLabel.textColor = Constants.secondColor?.withAlphaComponent(0.3)
+        
+        view.addSubview(refereeWarningLabel)
+        refereeWarningLabel.pinLeft(to: view.leadingAnchor, 10)
+        refereeWarningLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+    }
+    
     private func configureFirstTeamLabel() {
         firstTeamLabel.text = "Select Team 1"
         firstTeamLabel.font = UIFont(name: "Jellee-Roman", size: 17)
         firstTeamLabel.textColor = Constants.accentColor
         
         view.addSubview(firstTeamLabel)
-        firstTeamLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        firstTeamLabel.pinTop(to: refereeWarningLabel.bottomAnchor, 3)
         firstTeamLabel.pinLeft(to: view.leadingAnchor, 10)
     }
     
@@ -139,7 +154,7 @@ extension MatchViewController {
     private func configureTablesWarningLabel() {
         tablesWarningLabel.text = "Swipe tables to add more informtaion"
         tablesWarningLabel.numberOfLines = 1
-        tablesWarningLabel.font = UIFont(name: "Jellee-Roman", size: 12)
+        tablesWarningLabel.font = UIFont(name: "Jellee-Roman", size: 10)
         tablesWarningLabel.textColor = Constants.secondColor?.withAlphaComponent(0.3)
         
         view.addSubview(tablesWarningLabel)
