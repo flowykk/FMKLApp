@@ -35,6 +35,8 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         view.backgroundColor = Constants.backgroundColor
         
+        goalsTableView.presenter = presenter
+        
         configureUI()
     }
     

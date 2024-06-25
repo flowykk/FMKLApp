@@ -29,4 +29,8 @@ final class MatchPresenter {
     func continueButtonTapped() {
         router.navigateToMain()
     }
+    
+    func addGoalButtonTapped() {
+        router.presentAddGoalView()
+    }
 }
