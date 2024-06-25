@@ -55,14 +55,12 @@ class AddCardTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
     func deleteRow(rowIndex: Int) {
         playersCards.remove(at: rowIndex)
         
-        updateHeight()
         reloadData()
     }
     
     func addRow(rowIndex: Int) {
         playersCards.append(PlayerCard(player: "Filatov K.", team: "BUSUS", minute: 54, isCardRed: true))
         
-        updateHeight()
         reloadData()
     }
 }

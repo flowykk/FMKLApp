@@ -8,10 +8,10 @@
 import UIKit
 
 final class TextFieldPickerView: UIView, UITextFieldDelegate {
-    private var teams: [String] = [String]()
+    private var data: [String] = [String]()
     
-    public var teamTextField: UITextField = UITextField()
-    private let teamPickerView: UIPickerView = UIPickerView()
+    public var textField: UITextField = UITextField()
+    private let pickerView: UIPickerView = UIPickerView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,46 +24,58 @@ final class TextFieldPickerView: UIView, UITextFieldDelegate {
     init() {
         super.init(frame: .zero)
 
-        fetchData()
         configureUI()
+    }
+    
+    func setPlaceholder(with placeholder: String) {
+        textField.placeholder = placeholder
+    }
+    
+    func setBackgroundColor(with color: UIColor) {
+        textField.backgroundColor = color
+    }
+    
+    func getTextFieldData() -> String {
+        return textField.text ?? ""
+    }
+    
+    func configureData(with data: [String]) {
+        self.data = data
     }
 }
 
 extension TextFieldPickerView {
     private func configureUI() {
-        configureTeamTextField()
-        configureTeamPickerView()
+        configureTextField()
+        configurePickerView()
     }
     
-    private func configureTeamTextField() {
-        teamTextField.delegate = self
+    private func configureTextField() {
+        textField.delegate = self
         
-        teamTextField.placeholder = "Tap to select"
-        teamTextField.backgroundColor = Constants.secondColor?.withAlphaComponent(0.08)
-        teamTextField.font = UIFont(name: "Jellee-Roman", size: 18)
-        teamTextField.textColor = Constants.secondColor
-        teamTextField.layer.cornerRadius = 15
-        teamTextField.returnKeyType = .done
-        teamTextField.inputView = teamPickerView
+        textField.font = UIFont(name: "Jellee-Roman", size: 18)
+        textField.textColor = Constants.secondColor
+        textField.layer.cornerRadius = 15
+        textField.returnKeyType = .done
+        textField.inputView = pickerView
         
-        teamTextField.autocapitalizationType = .none
-        teamTextField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
         
-        teamTextField.leftView = UIView(frame: CGRect(x: .zero, y: .zero, width: 20, height: 50))
-        teamTextField.rightView = UIView(frame: CGRect(x: .zero, y: .zero, width: 20, height: 50))
-        teamTextField.leftViewMode = .always
-        teamTextField.rightViewMode = .always
+        textField.leftView = UIView(frame: CGRect(x: .zero, y: .zero, width: 20, height: 50))
+        textField.rightView = UIView(frame: CGRect(x: .zero, y: .zero, width: 20, height: 50))
+        textField.leftViewMode = .always
+        textField.rightViewMode = .always
         
-        addSubview(teamTextField)
-        teamTextField.pinHorizontal(to: self, 10)
-        teamTextField.setHeight(50)
-        teamTextField.pinTop(to: self.topAnchor, 5)
-        teamTextField.pinCenterX(to: self.centerXAnchor)
+        addSubview(textField)
+        textField.pinVertical(to: self)
+        textField.pinHorizontal(to: self)
+        textField.pinCenterX(to: self.centerXAnchor)
     }
     
-    private func configureTeamPickerView() {
-        teamPickerView.delegate = self
-        teamPickerView.dataSource = self
+    private func configurePickerView() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
     }
 }
 
@@ -73,35 +85,15 @@ extension TextFieldPickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return teams.count
+        return data.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return teams[row]
+        return data[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        teamTextField.text = teams[row]
+        textField.text = data[row]
         self.endEditing(true)
-    }
-}
-
-extension TextFieldPickerView {
-    private func fetchData() {
-        teams = [
-            "FC Bususiky",
-            "Kuban' Peski",
-            "Memphis",
-            "CSAK",
-            "FC Mentality",
-            "FC Nika",
-            "FC Alligators",
-            "Vse Prosto",
-            "Golden Boys",
-            "FC Zvezda",
-            "Na Laki",
-            "CEM UNITED",
-            "KFC",
-        ]
     }
 }

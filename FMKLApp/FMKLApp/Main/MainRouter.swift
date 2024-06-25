@@ -39,8 +39,8 @@ final class MainRouter {
     }
     
     func navigateToMatchSettings() {
-        if let groupsMenuVC = view?.presentedViewController {
-            groupsMenuVC.dismiss(animated: true)
+        if let refereeCodeVC = view?.presentedViewController {
+            refereeCodeVC.dismiss(animated: true)
         }
         
         let vc = MatchBuilder.build()

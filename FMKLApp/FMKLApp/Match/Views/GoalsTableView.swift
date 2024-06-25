@@ -8,6 +8,8 @@
 import UIKit
 
 class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+    weak var presenter: MatchPresenter?
+    
     private var goals: [Goal] = []
     
     enum CellType {
@@ -55,15 +57,17 @@ class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     func deleteRow(rowIndex: Int) {
         goals.remove(at: rowIndex)
         
-        updateHeight()
         reloadData()
     }
     
-    func addRow(rowIndex: Int) {
-        goals.append(Goal(scoredTeamName: "NEW", scoredPlayer: "NEW", assistedPlayer: "NEW", minute: 0))
+    func addRow(withGoal goal: Goal) {
+        goals.append(goal)
         
-        updateHeight()
         reloadData()
+    }
+    
+    private func addRow(rowIndex: Int) {
+        presenter?.addGoalButtonTapped()
     }
 }
 
@@ -116,7 +120,7 @@ extension GoalsTableView {
 extension GoalsTableView {
     func fetchData() {
         self.goals = [
-            //Goal(scoredTeamName: "BUSUS", scoredPlayer: "Rakhimov A.", assistedPlayer: "Filatov K.", minute: 14),
+            Goal(scoredTeamName: "BUSUS", scoredPlayer: "Rakhimov A.", assistedPlayer: "Filatov K.", minute: 14),
             Goal(scoredTeamName: "MEMPH", scoredPlayer: "Prostoyadin N.", assistedPlayer: "Smirnov I.", minute: 44)
         ]
         

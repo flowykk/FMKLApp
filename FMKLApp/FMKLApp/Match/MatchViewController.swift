@@ -9,9 +9,7 @@ import UIKit
 
 final class MatchViewController: UIViewController, UITextFieldDelegate {
     var presenter: MatchPresenter?
-    
-    private let teams = ["FC Bususiky", "Memphis"]
-    
+        
     private let titleView: UILabel = UILabel()
     
     private let refereeWarningLabel: UILabel = UILabel()
@@ -34,6 +32,12 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.backgroundColor
+        
+        goalsTableView.presenter = presenter
+        presenter?.goalsTableView = goalsTableView
+        
+        fetchDataForTeam1PickerView()
+        fetchDataForTeam2PickerView()
         
         configureUI()
     }
@@ -128,9 +132,12 @@ extension MatchViewController {
     }
     
     private func configureFirstTeamTextFieldPickerView() {
+        firstTeamTextFieldPickerView.setPlaceholder(with: "Team 1")
+        firstTeamTextFieldPickerView.setBackgroundColor(with: (Constants.secondColor?.withAlphaComponent(0.08))!)
+        
         view.addSubview(firstTeamTextFieldPickerView)
         firstTeamTextFieldPickerView.pinTop(to: firstTeamLabel.bottomAnchor, 5)
-        firstTeamTextFieldPickerView.pinHorizontal(to: view)
+        firstTeamTextFieldPickerView.pinHorizontal(to: view, 10)
         firstTeamTextFieldPickerView.setHeight(50)
     }
     
@@ -145,9 +152,12 @@ extension MatchViewController {
     }
     
     private func configureSecondTeamTextFieldPickerView() {
+        secondTeamTextFieldPickerView.setPlaceholder(with: "Team 2")
+        secondTeamTextFieldPickerView.setBackgroundColor(with: (Constants.secondColor?.withAlphaComponent(0.08))!)
+        
         view.addSubview(secondTeamTextFieldPickerView)
         secondTeamTextFieldPickerView.pinTop(to: secondTeamLabel.bottomAnchor, 5)
-        secondTeamTextFieldPickerView.pinHorizontal(to: view)
+        secondTeamTextFieldPickerView.pinHorizontal(to: view, 10)
         secondTeamTextFieldPickerView.setHeight(50)
     }
     
@@ -211,5 +221,43 @@ extension MatchViewController {
         continueButton.pinCenterX(to: view.centerXAnchor)
         continueButton.setHeight(60)
         continueButton.setWidth(200)
+    }
+}
+
+extension MatchViewController {
+    private func fetchDataForTeam1PickerView() {
+        firstTeamTextFieldPickerView.configureData(with: [
+            "FC Bususiky",
+            "Kuban' Peski",
+            "Memphis",
+            "CSAK",
+            "FC Mentality",
+            "FC Nika",
+            "FC Alligators",
+            "Vse Prosto",
+            "Golden Boys",
+            "FC Zvezda",
+            "Na Laki",
+            "CEM UNITED",
+            "KFC",
+        ])
+    }
+    
+    private func fetchDataForTeam2PickerView() {
+        firstTeamTextFieldPickerView.configureData(with: [
+            "FC Bususiky",
+            "Kuban' Peski",
+            "Memphis",
+            "CSAK",
+            "FC Mentality",
+            "FC Nika",
+            "FC Alligators",
+            "Vse Prosto",
+            "Golden Boys",
+            "FC Zvezda",
+            "Na Laki",
+            "CEM UNITED",
+            "KFC",
+        ])
     }
 }

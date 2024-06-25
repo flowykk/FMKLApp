@@ -76,7 +76,7 @@ extension RefereeCodeViewController {
         view.backgroundColor = Constants.popupColor
         
         configureRefereeCodeLabel()
-        configureNameField()
+        configureRefereeCodeField()
         configureRefereeWarningLabel()
         configureContinueButton()
     }
@@ -93,7 +93,7 @@ extension RefereeCodeViewController {
         refereeCodeLabel.pinCenterX(to: view.centerXAnchor)
     }
     
-    private func configureNameField() {
+    private func configureRefereeCodeField() {
         refereeCodeField.delegate = self
         
         refereeCodeField.backgroundColor = Constants.backgroundColor

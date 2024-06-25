@@ -21,6 +21,7 @@ final class RefereeCodePresenter {
             AlertHelper.showAlert(from: view, withTitle: "Error", message: "Referee code can't be empty!")
             return
         }
+        
         self.view?.mainVC?.presenter?.continueButtonTapped(for: code)
     }
 }

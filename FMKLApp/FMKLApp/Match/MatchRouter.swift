@@ -17,4 +17,15 @@ final class MatchRouter {
     func navigateToMain() {
         view?.navigationController?.popViewController(animated: true)
     }
+    
+    func presentAddGoalView() {
+        let vc = AddGoalBuilder.build()
+        vc.modalPresentationStyle = .custom
+        if let nc = view?.navigationController {
+            vc.viewDistanceTop = nc.navigationBar.frame.height + 10
+        }
+        
+        vc.matchVC = view as? MatchViewController
+        view?.present(vc, animated: true)
+    }
 }
