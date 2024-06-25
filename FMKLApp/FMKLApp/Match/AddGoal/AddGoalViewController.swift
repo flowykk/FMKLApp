@@ -12,8 +12,6 @@ final class AddGoalViewController: UIViewController {
     var matchVC: MatchViewController?
     var viewDistanceTop: CGFloat = 40
     
-    private let teams: [String] = [String]()
-    
     private let teamLabel: UILabel = UILabel()
     private let teamTextFieldPickerView: TextFieldPickerView = TextFieldPickerView()
     
@@ -64,10 +62,6 @@ final class AddGoalViewController: UIViewController {
         view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
         view.frame.origin.y = viewDistanceTop
         view.layer.cornerRadius = 40
-    }
-    
-    func setTeams(with teams: [String]) {
-        
     }
 }
 
@@ -280,7 +274,12 @@ extension AddGoalViewController {
 
 extension AddGoalViewController {
     private func fetchDataForTeamPickerView() {
-        teamTextFieldPickerView.configureData(with: teams)
+        teamTextFieldPickerView.configureData(with: [
+            "BUSUS", "KUBN", "MEMPH",
+            "CSAK", "MNTLT", "NIKA",
+            "ALLGRS", "VSPRST", "GLDB",
+            "ZVZD", "NLAK", "CEMUN", "KFC",
+        ])
     }
     
     private func fetchDataForScoredPlayerPickerView() {

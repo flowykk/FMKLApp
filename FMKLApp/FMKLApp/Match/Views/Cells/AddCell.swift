@@ -15,7 +15,6 @@ final class AddCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        selectionStyle = .none
         configureUI()
     }
     
@@ -31,10 +30,12 @@ final class AddCell: UITableViewCell {
 
 extension AddCell {
     private func configureUI() {
-        configureButtonLabel()
+        configureButton()
     }
     
-    private func configureButtonLabel() {
+    private func configureButton() {
+        selectionStyle = .none
+
         addButton.backgroundColor = Constants.accentColor
         addButton.layer.cornerRadius = 15
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
