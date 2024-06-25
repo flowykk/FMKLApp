@@ -7,6 +7,7 @@
 
 final class MatchPresenter {
     private weak var view: MatchViewController?
+    weak var goalsTableView: GoalsTableView?
     private var router: MatchRouter
     
     init(view: MatchViewController?, router: MatchRouter) {
@@ -32,5 +33,13 @@ final class MatchPresenter {
     
     func addGoalButtonTapped() {
         router.presentAddGoalView()
+    }
+    
+    func addGoalToTable(withGoal goal: Goal) {
+        if let addGoalVC = view?.presentedViewController {
+            addGoalVC.dismiss(animated: true)
+        }
+        
+        goalsTableView?.addRow(withGoal: goal)
     }
 }

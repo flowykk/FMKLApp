@@ -41,7 +41,16 @@ final class AddGoalViewController: UIViewController {
     
     @objc
     private func continueButtonTapped() {
-        print(22)
+        print(1)
+        
+        presenter?.continuteButtonTapped(
+            withGoal: Goal (
+                scoredTeamName: teamTextFieldPickerView.getTextFieldData(),
+                scoredPlayer: scoredPlayerTextFieldPickerView.getTextFieldData(),
+                assistedPlayer: assistedPlayerTextFieldPickerView.getTextFieldData(),
+                minute: Int(minuteField.text ?? "0") ?? -1
+            )
+        )
     }
     
     override func updateViewConstraints() {

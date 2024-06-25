@@ -60,11 +60,14 @@ class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         reloadData()
     }
     
-    func addRow(rowIndex: Int) {
-        presenter?.addGoalButtonTapped()
-        //goals.append(Goal(scoredTeamName: "NEW", scoredPlayer: "NEW", assistedPlayer: "NEW", minute: 0))
+    func addRow(withGoal goal: Goal) {
+        goals.append(goal)
         
         reloadData()
+    }
+    
+    private func addRow(rowIndex: Int) {
+        presenter?.addGoalButtonTapped()
     }
 }
 
@@ -117,7 +120,7 @@ extension GoalsTableView {
 extension GoalsTableView {
     func fetchData() {
         self.goals = [
-            //Goal(scoredTeamName: "BUSUS", scoredPlayer: "Rakhimov A.", assistedPlayer: "Filatov K.", minute: 14),
+            Goal(scoredTeamName: "BUSUS", scoredPlayer: "Rakhimov A.", assistedPlayer: "Filatov K.", minute: 14),
             Goal(scoredTeamName: "MEMPH", scoredPlayer: "Prostoyadin N.", assistedPlayer: "Smirnov I.", minute: 44)
         ]
         

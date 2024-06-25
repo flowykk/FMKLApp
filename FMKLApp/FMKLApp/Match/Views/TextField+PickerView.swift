@@ -35,6 +35,10 @@ final class TextFieldPickerView: UIView, UITextFieldDelegate {
     func setBackgroundColor(with color: UIColor) {
         teamTextField.backgroundColor = color
     }
+    
+    func getTextFieldData() -> String {
+        return teamTextField.text ?? ""
+    }
 }
 
 extension TextFieldPickerView {

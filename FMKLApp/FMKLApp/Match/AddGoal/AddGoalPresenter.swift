@@ -16,11 +16,20 @@ final class AddGoalPresenter {
         self.router = router
     }
     
-//    func continuteButtonTapped(code: String) {
-//        guard code != "" else {
-//            AlertHelper.showAlert(from: view, withTitle: "Error", message: "Referee code can't be empty!")
-//            return
-//        }
-//        self.view?.mainVC?.presenter?.continueButtonTapped(for: code)
-//    }
+    func continuteButtonTapped(withGoal goal: Goal) {
+        guard goal.scoredTeamName != "", 
+                goal.scoredPlayer != "",
+                goal.assistedPlayer != ""
+        else {
+            AlertHelper.showAlert(from: view, withTitle: "Error", message: "Data can't be empty!")
+            return
+        }
+        
+        guard goal.minute > 0 else {
+            AlertHelper.showAlert(from: view, withTitle: "Error", message: "Match's minute must be a positive number!")
+            return
+        }
+        
+        self.view?.matchVC?.presenter?.addGoalToTable(withGoal: goal)
+    }
 }
