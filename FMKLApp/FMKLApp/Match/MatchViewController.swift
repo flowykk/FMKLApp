@@ -130,9 +130,12 @@ extension MatchViewController {
     }
     
     private func configureFirstTeamTextFieldPickerView() {
+        firstTeamTextFieldPickerView.setPlaceholder(with: "Team 1")
+        firstTeamTextFieldPickerView.setBackgroundColor(with: (Constants.secondColor?.withAlphaComponent(0.08))!)
+        
         view.addSubview(firstTeamTextFieldPickerView)
         firstTeamTextFieldPickerView.pinTop(to: firstTeamLabel.bottomAnchor, 5)
-        firstTeamTextFieldPickerView.pinHorizontal(to: view)
+        firstTeamTextFieldPickerView.pinHorizontal(to: view, 10)
         firstTeamTextFieldPickerView.setHeight(50)
     }
     
@@ -147,9 +150,12 @@ extension MatchViewController {
     }
     
     private func configureSecondTeamTextFieldPickerView() {
+        secondTeamTextFieldPickerView.setPlaceholder(with: "Team 2")
+        secondTeamTextFieldPickerView.setBackgroundColor(with: (Constants.secondColor?.withAlphaComponent(0.08))!)
+        
         view.addSubview(secondTeamTextFieldPickerView)
         secondTeamTextFieldPickerView.pinTop(to: secondTeamLabel.bottomAnchor, 5)
-        secondTeamTextFieldPickerView.pinHorizontal(to: view)
+        secondTeamTextFieldPickerView.pinHorizontal(to: view, 10)
         secondTeamTextFieldPickerView.setHeight(50)
     }
     

@@ -12,6 +12,20 @@ final class AddGoalViewController: UIViewController {
     var matchVC: MatchViewController?
     var viewDistanceTop: CGFloat = 40
     
+    private let teamLabel: UILabel = UILabel()
+    private let teamTextFieldPickerView: TextFieldPickerView = TextFieldPickerView()
+    
+    private let scoredPlayerLabel: UILabel = UILabel()
+    private let scoredPlayerTextFieldPickerView: TextFieldPickerView = TextFieldPickerView()
+    
+    private let assistedPlayerLabel: UILabel = UILabel()
+    private let assistedPlayerTextFieldPickerView: TextFieldPickerView = TextFieldPickerView()
+    
+    private let minuteLabel: UILabel = UILabel()
+    private let minuteField: UITextField = UITextField()
+    
+    private let continueButton: UIButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -20,11 +34,14 @@ final class AddGoalViewController: UIViewController {
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         view.addGestureRecognizer(panGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc
     private func continueButtonTapped() {
-        //presenter?.continuteButtonTapped(code: refereeCodeField.text ?? "")
+        print(22)
     }
     
     override func updateViewConstraints() {
@@ -41,12 +58,164 @@ extension AddGoalViewController: UITextFieldDelegate {
         continueButtonTapped()
         return false
     }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        adjustButtonForKeyboard(notification: notification, show: true)
+    }
+
+    @objc func keyboardWillHide(_ notification: Notification) {
+        adjustButtonForKeyboard(notification: notification, show: false)
+    }
+    
+    func adjustButtonForKeyboard(notification: Notification, show: Bool) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+        
+        let keyboardHeight = keyboardFrame.height
+        
+        UIView.animate(withDuration: 0.3) {
+            self.continueButton.transform = show ? CGAffineTransform(translationX: 0, y: -keyboardHeight) : .identity
+        }
+    }
 }
 
 // MARK: - UI Configuration
 extension AddGoalViewController {
     private func configureUI() {
         view.backgroundColor = Constants.popupColor
+        
+        configureTeamLabel()
+        configureTeamTextFieldPickerView()
+        
+        configureScoredPlayerLabel()
+        configureScoredPlayerTextFieldPickerView()
+        
+        configureAssistedPlayerLabel()
+        configureAssistedPlayerTextFieldPickerView()
+        
+        configureMinuteLabel()
+        configureMinuteField()
+
+        configureContinueButton()
+    }
+    
+    private func configureTeamLabel() {
+        teamLabel.text = "Select scored team"
+        teamLabel.font = UIFont(name: "Jellee-Roman", size: 17)
+        teamLabel.textColor = Constants.secondColor
+
+        teamLabel.halfTextColorChange(fullText: teamLabel.text!, changeText: "scored")
+        
+        view.addSubview(teamLabel)
+        teamLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 15)
+        teamLabel.pinCenterX(to: view.centerXAnchor)
+    }
+    
+    private func configureTeamTextFieldPickerView() {
+        teamTextFieldPickerView.setPlaceholder(with: "Team")
+        teamTextFieldPickerView.setBackgroundColor(with: Constants.backgroundColor!)
+        
+        view.addSubview(teamTextFieldPickerView)
+        teamTextFieldPickerView.pinTop(to: teamLabel.bottomAnchor, 5)
+        teamTextFieldPickerView.pinHorizontal(to: view, 20)
+        teamTextFieldPickerView.setHeight(50)
+    }
+    
+    private func configureScoredPlayerLabel() {
+        scoredPlayerLabel.text = "Select scored player"
+        scoredPlayerLabel.font = UIFont(name: "Jellee-Roman", size: 17)
+        scoredPlayerLabel.textColor = Constants.secondColor
+
+        scoredPlayerLabel.halfTextColorChange(fullText: scoredPlayerLabel.text!, changeText: "scored")
+        
+        view.addSubview(scoredPlayerLabel)
+        scoredPlayerLabel.pinTop(to: teamTextFieldPickerView.bottomAnchor, 15)
+        scoredPlayerLabel.pinCenterX(to: view.centerXAnchor)
+    }
+    
+    private func configureScoredPlayerTextFieldPickerView() {
+        scoredPlayerTextFieldPickerView.setPlaceholder(with: "Player P.")
+        scoredPlayerTextFieldPickerView.setBackgroundColor(with: Constants.backgroundColor!)
+        
+        view.addSubview(scoredPlayerTextFieldPickerView)
+        scoredPlayerTextFieldPickerView.pinTop(to: scoredPlayerLabel.bottomAnchor, 5)
+        scoredPlayerTextFieldPickerView.pinHorizontal(to: view, 20)
+        scoredPlayerTextFieldPickerView.setHeight(50)
+    }
+    
+    private func configureAssistedPlayerLabel() {
+        assistedPlayerLabel.text = "Select assisted player"
+        assistedPlayerLabel.font = UIFont(name: "Jellee-Roman", size: 17)
+        assistedPlayerLabel.textColor = Constants.secondColor
+
+        assistedPlayerLabel.halfTextColorChange(fullText: assistedPlayerLabel.text!, changeText: "assisted")
+        
+        view.addSubview(assistedPlayerLabel)
+        assistedPlayerLabel.pinTop(to: scoredPlayerTextFieldPickerView.bottomAnchor, 15)
+        assistedPlayerLabel.pinCenterX(to: view.centerXAnchor)
+    }
+    
+    private func configureAssistedPlayerTextFieldPickerView() {
+        assistedPlayerTextFieldPickerView.setPlaceholder(with: "Player P.")
+        assistedPlayerTextFieldPickerView.setBackgroundColor(with: Constants.backgroundColor!)
+        
+        view.addSubview(assistedPlayerTextFieldPickerView)
+        assistedPlayerTextFieldPickerView.pinTop(to: assistedPlayerLabel.bottomAnchor, 5)
+        assistedPlayerTextFieldPickerView.pinHorizontal(to: view, 20)
+        assistedPlayerTextFieldPickerView.setHeight(50)
+    }
+    
+    private func configureMinuteLabel() {
+        minuteLabel.text = "Enter match minute"
+        minuteLabel.font = UIFont(name: "Jellee-Roman", size: 17)
+        minuteLabel.textColor = Constants.secondColor
+
+        minuteLabel.halfTextColorChange(fullText: minuteLabel.text!, changeText: "minute")
+        
+        view.addSubview(minuteLabel)
+        minuteLabel.pinTop(to: assistedPlayerTextFieldPickerView.bottomAnchor, 15)
+        minuteLabel.pinCenterX(to: view.centerXAnchor)
+    }
+    
+    private func configureMinuteField() {
+        minuteField.delegate = self
+        
+        minuteField.backgroundColor = Constants.backgroundColor
+        minuteField.placeholder = "10"
+        minuteField.font = UIFont(name: "Jellee-Roman", size: 18)
+        minuteField.textColor = Constants.secondColor
+        minuteField.layer.cornerRadius = 15
+        minuteField.returnKeyType = .done
+        
+        minuteField.autocapitalizationType = .none
+        minuteField.autocorrectionType = .no
+        
+        minuteField.leftView = UIView(frame: CGRect(x: .zero, y: .zero, width: 20, height: 50))
+        minuteField.rightView = UIView(frame: CGRect(x: .zero, y: .zero, width: 20, height: 50))
+        minuteField.leftViewMode = .always
+        minuteField.rightViewMode = .always
+        
+        view.addSubview(minuteField)
+        minuteField.pinHorizontal(to: view, 20)
+        minuteField.setHeight(50)
+        minuteField.pinTop(to: minuteLabel.bottomAnchor, 5)
+        minuteField.pinCenterX(to: view.centerXAnchor)
+    }
+    
+    private func configureContinueButton() {
+        continueButton.setTitle("Continue", for: .normal)
+        continueButton.setTitleColor(Constants.backgroundColor, for: .normal)
+        continueButton.titleLabel?.font = UIFont(name: "Jellee-Roman", size: 20)
+        continueButton.layer.cornerRadius = 30
+        continueButton.backgroundColor = Constants.accentColor
+        
+        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        
+        view.addSubview(continueButton)
+        continueButton.pinBottom(to: view.bottomAnchor, 17)
+        continueButton.pinCenterX(to: view.centerXAnchor)
+        continueButton.setHeight(60)
+        continueButton.setWidth(200)
     }
 }
 

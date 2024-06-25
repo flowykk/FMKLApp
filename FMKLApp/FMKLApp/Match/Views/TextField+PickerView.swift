@@ -27,6 +27,14 @@ final class TextFieldPickerView: UIView, UITextFieldDelegate {
         fetchData()
         configureUI()
     }
+    
+    func setPlaceholder(with placeholder: String) {
+        teamTextField.placeholder = placeholder
+    }
+    
+    func setBackgroundColor(with color: UIColor) {
+        teamTextField.backgroundColor = color
+    }
 }
 
 extension TextFieldPickerView {
@@ -38,8 +46,6 @@ extension TextFieldPickerView {
     private func configureTeamTextField() {
         teamTextField.delegate = self
         
-        teamTextField.placeholder = "Tap to select"
-        teamTextField.backgroundColor = Constants.secondColor?.withAlphaComponent(0.08)
         teamTextField.font = UIFont(name: "Jellee-Roman", size: 18)
         teamTextField.textColor = Constants.secondColor
         teamTextField.layer.cornerRadius = 15
@@ -55,9 +61,8 @@ extension TextFieldPickerView {
         teamTextField.rightViewMode = .always
         
         addSubview(teamTextField)
-        teamTextField.pinHorizontal(to: self, 10)
-        teamTextField.setHeight(50)
-        teamTextField.pinTop(to: self.topAnchor, 5)
+        teamTextField.pinVertical(to: self)
+        teamTextField.pinHorizontal(to: self)
         teamTextField.pinCenterX(to: self.centerXAnchor)
     }
     
