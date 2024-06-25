@@ -1,5 +1,5 @@
 //
-//  AddGoalPresenter.swift
+//  AddCardPresenter.swift
 //  FMKLApp
 //
 //  Created by Данила Рахманов on 25.06.2024.
@@ -7,27 +7,26 @@
 
 import UIKit
 
-final class AddGoalPresenter {
-    private weak var view: AddGoalViewController?
+final class AddCardPresenter {
+    private weak var view: AddCardViewController?
     
-    init(view: AddGoalViewController?) {
+    init(view: AddCardViewController?) {
         self.view = view
     }
     
-    func continuteButtonTapped(withGoal goal: Goal) {
-        guard goal.scoredTeamName != "", 
-                goal.scoredPlayer != "",
-                goal.assistedPlayer != ""
+    func continuteButtonTapped(withCard card: PlayerCard) {
+        guard card.player != "",
+              card.team != ""
         else {
             AlertHelper.showAlert(from: view, withTitle: "Error", message: "Data can't be empty!")
             return
         }
         
-        guard goal.minute > 0 else {
+        guard card.minute > 0 else {
             AlertHelper.showAlert(from: view, withTitle: "Error", message: "Match's minute must be a positive number!")
             return
         }
         
-        self.view?.matchVC?.presenter?.addGoalToTable(withGoal: goal)
+        self.view?.matchVC?.presenter?.addCardToTable(withCard: card)
     }
 }

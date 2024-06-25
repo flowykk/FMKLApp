@@ -10,8 +10,7 @@ import Foundation
 final class AddGoalBuilder {
     static func build() -> AddGoalViewController {
         let viewController = AddGoalViewController()
-        let router = AddGoalRouter(view: viewController)
-        let presenter = AddGoalPresenter(view: viewController, router: router)
+        let presenter = AddGoalPresenter(view: viewController)
         
         viewController.presenter = presenter
         

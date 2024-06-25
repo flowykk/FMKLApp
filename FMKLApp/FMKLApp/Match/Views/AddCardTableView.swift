@@ -8,6 +8,8 @@
 import UIKit
 
 class AddCardTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+    weak var presenter: MatchPresenter?
+    
     private var playersCards: [PlayerCard] = []
     
     enum CellType {
@@ -58,10 +60,14 @@ class AddCardTableView: UITableView, UITableViewDelegate, UITableViewDataSource 
         reloadData()
     }
     
-    func addRow(rowIndex: Int) {
-        playersCards.append(PlayerCard(player: "Filatov K.", team: "BUSUS", minute: 54, isCardRed: true))
+    func addRow(withCard card: PlayerCard) {
+        playersCards.append(card)
         
         reloadData()
+    }
+    
+    func addRow(rowIndex: Int) {
+        presenter?.addCardButtonTapped()        
     }
 }
 
@@ -114,8 +120,7 @@ extension AddCardTableView {
 extension AddCardTableView {
     func fetchData() {
         self.playersCards = [
-            PlayerCard(player: "Filatov K.", team: "BUSUS", minute: 1, isCardRed: true),
-            PlayerCard(player: "Prostoryadin N.", team: "MEMPH", minute: 65, isCardRed: false)
+            PlayerCard(team: "TEAM", player: "Example E.", minute: 10, isCardRed: true)
         ]
         
         DispatchQueue.main.async {

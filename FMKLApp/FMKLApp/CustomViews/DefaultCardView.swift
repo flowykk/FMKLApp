@@ -24,8 +24,6 @@ class DefaultCardView: UIView {
     public func set(isRed: Bool) {
         card.backgroundColor = isRed ? Constants.redCardColor : Constants.yellowCardColor
         card.layer.borderColor = Constants.secondColor?.cgColor
-        
-        setWidth(20)
     }
 }
 
@@ -38,7 +36,7 @@ extension DefaultCardView {
         card.layer.cornerRadius = 5
         
         self.addSubview(card)
-        card.pinLeft(to: self, 0)
+        card.pinCenterX(to: self)
         card.setWidth(20)
         card.setHeight(30)
         card.pinCenterY(to: self)

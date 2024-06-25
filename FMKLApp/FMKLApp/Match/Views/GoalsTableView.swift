@@ -120,8 +120,7 @@ extension GoalsTableView {
 extension GoalsTableView {
     func fetchData() {
         self.goals = [
-            Goal(scoredTeamName: "BUSUS", scoredPlayer: "Rakhimov A.", assistedPlayer: "Filatov K.", minute: 14),
-            Goal(scoredTeamName: "MEMPH", scoredPlayer: "Prostoyadin N.", assistedPlayer: "Smirnov I.", minute: 44)
+            Goal(scoredTeamName: "TEAM", scoredPlayer: "SExample P.", assistedPlayer: "AExample E.", minute: 10)
         ]
         
         DispatchQueue.main.async {
