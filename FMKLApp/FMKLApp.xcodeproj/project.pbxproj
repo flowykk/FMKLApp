@@ -27,8 +27,10 @@
 		0D3438502BFE62F2000B20CC /* (null) in Sources */ = {isa = PBXBuildFile; };
 		0D46AC042C2ABB8F00DAC7FA /* AddGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D46AC032C2ABB8F00DAC7FA /* AddGoalViewController.swift */; };
 		0D46AC062C2ABBC700DAC7FA /* AddGoalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D46AC052C2ABBC700DAC7FA /* AddGoalPresenter.swift */; };
-		0D46AC082C2ABBFC00DAC7FA /* AddGoalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D46AC072C2ABBFC00DAC7FA /* AddGoalRouter.swift */; };
 		0D46AC0A2C2ABC2000DAC7FA /* AddGoalBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D46AC092C2ABC2000DAC7FA /* AddGoalBuilder.swift */; };
+		0D46AC0D2C2B096400DAC7FA /* AddCardBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D46AC0C2C2B096400DAC7FA /* AddCardBuilder.swift */; };
+		0D46AC112C2B098800DAC7FA /* AddCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D46AC102C2B098800DAC7FA /* AddCardPresenter.swift */; };
+		0D46AC132C2B098F00DAC7FA /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D46AC122C2B098F00DAC7FA /* AddCardViewController.swift */; };
 		0D4F98082BF8BA2200E82383 /* PlayersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F98072BF8BA2200E82383 /* PlayersTableView.swift */; };
 		0D4F980A2BF8BA3200E82383 /* PlayerStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F98092BF8BA3200E82383 /* PlayerStatsCell.swift */; };
 		0D4F980C2BF8BA6200E82383 /* PlayerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F980B2BF8BA6200E82383 /* PlayerStats.swift */; };
@@ -104,8 +106,10 @@
 		0D34383D2BFE249E000B20CC /* PreviewAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewAvatarViewController.swift; sourceTree = "<group>"; };
 		0D46AC032C2ABB8F00DAC7FA /* AddGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalViewController.swift; sourceTree = "<group>"; };
 		0D46AC052C2ABBC700DAC7FA /* AddGoalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalPresenter.swift; sourceTree = "<group>"; };
-		0D46AC072C2ABBFC00DAC7FA /* AddGoalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalRouter.swift; sourceTree = "<group>"; };
 		0D46AC092C2ABC2000DAC7FA /* AddGoalBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalBuilder.swift; sourceTree = "<group>"; };
+		0D46AC0C2C2B096400DAC7FA /* AddCardBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardBuilder.swift; sourceTree = "<group>"; };
+		0D46AC102C2B098800DAC7FA /* AddCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardPresenter.swift; sourceTree = "<group>"; };
+		0D46AC122C2B098F00DAC7FA /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		0D4F98072BF8BA2200E82383 /* PlayersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableView.swift; sourceTree = "<group>"; };
 		0D4F98092BF8BA3200E82383 /* PlayerStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsCell.swift; sourceTree = "<group>"; };
 		0D4F980B2BF8BA6200E82383 /* PlayerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStats.swift; sourceTree = "<group>"; };
@@ -195,10 +199,19 @@
 			children = (
 				0D46AC092C2ABC2000DAC7FA /* AddGoalBuilder.swift */,
 				0D46AC052C2ABBC700DAC7FA /* AddGoalPresenter.swift */,
-				0D46AC072C2ABBFC00DAC7FA /* AddGoalRouter.swift */,
 				0D46AC032C2ABB8F00DAC7FA /* AddGoalViewController.swift */,
 			);
 			path = AddGoal;
+			sourceTree = "<group>";
+		};
+		0D46AC0B2C2B095400DAC7FA /* AddCard */ = {
+			isa = PBXGroup;
+			children = (
+				0D46AC0C2C2B096400DAC7FA /* AddCardBuilder.swift */,
+				0D46AC102C2B098800DAC7FA /* AddCardPresenter.swift */,
+				0D46AC122C2B098F00DAC7FA /* AddCardViewController.swift */,
+			);
+			path = AddCard;
 			sourceTree = "<group>";
 		};
 		0D4F30F22C04B1CB0053E5D5 /* Views */ = {
@@ -244,6 +257,7 @@
 		0DCFF96E2C064C4200DA858A /* Match */ = {
 			isa = PBXGroup;
 			children = (
+				0D46AC0B2C2B095400DAC7FA /* AddCard */,
 				0D46AC022C2ABB7500DAC7FA /* AddGoal */,
 				0D6A5C352C22274B0055178A /* Views */,
 				0DCFF96A2C064C4200DA858A /* MatchBuilder.swift */,
@@ -529,12 +543,14 @@
 				0DE704212BF6564B00315374 /* MainBuilder.swift in Sources */,
 				0DE7044E2BF6912000315374 /* RefereeView.swift in Sources */,
 				0DE7044B2BF669F700315374 /* UILabelExtension.swift in Sources */,
+				0D46AC0D2C2B096400DAC7FA /* AddCardBuilder.swift in Sources */,
 				0D28F9A22C245774004FEB07 /* SocialMediaButton.swift in Sources */,
 				0DE704372BF65E9A00315374 /* AppIconCollectionView.swift in Sources */,
 				0D6A5C3A2C2230B50055178A /* GoalsTableView.swift in Sources */,
 				0DE7043A2BF65EB800315374 /* AppIcon.swift in Sources */,
 				0D34383C2BFE2490000B20CC /* PreviewAvatarRouter.swift in Sources */,
 				0DCFF9702C064C4200DA858A /* MatchPresenter.swift in Sources */,
+				0D46AC112C2B098800DAC7FA /* AddCardPresenter.swift in Sources */,
 				0DE704552BF7C9AA00315374 /* TeamGamesStats.swift in Sources */,
 				0DE7041F2BF6564500315374 /* MainViewController.swift in Sources */,
 				0D2E65232C2312FE00704C1D /* AlertHelper.swift in Sources */,
@@ -580,9 +596,9 @@
 				0DE704502BF7C88900315374 /* GamesStatsTableView.swift in Sources */,
 				0D3438452BFE5BBE000B20CC /* (null) in Sources */,
 				0DDB12DF2BFBB0A300ADA2D1 /* RefereeCodePresenter.swift in Sources */,
-				0D46AC082C2ABBFC00DAC7FA /* AddGoalRouter.swift in Sources */,
 				0DE704252BF6566100315374 /* MainRouter.swift in Sources */,
 				0DE7042C2BF6574400315374 /* SettingsPresenter.swift in Sources */,
+				0D46AC132C2B098F00DAC7FA /* AddCardViewController.swift in Sources */,
 				0D46AC042C2ABB8F00DAC7FA /* AddGoalViewController.swift in Sources */,
 				0DE704192BF655DF00315374 /* CustomTransitioning.swift in Sources */,
 				0DDB12D62BFA426F00ADA2D1 /* TeamPresenter.swift in Sources */,

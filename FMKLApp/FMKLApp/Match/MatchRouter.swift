@@ -28,4 +28,15 @@ final class MatchRouter {
         vc.matchVC = view as? MatchViewController
         view?.present(vc, animated: true)
     }
+    
+    func presentAddCardView() {
+        let vc = AddCardBuilder.build()
+        vc.modalPresentationStyle = .custom
+        if let nc = view?.navigationController {
+            vc.viewDistanceTop = nc.navigationBar.frame.height + 10
+        }
+        
+        vc.matchVC = view as? MatchViewController
+        view?.present(vc, animated: true)
+    }
 }

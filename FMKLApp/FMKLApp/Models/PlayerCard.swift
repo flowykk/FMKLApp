@@ -8,8 +8,8 @@
 import Foundation
 
 struct PlayerCard {
-    var player: String
     var team: String
+    var player: String
     var minute: Int
     var isCardRed: Bool
 }

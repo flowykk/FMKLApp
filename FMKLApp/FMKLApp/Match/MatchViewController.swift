@@ -36,6 +36,9 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
         goalsTableView.presenter = presenter
         presenter?.goalsTableView = goalsTableView
         
+        cardsTableView.presenter = presenter
+        presenter?.cardsTableView = cardsTableView
+        
         fetchDataForTeam1PickerView()
         fetchDataForTeam2PickerView()
         
