@@ -9,9 +9,7 @@ import UIKit
 
 final class MatchViewController: UIViewController, UITextFieldDelegate {
     var presenter: MatchPresenter?
-    
-    private let teams = ["FC Bususiky", "Memphis"]
-    
+        
     private let titleView: UILabel = UILabel()
     
     private let refereeWarningLabel: UILabel = UILabel()
@@ -37,6 +35,9 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
         
         goalsTableView.presenter = presenter
         presenter?.goalsTableView = goalsTableView
+        
+        fetchDataForTeam1PickerView()
+        fetchDataForTeam2PickerView()
         
         configureUI()
     }
@@ -220,5 +221,43 @@ extension MatchViewController {
         continueButton.pinCenterX(to: view.centerXAnchor)
         continueButton.setHeight(60)
         continueButton.setWidth(200)
+    }
+}
+
+extension MatchViewController {
+    private func fetchDataForTeam1PickerView() {
+        firstTeamTextFieldPickerView.configureData(with: [
+            "FC Bususiky",
+            "Kuban' Peski",
+            "Memphis",
+            "CSAK",
+            "FC Mentality",
+            "FC Nika",
+            "FC Alligators",
+            "Vse Prosto",
+            "Golden Boys",
+            "FC Zvezda",
+            "Na Laki",
+            "CEM UNITED",
+            "KFC",
+        ])
+    }
+    
+    private func fetchDataForTeam2PickerView() {
+        firstTeamTextFieldPickerView.configureData(with: [
+            "FC Bususiky",
+            "Kuban' Peski",
+            "Memphis",
+            "CSAK",
+            "FC Mentality",
+            "FC Nika",
+            "FC Alligators",
+            "Vse Prosto",
+            "Golden Boys",
+            "FC Zvezda",
+            "Na Laki",
+            "CEM UNITED",
+            "KFC",
+        ])
     }
 }

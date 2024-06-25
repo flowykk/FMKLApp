@@ -12,6 +12,8 @@ final class AddGoalViewController: UIViewController {
     var matchVC: MatchViewController?
     var viewDistanceTop: CGFloat = 40
     
+    private let teams: [String] = [String]()
+    
     private let teamLabel: UILabel = UILabel()
     private let teamTextFieldPickerView: TextFieldPickerView = TextFieldPickerView()
     
@@ -30,6 +32,10 @@ final class AddGoalViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
     
+        fetchDataForTeamPickerView()
+        fetchDataForScoredPlayerPickerView()
+        fetchDataForAssistedPlayerPickerView()
+        
         configureUI()
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
@@ -58,6 +64,10 @@ final class AddGoalViewController: UIViewController {
         view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
         view.frame.origin.y = viewDistanceTop
         view.layer.cornerRadius = 40
+    }
+    
+    func setTeams(with teams: [String]) {
+        
     }
 }
 
@@ -265,5 +275,30 @@ extension AddGoalViewController {
         default:
             break
         }
+    }
+}
+
+extension AddGoalViewController {
+    private func fetchDataForTeamPickerView() {
+        teamTextFieldPickerView.configureData(with: teams)
+    }
+    
+    private func fetchDataForScoredPlayerPickerView() {
+        scoredPlayerTextFieldPickerView.configureData(with: [
+            "Rakhimov A.",
+            "Nachinkin I.",
+            "Martynov D.",
+            "Filatov K.."
+        ])
+    }
+    
+    private func fetchDataForAssistedPlayerPickerView() {
+        assistedPlayerTextFieldPickerView.configureData(with: [
+            "Rakhimov A.",
+            "Nachinkin I.",
+            "Martynov D.",
+            "Filatov K.",
+            "Karachev E."
+        ])
     }
 }
