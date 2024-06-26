@@ -22,7 +22,6 @@ final class AppTagView: UIView {
     
     private func commonInit() {
         gradientLayer.colors = [UIColor.systemCyan.cgColor, UIColor.systemRed.cgColor]
-        //layer.addSublayer(gradientLayer)
         
         configureUI()
     }

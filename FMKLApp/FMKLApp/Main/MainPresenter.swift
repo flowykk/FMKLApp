@@ -31,11 +31,6 @@ final class MainPresenter {
     }
     
     func continueButtonTapped(for code: String) {
-//        guard code != "" else {
-//            AlertHelper.showAlert(from: view, withTitle: "Error", message: "Code can't be empty!")
-//            return
-//        }
-        
         router.navigateToMatchSettings()
     }
 }

@@ -78,8 +78,7 @@ extension AddCardCell {
     private func configureViewsTexts() {
         configureViewText(in: teamNameView, withLabel: teamNameLabel)
         configureViewText(in: minuteView, withLabel: minuteLabel)
-        //configureViewText(in: PlayerNameView, withLabel: PlayerNameLabel)
-        
+
         PlayerNameLabel.font = UIFont(name: "Jellee-Roman", size: 14)
         
         PlayerNameView.addSubview(PlayerNameLabel)

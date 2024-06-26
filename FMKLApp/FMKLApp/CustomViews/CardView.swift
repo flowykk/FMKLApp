@@ -36,8 +36,6 @@ extension CardView {
     private func configureUI() {
         configureCard()
         configureCount()
-        
-        //configureView()
     }
     
     private func configureCard() {

@@ -34,7 +34,6 @@ final class RefereeView: UIView {
     
     @objc
     private func goButtonTapped() {
-        // print(1)
     }
 }
 
