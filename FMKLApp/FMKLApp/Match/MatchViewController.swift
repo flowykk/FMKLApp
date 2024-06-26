@@ -249,7 +249,7 @@ extension MatchViewController {
     }
     
     private func fetchDataForTeam2PickerView() {
-        firstTeamTextFieldPickerView.configureData(with: [
+        secondTeamTextFieldPickerView.configureData(with: [
             "FC Bususiky",
             "Kuban' Peski",
             "Memphis",
