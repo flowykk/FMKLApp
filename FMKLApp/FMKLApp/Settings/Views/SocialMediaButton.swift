@@ -21,7 +21,9 @@ final class SocialMediaButton: UIButton {
 
         configureUI()
     }
-    
+}
+
+extension SocialMediaButton {
     func set(text: String) {
         setTitle(text, for: .normal)
     }

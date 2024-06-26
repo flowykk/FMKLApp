@@ -22,7 +22,9 @@ final class PrimaryTableView: UITableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+extension PrimaryTableView {
     private func commonInit() {
         delegate = self
         dataSource = self

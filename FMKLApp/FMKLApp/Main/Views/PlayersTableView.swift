@@ -26,7 +26,9 @@ final class PlayersTableView: UITableView, UITableViewDelegate, UITableViewDataS
         loadData(dataNumber: dataNumber)
         configure()
     }
-    
+}
+
+extension PlayersTableView {
     private func loadData(dataNumber: Int) {
         if dataNumber == 1 {
             fetchData1()

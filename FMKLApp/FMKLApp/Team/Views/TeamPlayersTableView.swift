@@ -28,7 +28,9 @@ final class TeamPlayersTableView: UITableView, UITableViewDelegate, UITableViewD
         fetchData()
         configure()
     }
-        
+}
+
+extension TeamPlayersTableView {
     private func configure() {
         backgroundColor = Constants.backgroundColor
         delegate = self

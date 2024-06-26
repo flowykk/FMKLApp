@@ -53,7 +53,9 @@ final class AddCardCell: UITableViewCell {
         
         teamNameView.backgroundColor        = Constants.accentColor
     }
-    
+}
+
+extension AddCardCell {
     @objc
     private func deleteRowButtonTapped() {
         deleteButtonTapAction?()

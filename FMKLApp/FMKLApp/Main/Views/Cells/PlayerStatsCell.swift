@@ -15,7 +15,7 @@ final class PlayerStatsCell: UITableViewCell {
     
     private let playerNameView: UIView = UIView()
     private let playerNameLabel: UILabel = UILabel()
-        
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -31,7 +31,9 @@ final class PlayerStatsCell: UITableViewCell {
         
         configureCorners()
     }
-    
+}
+
+extension PlayerStatsCell {
     func set(playerPlace: Int, playerStats: PlayerStats) {
         playerPlaceLabel.text     = String(playerPlace)
         pointsLabel.text        = String(playerStats.points)

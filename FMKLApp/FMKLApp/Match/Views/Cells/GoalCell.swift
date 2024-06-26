@@ -53,7 +53,9 @@ final class GoalCell: UITableViewCell {
         
         teamNameView.backgroundColor = Constants.accentColor
     }
-    
+}
+
+extension GoalCell {
     @objc
     private func deleteRowButtonTapped() {
         deleteButtonTapAction?()

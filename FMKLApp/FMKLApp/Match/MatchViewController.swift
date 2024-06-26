@@ -44,7 +44,9 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
         
         configureUI()
     }
-    
+}
+
+extension MatchViewController {
     @objc
     private func backButtonTapped() {
         presenter?.backButtonTapped()

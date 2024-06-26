@@ -38,7 +38,9 @@ final class PlayerCell: UITableViewCell {
         
         configureCorners()
     }
-    
+}
+
+extension PlayerCell {
     func set(playerNumber: Int, player: Player) {
         teamPlaceLabel.text     = String(playerNumber)
         rankLabel.text          = player.rank

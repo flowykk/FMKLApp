@@ -45,6 +45,15 @@ final class AddCardViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
+        view.frame.origin.y = viewDistanceTop
+        view.layer.cornerRadius = 40
+    }
+}
+
+extension AddCardViewController {
     @objc
     private func continueButtonTapped() {
         presenter?.continuteButtonTapped(
@@ -73,13 +82,6 @@ final class AddCardViewController: UIViewController {
         isRedCardSelected = false
         redCardButton.layer.borderWidth = 0
         yellowCardButton.layer.borderWidth = 3
-    }
-    
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
-        view.frame.origin.y = viewDistanceTop
-        view.layer.cornerRadius = 40
     }
 }
 

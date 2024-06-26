@@ -21,7 +21,9 @@ final class AddCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+extension AddCell {
     @objc
     private func addButtonTapped() {
         addButtonTapAction?()

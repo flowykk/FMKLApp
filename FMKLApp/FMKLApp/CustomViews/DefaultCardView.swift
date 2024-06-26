@@ -19,7 +19,9 @@ final class DefaultCardView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+extension DefaultCardView {
     public func set(isRed: Bool) {
         card.backgroundColor = isRed ? Constants.redCardColor : Constants.yellowCardColor
         card.layer.borderColor = Constants.secondColor?.cgColor

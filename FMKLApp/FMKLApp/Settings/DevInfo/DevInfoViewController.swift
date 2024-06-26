@@ -35,7 +35,9 @@ final class DevInfoViewController: UIViewController {
         view.frame.origin.y = UIScreen.main.bounds.height - viewDistanceTop
         view.layer.cornerRadius = 40
     }
-    
+}
+
+extension DevInfoViewController {
     @objc
     private func instButtonTapped() {
         presenter?.instButtonTapped()

@@ -32,7 +32,9 @@ final class CardCell: UITableViewCell {
         
         configureCorners()
     }
-    
+}
+
+extension CardCell {
     func set(playerCards: PlayerCards) {
         playerNameLabel.text        = playerCards.player
         redCard.set(isRed: true, count: playerCards.redCards)

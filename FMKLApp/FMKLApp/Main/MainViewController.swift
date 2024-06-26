@@ -73,7 +73,9 @@ final class MainViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         appTag.isHidden = true
     }
-    
+}
+
+extension MainViewController {
     @objc
     private func settingsButtonTapped() {
         presenter?.settingsButtonTapped()

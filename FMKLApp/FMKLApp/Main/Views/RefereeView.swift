@@ -31,9 +31,12 @@ final class RefereeView: UIView {
         leftView.roundCorners(topLeft: 15, topRight: 5, bottomRight: 5, bottomLeft: 15)
         goButton.roundCorners(topLeft: 5, topRight: 15, bottomRight: 15, bottomLeft: 5)
     }
-    
+}
+
+extension RefereeView {
     @objc
     private func goButtonTapped() {
+        
     }
 }
 

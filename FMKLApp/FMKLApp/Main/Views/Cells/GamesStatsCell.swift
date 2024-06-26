@@ -50,7 +50,9 @@ final class GamesStatsCell: UITableViewCell {
         
         configureCorners()
     }
-    
+}
+
+extension GamesStatsCell {
     func set(teamPlace: Int, teamStats: TeamGamesStats) {
         teamPlaceLabel.text     = String(teamPlace)
         pointsLabel.text        = String(teamStats.points)

@@ -34,13 +34,16 @@ final class TeamViewController: UIViewController {
         configureUI()
         configureTapGesture()
     }
-    
+}
+
+extension TeamViewController {
     @objc
     private func backButtonTapped() {
         presenter?.backButtonTapped()
     }
     
-    @objc func navigationBarTapped(_ sender: UITapGestureRecognizer){
+    @objc
+    private func navigationBarTapped(_ sender: UITapGestureRecognizer){
         let location = sender.location(in: self.navigationController?.navigationBar)
         let hitView = self.navigationController?.navigationBar.hitTest(location, with: nil)
 
@@ -48,10 +51,8 @@ final class TeamViewController: UIViewController {
 
         presenter?.goToAvatarPreview(with: UIImage(named: shortTeamName!)!)
     }
-}
-
-extension TeamViewController {
-    func configureTapGesture() {
+    
+    private func configureTapGesture() {
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(self.navigationBarTapped(_:)))
         self.navigationController?.navigationBar.addGestureRecognizer(tapGestureRecognizer)
     }

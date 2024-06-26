@@ -30,16 +30,18 @@ final class RefereeCodeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc
-    private func continueButtonTapped() {
-        presenter?.continuteButtonTapped(code: refereeCodeField.text ?? "")
-    }
-    
     override func updateViewConstraints() {
         super.updateViewConstraints()
         view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
         view.frame.origin.y = viewDistanceTop
         view.layer.cornerRadius = 40
+    }
+}
+
+extension RefereeCodeViewController {
+    @objc
+    private func continueButtonTapped() {
+        presenter?.continuteButtonTapped(code: refereeCodeField.text ?? "")
     }
 }
 

@@ -26,7 +26,9 @@ final class CustomTableViewCell: UITableViewCell {
         super.layoutSubviews()
         separatorInset = UIEdgeInsets(top: 0, left: nameLabel.frame.origin.x, bottom: 0, right: 0)
     }
-    
+}
+
+extension CustomTableViewCell {
     func configure(withName name: String, imageName: String) {
         backgroundColor = Constants.secondColor?.withAlphaComponent(0.1)
         nameLabel.text = name

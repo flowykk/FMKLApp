@@ -26,7 +26,9 @@ final class TextFieldPickerView: UIView, UITextFieldDelegate {
 
         configureUI()
     }
-    
+}
+
+extension TextFieldPickerView {
     func setPlaceholder(with placeholder: String) {
         textField.placeholder = placeholder
     }

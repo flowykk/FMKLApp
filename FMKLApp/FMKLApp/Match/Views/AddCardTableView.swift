@@ -34,6 +34,24 @@ final class AddCardTableView: UITableView, UITableViewDelegate, UITableViewDataS
         fetchData()
         configure()
     }
+}
+
+extension AddCardTableView {
+    func deleteRow(rowIndex: Int) {
+        playersCards.remove(at: rowIndex)
+        
+        reloadData()
+    }
+    
+    func addRow(withCard card: PlayerCard) {
+        playersCards.append(card)
+        
+        reloadData()
+    }
+    
+    func addRow(rowIndex: Int) {
+        presenter?.addCardButtonTapped()
+    }
     
     private func configure() {
         backgroundColor = Constants.backgroundColor
@@ -52,22 +70,6 @@ final class AddCardTableView: UITableView, UITableViewDelegate, UITableViewDataS
     private func updateHeight() {
         let height = rowHeight * 3
         setHeight(mode: .equal, height)
-    }
-    
-    func deleteRow(rowIndex: Int) {
-        playersCards.remove(at: rowIndex)
-        
-        reloadData()
-    }
-    
-    func addRow(withCard card: PlayerCard) {
-        playersCards.append(card)
-        
-        reloadData()
-    }
-    
-    func addRow(rowIndex: Int) {
-        presenter?.addCardButtonTapped()        
     }
 }
 

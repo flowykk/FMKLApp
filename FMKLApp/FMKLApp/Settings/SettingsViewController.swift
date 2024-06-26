@@ -29,7 +29,9 @@ final class SettingsViewController: UIViewController {
         
         configureUI()
     }
-    
+}
+
+extension SettingsViewController {
     @objc
     private func backButtonTapped() {
         presenter?.backButtonTapped()

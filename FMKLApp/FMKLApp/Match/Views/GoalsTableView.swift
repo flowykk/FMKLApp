@@ -34,6 +34,20 @@ final class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSou
         fetchData()
         configure()
     }
+}
+
+extension GoalsTableView {
+    func deleteRow(rowIndex: Int) {
+        goals.remove(at: rowIndex)
+        
+        reloadData()
+    }
+    
+    func addRow(withGoal goal: Goal) {
+        goals.append(goal)
+        
+        reloadData()
+    }
     
     private func configure() {
         backgroundColor = Constants.backgroundColor
@@ -52,18 +66,6 @@ final class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     private func updateHeight() {
         let height = rowHeight * 3
         setHeight(mode: .equal, height)
-    }
-    
-    func deleteRow(rowIndex: Int) {
-        goals.remove(at: rowIndex)
-        
-        reloadData()
-    }
-    
-    func addRow(withGoal goal: Goal) {
-        goals.append(goal)
-        
-        reloadData()
     }
     
     private func addRow(rowIndex: Int) {

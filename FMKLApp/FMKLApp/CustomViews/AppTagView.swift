@@ -20,18 +20,20 @@ final class AppTagView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func commonInit() {
-        gradientLayer.colors = [UIColor.systemCyan.cgColor, UIColor.systemRed.cgColor]
-        
-        configureUI()
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         if gradientLayer.frame != bounds {
             gradientLayer.frame = bounds
         }
+    }
+}
+
+extension AppTagView {
+    private func commonInit() {
+        gradientLayer.colors = [UIColor.systemCyan.cgColor, UIColor.systemRed.cgColor]
+        
+        configureUI()
     }
 }
 

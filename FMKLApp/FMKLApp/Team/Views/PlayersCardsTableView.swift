@@ -26,7 +26,9 @@ final class PlayersCardsTableView: UITableView, UITableViewDataSource, UITableVi
         fetchData()
         configure()
     }
-    
+}
+
+extension PlayersCardsTableView {
     private func configure() {
         backgroundColor = Constants.backgroundColor
         delegate = self

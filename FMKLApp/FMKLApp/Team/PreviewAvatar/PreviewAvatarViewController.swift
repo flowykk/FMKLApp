@@ -19,7 +19,9 @@ final class PreviewAvatarViewController: UIViewController {
         
         configureUI()
     }
-    
+}
+
+extension PreviewAvatarViewController {
     @objc
     private func handleTapOutsideImage(sender: UITapGestureRecognizer) {
         let location = sender.location(in: view)

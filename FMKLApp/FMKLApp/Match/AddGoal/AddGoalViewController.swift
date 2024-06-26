@@ -43,20 +43,6 @@ final class AddGoalViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc
-    private func continueButtonTapped() {
-        print(1)
-        
-        presenter?.continuteButtonTapped(
-            withGoal: Goal (
-                scoredTeamName: teamTextFieldPickerView.getTextFieldData(),
-                scoredPlayer: scoredPlayerTextFieldPickerView.getTextFieldData(),
-                assistedPlayer: assistedPlayerTextFieldPickerView.getTextFieldData(),
-                minute: Int(minuteField.text ?? "0") ?? -1
-            )
-        )
-    }
-    
     override func updateViewConstraints() {
         super.updateViewConstraints()
         view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
@@ -72,15 +58,31 @@ extension AddGoalViewController: UITextFieldDelegate {
         return false
     }
     
-    @objc func keyboardWillShow(_ notification: Notification) {
+    @objc 
+    func keyboardWillShow(_ notification: Notification) {
         adjustButtonForKeyboard(notification: notification, show: true)
     }
 
-    @objc func keyboardWillHide(_ notification: Notification) {
+    @objc 
+    func keyboardWillHide(_ notification: Notification) {
         adjustButtonForKeyboard(notification: notification, show: false)
     }
     
-    func adjustButtonForKeyboard(notification: Notification, show: Bool) {
+    @objc
+    private func continueButtonTapped() {
+        print(1)
+        
+        presenter?.continuteButtonTapped(
+            withGoal: Goal (
+                scoredTeamName: teamTextFieldPickerView.getTextFieldData(),
+                scoredPlayer: scoredPlayerTextFieldPickerView.getTextFieldData(),
+                assistedPlayer: assistedPlayerTextFieldPickerView.getTextFieldData(),
+                minute: Int(minuteField.text ?? "0") ?? -1
+            )
+        )
+    }
+    
+    private func adjustButtonForKeyboard(notification: Notification, show: Bool) {
         guard let userInfo = notification.userInfo,
               let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
         

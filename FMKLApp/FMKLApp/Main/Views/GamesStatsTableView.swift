@@ -28,7 +28,9 @@ final class GamesStatsTableView: UITableView {
         loadData(groupNumber: groupNumber)
         configure()
     }
-    
+}
+
+extension GamesStatsTableView {
     private func loadData(groupNumber: Int) {
         if groupNumber == 1 {
             fetchGroup1()
