@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlayersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {        
+final class PlayersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {        
     private var playerStats: [PlayerStats] = []
     
     override init(frame: CGRect, style: UITableView.Style) {

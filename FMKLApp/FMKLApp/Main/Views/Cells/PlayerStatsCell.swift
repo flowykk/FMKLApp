@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlayerStatsCell: UITableViewCell {
+final class PlayerStatsCell: UITableViewCell {
     private let playerPlaceLabel: UILabel = UILabel()
     
     private let pointsView: UIView = UIView()

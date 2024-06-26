@@ -7,8 +7,7 @@
 
 import UIKit
 
-class PlayersCardsTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
-    
+final class PlayersCardsTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     private var playersCards: [PlayerCards] = []
     
     override init(frame: CGRect, style: UITableView.Style) {

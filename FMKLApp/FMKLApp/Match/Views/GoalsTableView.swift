@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+final class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     weak var presenter: MatchPresenter?
     
     private var goals: [Goal] = []

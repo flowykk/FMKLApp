@@ -7,8 +7,7 @@
 
 import UIKit
 
-class CardView: UIView {
-
+final class CardView: UIView {
     private let card: UIView = UIView()
     private let cardCount: UILabel = UILabel()
 

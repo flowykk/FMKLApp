@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlayerCell: UITableViewCell {
+final class PlayerCell: UITableViewCell {
     weak var presenter: TeamPresenter?
     
     private let teamPlaceLabel: UILabel = UILabel()

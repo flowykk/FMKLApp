@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TeamPlayersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+final class TeamPlayersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     weak var presenter: TeamPresenter?
     
     private var players: [Player] = []

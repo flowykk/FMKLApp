@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddCardTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+final class AddCardTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     weak var presenter: MatchPresenter?
     
     private var playersCards: [PlayerCard] = []

@@ -7,8 +7,7 @@
 
 import UIKit
 
-class DefaultCardView: UIView {
-
+final class DefaultCardView: UIView {
     private let card: UIView = UIView()
 
     override init(frame: CGRect) {

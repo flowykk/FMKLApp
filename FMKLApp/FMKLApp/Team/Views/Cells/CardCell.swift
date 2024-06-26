@@ -7,8 +7,7 @@
 
 import UIKit
 
-class CardCell: UITableViewCell {
-    
+final class CardCell: UITableViewCell {
     private let playerNameView: UIView = UIView()
     private let playerNameLabel: UILabel = UILabel()
     

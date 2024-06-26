@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GoalCell: UITableViewCell {
+final class GoalCell: UITableViewCell {
     private let teamNameView: UIView = UIView()
     private let teamNameLabel: UILabel = UILabel()
     
