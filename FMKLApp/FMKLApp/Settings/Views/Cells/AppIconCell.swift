@@ -19,7 +19,10 @@ final class AppIconCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+// MARK: - Class functions
+extension AppIconCell {
     func configure(withImage name: String) {
         appIconView.image = UIImage(named: name)
         if AppIconCell.initialSelectedIcon == name {

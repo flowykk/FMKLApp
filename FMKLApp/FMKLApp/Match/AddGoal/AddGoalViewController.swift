@@ -34,13 +34,34 @@ final class AddGoalViewController: UIViewController {
         fetchDataForScoredPlayerPickerView()
         fetchDataForAssistedPlayerPickerView()
         
+        configureGestures()
         configureUI()
-        
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        view.addGestureRecognizer(panGesture)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
+        view.frame.origin.y = viewDistanceTop
+        view.layer.cornerRadius = 40
+    }
+}
+
+// MARK: - Class functions
+extension AddGoalViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        continueButtonTapped()
+        return false
+    }
+    
+    @objc 
+    func keyboardWillShow(_ notification: Notification) {
+        adjustButtonForKeyboard(notification: notification, show: true)
+    }
+
+    @objc 
+    func keyboardWillHide(_ notification: Notification) {
+        adjustButtonForKeyboard(notification: notification, show: false)
     }
     
     @objc
@@ -57,30 +78,7 @@ final class AddGoalViewController: UIViewController {
         )
     }
     
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
-        view.frame.origin.y = viewDistanceTop
-        view.layer.cornerRadius = 40
-    }
-}
-
-extension AddGoalViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
-        continueButtonTapped()
-        return false
-    }
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
-        adjustButtonForKeyboard(notification: notification, show: true)
-    }
-
-    @objc func keyboardWillHide(_ notification: Notification) {
-        adjustButtonForKeyboard(notification: notification, show: false)
-    }
-    
-    func adjustButtonForKeyboard(notification: Notification, show: Bool) {
+    private func adjustButtonForKeyboard(notification: Notification, show: Bool) {
         guard let userInfo = notification.userInfo,
               let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
         
@@ -232,8 +230,16 @@ extension AddGoalViewController {
     }
 }
 
-// MARK: - Private funcs
+// MARK: - Gestures Configuration
 extension AddGoalViewController {
+    private func configureGestures() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        view.addGestureRecognizer(panGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     @objc
     private func handleTapGesture(sender: UITapGestureRecognizer) {
         dismiss(animated: true, completion: nil)

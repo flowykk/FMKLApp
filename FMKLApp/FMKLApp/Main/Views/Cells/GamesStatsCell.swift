@@ -50,7 +50,10 @@ final class GamesStatsCell: UITableViewCell {
         
         configureCorners()
     }
-    
+}
+
+// MARK: - Class functions
+extension GamesStatsCell {
     func set(teamPlace: Int, teamStats: TeamGamesStats) {
         teamPlaceLabel.text     = String(teamPlace)
         pointsLabel.text        = String(teamStats.points)
@@ -96,6 +99,7 @@ final class GamesStatsCell: UITableViewCell {
     }
 }
 
+// MARK: - IU Configuration
 extension GamesStatsCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor

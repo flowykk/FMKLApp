@@ -19,7 +19,10 @@ final class PreviewAvatarViewController: UIViewController {
         
         configureUI()
     }
-    
+}
+
+// MARK: - Class functions
+extension PreviewAvatarViewController {
     @objc
     private func handleTapOutsideImage(sender: UITapGestureRecognizer) {
         let location = sender.location(in: view)
@@ -29,6 +32,7 @@ final class PreviewAvatarViewController: UIViewController {
     }
 }
 
+// MARK: - UI Configuration
 extension PreviewAvatarViewController {
     private func configureUI() {
         configureTapGesture()
@@ -60,7 +64,10 @@ extension PreviewAvatarViewController {
         view.addSubview(blurEffectView)
         view.sendSubviewToBack(blurEffectView)
     }
-    
+}
+
+// MARK: - Gestures Configuration
+extension PreviewAvatarViewController {
     private func configureTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideImage))
         view.addGestureRecognizer(tapGesture)

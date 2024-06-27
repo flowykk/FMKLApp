@@ -7,8 +7,7 @@
 
 import UIKit
 
-class CardCell: UITableViewCell {
-    
+final class CardCell: UITableViewCell {
     private let playerNameView: UIView = UIView()
     private let playerNameLabel: UILabel = UILabel()
     
@@ -33,7 +32,10 @@ class CardCell: UITableViewCell {
         
         configureCorners()
     }
-    
+}
+
+// MARK: - Class functions
+extension CardCell {
     func set(playerCards: PlayerCards) {
         playerNameLabel.text        = playerCards.player
         redCard.set(isRed: true, count: playerCards.redCards)
@@ -43,6 +45,7 @@ class CardCell: UITableViewCell {
     }
 }
 
+// MARK: - UI Configuration
 extension CardCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor

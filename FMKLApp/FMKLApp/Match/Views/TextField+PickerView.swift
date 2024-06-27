@@ -26,7 +26,10 @@ final class TextFieldPickerView: UIView, UITextFieldDelegate {
 
         configureUI()
     }
-    
+}
+
+// MARK: - Class functions
+extension TextFieldPickerView {
     func setPlaceholder(with placeholder: String) {
         textField.placeholder = placeholder
     }
@@ -44,6 +47,7 @@ final class TextFieldPickerView: UIView, UITextFieldDelegate {
     }
 }
 
+// MARK: - UI Configuration
 extension TextFieldPickerView {
     private func configureUI() {
         configureTextField()
@@ -79,6 +83,7 @@ extension TextFieldPickerView {
     }
 }
 
+// MARK: - TextFieldPickerViewDelegate + TextFieldPickerViewDataSource
 extension TextFieldPickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

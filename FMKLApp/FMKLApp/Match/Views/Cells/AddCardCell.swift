@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddCardCell: UITableViewCell {
+final class AddCardCell: UITableViewCell {
     private let teamNameView: UIView = UIView()
     private let teamNameLabel: UILabel = UILabel()
     
@@ -53,13 +53,17 @@ class AddCardCell: UITableViewCell {
         
         teamNameView.backgroundColor        = Constants.accentColor
     }
-    
+}
+
+// MARK: - Class functions
+extension AddCardCell {
     @objc
     private func deleteRowButtonTapped() {
         deleteButtonTapAction?()
     }
 }
 
+// MARK: - UI Configuration
 extension AddCardCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor
@@ -78,8 +82,7 @@ extension AddCardCell {
     private func configureViewsTexts() {
         configureViewText(in: teamNameView, withLabel: teamNameLabel)
         configureViewText(in: minuteView, withLabel: minuteLabel)
-        //configureViewText(in: PlayerNameView, withLabel: PlayerNameLabel)
-        
+
         PlayerNameLabel.font = UIFont(name: "Jellee-Roman", size: 14)
         
         PlayerNameView.addSubview(PlayerNameLabel)

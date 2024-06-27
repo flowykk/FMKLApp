@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GoalCell: UITableViewCell {
+final class GoalCell: UITableViewCell {
     private let teamNameView: UIView = UIView()
     private let teamNameLabel: UILabel = UILabel()
     
@@ -39,7 +39,10 @@ class GoalCell: UITableViewCell {
         
         configureCorners()
     }
-    
+}
+
+// MARK: - Class functions
+extension GoalCell {
     func set(goal: Goal) {
         teamNameLabel.text                  = goal.scoredTeamName
         scoredPlayerNameLabel.text          = goal.scoredPlayer
@@ -60,6 +63,7 @@ class GoalCell: UITableViewCell {
     }
 }
 
+// MARK: - UI Configuration
 extension GoalCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor

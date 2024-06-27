@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+final class GoalsTableView: UITableView {
     weak var presenter: MatchPresenter?
     
     private var goals: [Goal] = []
@@ -34,6 +34,21 @@ class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         fetchData()
         configure()
     }
+}
+
+// MARK: - Class functions
+extension GoalsTableView {
+    func deleteRow(rowIndex: Int) {
+        goals.remove(at: rowIndex)
+        
+        reloadData()
+    }
+    
+    func addRow(withGoal goal: Goal) {
+        goals.append(goal)
+        
+        reloadData()
+    }
     
     private func configure() {
         backgroundColor = Constants.backgroundColor
@@ -54,24 +69,13 @@ class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         setHeight(mode: .equal, height)
     }
     
-    func deleteRow(rowIndex: Int) {
-        goals.remove(at: rowIndex)
-        
-        reloadData()
-    }
-    
-    func addRow(withGoal goal: Goal) {
-        goals.append(goal)
-        
-        reloadData()
-    }
-    
     private func addRow(rowIndex: Int) {
         presenter?.addGoalButtonTapped()
     }
 }
 
-extension GoalsTableView {
+// MARK: - GoalsTableViewDelegate + GoalsTableViewDataSource
+extension GoalsTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return goals.count + 1
     }
@@ -117,6 +121,7 @@ extension GoalsTableView {
     }
 }
 
+// MARK: - Fetching Data for GoalsTableView
 extension GoalsTableView {
     func fetchData() {
         self.goals = [

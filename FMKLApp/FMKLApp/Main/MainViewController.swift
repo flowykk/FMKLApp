@@ -73,7 +73,10 @@ final class MainViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         appTag.isHidden = true
     }
-    
+}
+
+// MARK: - Class functions
+extension MainViewController {
     @objc
     private func settingsButtonTapped() {
         presenter?.settingsButtonTapped()
@@ -85,6 +88,7 @@ final class MainViewController: UIViewController {
     }
 }
 
+// MARK: - UI Configuration
 extension MainViewController {
     private func configureUI() {
         configureScrollView()

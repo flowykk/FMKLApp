@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlayerStatsCell: UITableViewCell {
+final class PlayerStatsCell: UITableViewCell {
     private let playerPlaceLabel: UILabel = UILabel()
     
     private let pointsView: UIView = UIView()
@@ -15,7 +15,7 @@ class PlayerStatsCell: UITableViewCell {
     
     private let playerNameView: UIView = UIView()
     private let playerNameLabel: UILabel = UILabel()
-        
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -31,7 +31,10 @@ class PlayerStatsCell: UITableViewCell {
         
         configureCorners()
     }
-    
+}
+
+// MARK: - Class functions
+extension PlayerStatsCell {
     func set(playerPlace: Int, playerStats: PlayerStats) {
         playerPlaceLabel.text     = String(playerPlace)
         pointsLabel.text        = String(playerStats.points)
@@ -53,6 +56,7 @@ class PlayerStatsCell: UITableViewCell {
     }
 }
 
+// MARK: - UI Configuration
 extension PlayerStatsCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor

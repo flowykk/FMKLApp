@@ -29,13 +29,17 @@ final class SettingsViewController: UIViewController {
         
         configureUI()
     }
-    
+}
+
+// MARK: - Class functions
+extension SettingsViewController {
     @objc
     private func backButtonTapped() {
         presenter?.backButtonTapped()
     }
 }
 
+// MARK: - UI Configuration
 extension SettingsViewController {
     private func configureUI() {
         configureTitleView()

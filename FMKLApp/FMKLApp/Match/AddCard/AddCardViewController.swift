@@ -36,15 +36,20 @@ final class AddCardViewController: UIViewController {
         fetchDataForTeamPickerView()
         fetchDataForScoredPlayerPickerView()
         
+        configureGestures()
         configureUI()
-        
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        view.addGestureRecognizer(panGesture)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
+        view.frame.origin.y = viewDistanceTop
+        view.layer.cornerRadius = 40
+    }
+}
+
+// MARK: - Class functions
+extension AddCardViewController {
     @objc
     private func continueButtonTapped() {
         presenter?.continuteButtonTapped(
@@ -74,15 +79,9 @@ final class AddCardViewController: UIViewController {
         redCardButton.layer.borderWidth = 0
         yellowCardButton.layer.borderWidth = 3
     }
-    
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        view.frame.size.height = UIScreen.main.bounds.height - viewDistanceTop
-        view.frame.origin.y = viewDistanceTop
-        view.layer.cornerRadius = 40
-    }
 }
 
+// MARK: - UITextFieldDelegate
 extension AddCardViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
@@ -286,8 +285,16 @@ extension AddCardViewController {
     }
 }
 
-// MARK: - Private funcs
+// MARK: - Gestures Configuration
 extension AddCardViewController {
+    private func configureGestures() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        view.addGestureRecognizer(panGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     @objc
     private func handleTapGesture(sender: UITapGestureRecognizer) {
         dismiss(animated: true, completion: nil)

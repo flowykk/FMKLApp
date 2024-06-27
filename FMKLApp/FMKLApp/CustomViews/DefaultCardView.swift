@@ -7,8 +7,7 @@
 
 import UIKit
 
-class DefaultCardView: UIView {
-
+final class DefaultCardView: UIView {
     private let card: UIView = UIView()
 
     override init(frame: CGRect) {
@@ -20,13 +19,17 @@ class DefaultCardView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    public func set(isRed: Bool) {
+}
+
+// MARK: - Class functions
+extension DefaultCardView {
+    func set(isRed: Bool) {
         card.backgroundColor = isRed ? Constants.redCardColor : Constants.yellowCardColor
         card.layer.borderColor = Constants.secondColor?.cgColor
     }
 }
 
+// MARK: - UI Configuration
 extension DefaultCardView {
     private func configureUI() {
         configureCard()

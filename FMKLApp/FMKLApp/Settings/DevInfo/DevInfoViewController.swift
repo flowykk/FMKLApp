@@ -35,7 +35,10 @@ final class DevInfoViewController: UIViewController {
         view.frame.origin.y = UIScreen.main.bounds.height - viewDistanceTop
         view.layer.cornerRadius = 40
     }
-    
+}
+
+// MARK: - Class functions
+extension DevInfoViewController {
     @objc
     private func instButtonTapped() {
         presenter?.instButtonTapped()
@@ -94,7 +97,7 @@ extension DevInfoViewController {
     }
 }
 
-// MARK: - Private funcs
+// MARK: - Gestures Configuration
 extension DevInfoViewController {
     @objc
     private func handleTapGesture(sender: UITapGestureRecognizer) {

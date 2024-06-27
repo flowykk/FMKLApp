@@ -7,8 +7,7 @@
 
 import UIKit
 
-class CardView: UIView {
-
+final class CardView: UIView {
     private let card: UIView = UIView()
     private let cardCount: UILabel = UILabel()
 
@@ -21,8 +20,11 @@ class CardView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    public func set(isRed: Bool, count: Int) {
+}
+
+// MARK: - Class functions
+extension CardView {
+    func set(isRed: Bool, count: Int) {
         card.backgroundColor = isRed ? Constants.redCardColor : Constants.yellowCardColor
         card.layer.borderColor = Constants.secondColor?.cgColor
         cardCount.text = String(count)
@@ -33,12 +35,11 @@ class CardView: UIView {
     }
 }
 
+// MARK: - UI Configuration
 extension CardView {
     private func configureUI() {
         configureCard()
         configureCount()
-        
-        //configureView()
     }
     
     private func configureCard() {
