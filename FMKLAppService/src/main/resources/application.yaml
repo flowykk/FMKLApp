@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: FMKLAppService
+  datasource:
+    url: jdbc:postgresql://localhost:15432/postgres
+    username: postgres
+    password: postgres
+  liquibase:
+    change-log: classpath:/db/changelog/db.master.yaml
+server:
+  port: 8081
