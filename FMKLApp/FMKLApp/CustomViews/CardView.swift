@@ -22,8 +22,9 @@ final class CardView: UIView {
     }
 }
 
+// MARK: - Class functions
 extension CardView {
-    public func set(isRed: Bool, count: Int) {
+    func set(isRed: Bool, count: Int) {
         card.backgroundColor = isRed ? Constants.redCardColor : Constants.yellowCardColor
         card.layer.borderColor = Constants.secondColor?.cgColor
         cardCount.text = String(count)
@@ -34,6 +35,7 @@ extension CardView {
     }
 }
 
+// MARK: - UI Configuration
 extension CardView {
     private func configureUI() {
         configureCard()

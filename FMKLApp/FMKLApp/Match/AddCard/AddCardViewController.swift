@@ -36,13 +36,8 @@ final class AddCardViewController: UIViewController {
         fetchDataForTeamPickerView()
         fetchDataForScoredPlayerPickerView()
         
+        configureGestures()
         configureUI()
-        
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        view.addGestureRecognizer(panGesture)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func updateViewConstraints() {
@@ -53,6 +48,7 @@ final class AddCardViewController: UIViewController {
     }
 }
 
+// MARK: - Class functions
 extension AddCardViewController {
     @objc
     private func continueButtonTapped() {
@@ -85,6 +81,7 @@ extension AddCardViewController {
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension AddCardViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
@@ -288,8 +285,16 @@ extension AddCardViewController {
     }
 }
 
-// MARK: - Private funcs
+// MARK: - Gestures Configuration
 extension AddCardViewController {
+    private func configureGestures() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        view.addGestureRecognizer(panGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     @objc
     private func handleTapGesture(sender: UITapGestureRecognizer) {
         dismiss(animated: true, completion: nil)

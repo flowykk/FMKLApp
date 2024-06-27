@@ -29,6 +29,7 @@ final class AppTagView: UIView {
     }
 }
 
+// MARK: - Class functions
 extension AppTagView {
     private func commonInit() {
         gradientLayer.colors = [UIColor.systemCyan.cgColor, UIColor.systemRed.cgColor]
@@ -37,6 +38,7 @@ extension AppTagView {
     }
 }
 
+// MARK: - UI Configuration
 extension AppTagView {
     private func configureUI() {
         setWidth(70)

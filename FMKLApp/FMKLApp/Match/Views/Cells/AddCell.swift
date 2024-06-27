@@ -23,6 +23,7 @@ final class AddCell: UITableViewCell {
     }
 }
 
+// MARK: - Class functions
 extension AddCell {
     @objc
     private func addButtonTapped() {
@@ -30,6 +31,7 @@ extension AddCell {
     }
 }
 
+// MARK: - UI Configuration
 extension AddCell {
     private func configureUI() {
         configureButton()

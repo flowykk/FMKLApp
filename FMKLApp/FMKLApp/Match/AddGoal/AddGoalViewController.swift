@@ -34,13 +34,8 @@ final class AddGoalViewController: UIViewController {
         fetchDataForScoredPlayerPickerView()
         fetchDataForAssistedPlayerPickerView()
         
+        configureGestures()
         configureUI()
-        
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        view.addGestureRecognizer(panGesture)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func updateViewConstraints() {
@@ -51,6 +46,7 @@ final class AddGoalViewController: UIViewController {
     }
 }
 
+// MARK: - Class functions
 extension AddGoalViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
@@ -234,8 +230,16 @@ extension AddGoalViewController {
     }
 }
 
-// MARK: - Private funcs
+// MARK: - Gestures Configuration
 extension AddGoalViewController {
+    private func configureGestures() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        view.addGestureRecognizer(panGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     @objc
     private func handleTapGesture(sender: UITapGestureRecognizer) {
         dismiss(animated: true, completion: nil)

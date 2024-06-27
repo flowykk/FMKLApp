@@ -75,6 +75,7 @@ final class MainViewController: UIViewController {
     }
 }
 
+// MARK: - Class functions
 extension MainViewController {
     @objc
     private func settingsButtonTapped() {
@@ -87,6 +88,7 @@ extension MainViewController {
     }
 }
 
+// MARK: - UI Configuration
 extension MainViewController {
     private func configureUI() {
         configureScrollView()

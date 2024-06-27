@@ -28,6 +28,7 @@ final class CustomTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - Class functions
 extension CustomTableViewCell {
     func configure(withName name: String, imageName: String) {
         backgroundColor = Constants.secondColor?.withAlphaComponent(0.1)

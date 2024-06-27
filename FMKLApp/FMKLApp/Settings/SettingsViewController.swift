@@ -31,6 +31,7 @@ final class SettingsViewController: UIViewController {
     }
 }
 
+// MARK: - Class functions
 extension SettingsViewController {
     @objc
     private func backButtonTapped() {
@@ -38,6 +39,7 @@ extension SettingsViewController {
     }
 }
 
+// MARK: - UI Configuration
 extension SettingsViewController {
     private func configureUI() {
         configureTitleView()

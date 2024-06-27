@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AddCardTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+final class AddCardTableView: UITableView {
     weak var presenter: MatchPresenter?
     
     private var playersCards: [PlayerCard] = []
@@ -29,13 +29,14 @@ final class AddCardTableView: UITableView, UITableViewDelegate, UITableViewDataS
     
     init() {
         super.init(frame: .zero, style: .plain)
-        
         self.autoresizingMask = [.flexibleHeight]
+        
         fetchData()
         configure()
     }
 }
 
+// MARK: - Class functions
 extension AddCardTableView {
     func deleteRow(rowIndex: Int) {
         playersCards.remove(at: rowIndex)
@@ -73,7 +74,8 @@ extension AddCardTableView {
     }
 }
 
-extension AddCardTableView {
+// MARK: AddCardTableViewDelegate + AddCardTableViewDataSource
+extension AddCardTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playersCards.count + 1
     }
@@ -119,6 +121,7 @@ extension AddCardTableView {
     }
 }
 
+// MARK: - Fetching Data for AddCardTableView
 extension AddCardTableView {
     func fetchData() {
         self.playersCards = [

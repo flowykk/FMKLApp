@@ -23,12 +23,14 @@ final class SocialMediaButton: UIButton {
     }
 }
 
+// MARK: - Class functions
 extension SocialMediaButton {
     func set(text: String) {
         setTitle(text, for: .normal)
     }
 }
 
+// MARK: - UI Configuration
 extension SocialMediaButton {
     private func configureUI() {
         setTitleColor(Constants.backgroundColor, for: .normal)

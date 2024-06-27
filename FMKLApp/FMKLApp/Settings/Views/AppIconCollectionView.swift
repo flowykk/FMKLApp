@@ -21,7 +21,10 @@ final class AppIconCollectionView: UICollectionView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+// MARK: - Class functions
+extension AppIconCollectionView {
     private func commonInit() {
         dataSource = self
         delegate = self
@@ -41,7 +44,7 @@ final class AppIconCollectionView: UICollectionView {
     }
 }
 
-// MARK: - UICollectionViewDelegate
+// MARK: - AppIconCollectionViewDelegate
 extension AppIconCollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let previousSelectedIndexPath = selectedAppIconIndexPath {
@@ -60,7 +63,7 @@ extension AppIconCollectionView: UICollectionViewDelegate {
     }
 }
 
-// MARK: - UICollectionViewDataSource
+// MARK: - AppIconCollectionViewDataSource
 extension AppIconCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return AppIcon.allCases.count
@@ -77,7 +80,7 @@ extension AppIconCollectionView: UICollectionViewDataSource {
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - AppIconCollectionViewDelegateFlowLayout
 extension AppIconCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 70, height: 70)

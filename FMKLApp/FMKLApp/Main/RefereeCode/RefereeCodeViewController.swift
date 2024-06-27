@@ -38,37 +38,11 @@ final class RefereeCodeViewController: UIViewController {
     }
 }
 
+// MARK: - Class functions
 extension RefereeCodeViewController {
     @objc
     private func continueButtonTapped() {
         presenter?.continuteButtonTapped(code: refereeCodeField.text ?? "")
-    }
-}
-
-extension RefereeCodeViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
-        continueButtonTapped()
-        return false
-    }
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
-        adjustButtonForKeyboard(notification: notification, show: true)
-    }
-
-    @objc func keyboardWillHide(_ notification: Notification) {
-        adjustButtonForKeyboard(notification: notification, show: false)
-    }
-    
-    func adjustButtonForKeyboard(notification: Notification, show: Bool) {
-        guard let userInfo = notification.userInfo,
-              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-        
-        let keyboardHeight = keyboardFrame.height
-        
-        UIView.animate(withDuration: 0.3) {
-            self.continueButton.transform = show ? CGAffineTransform(translationX: 0, y: -keyboardHeight) : .identity
-        }
     }
 }
 
@@ -147,7 +121,35 @@ extension RefereeCodeViewController {
     }
 }
 
-// MARK: - Private funcs
+// MARK: - UITextFieldDelegate
+extension RefereeCodeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        continueButtonTapped()
+        return false
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        adjustButtonForKeyboard(notification: notification, show: true)
+    }
+
+    @objc func keyboardWillHide(_ notification: Notification) {
+        adjustButtonForKeyboard(notification: notification, show: false)
+    }
+    
+    func adjustButtonForKeyboard(notification: Notification, show: Bool) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+        
+        let keyboardHeight = keyboardFrame.height
+        
+        UIView.animate(withDuration: 0.3) {
+            self.continueButton.transform = show ? CGAffineTransform(translationX: 0, y: -keyboardHeight) : .identity
+        }
+    }
+}
+
+// MARK: - Gestures Configuration
 extension RefereeCodeViewController {
     @objc
     private func handleTapGesture(sender: UITapGestureRecognizer) {

@@ -33,6 +33,7 @@ final class PlayerStatsCell: UITableViewCell {
     }
 }
 
+// MARK: - Class functions
 extension PlayerStatsCell {
     func set(playerPlace: Int, playerStats: PlayerStats) {
         playerPlaceLabel.text     = String(playerPlace)
@@ -55,6 +56,7 @@ extension PlayerStatsCell {
     }
 }
 
+// MARK: - UI Configuration
 extension PlayerStatsCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor

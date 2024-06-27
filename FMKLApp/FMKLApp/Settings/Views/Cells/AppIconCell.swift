@@ -21,6 +21,7 @@ final class AppIconCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Class functions
 extension AppIconCell {
     func configure(withImage name: String) {
         appIconView.image = UIImage(named: name)

@@ -10,11 +10,11 @@ import UIKit
 final class TeamViewController: UIViewController {
     var presenter: TeamPresenter?
     
-    private let scrollView: UIScrollView = UIScrollView()
-    private let contentView: UIView = UIView()
-    
     var fullTeamName: String?
     var shortTeamName: String?
+    
+    private let scrollView: UIScrollView = UIScrollView()
+    private let contentView: UIView = UIView()
     
     private var titleView: UIView = UIView()
     private let imageView: UIImageView = UIImageView()
@@ -36,6 +36,7 @@ final class TeamViewController: UIViewController {
     }
 }
 
+// MARK: - Class functions
 extension TeamViewController {
     @objc
     private func backButtonTapped() {
@@ -58,6 +59,7 @@ extension TeamViewController {
     }
 }
 
+// MARK: - UI Configuration
 extension TeamViewController {
     private func configureUI() {
         configureScrollView()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PlayersCardsTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
+final class PlayersCardsTableView: UITableView {
     private var playersCards: [PlayerCards] = []
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -28,11 +28,11 @@ final class PlayersCardsTableView: UITableView, UITableViewDataSource, UITableVi
     }
 }
 
+// MARK: - UI Configuration
 extension PlayersCardsTableView {
     private func configure() {
         backgroundColor = Constants.backgroundColor
         delegate = self
-        dataSource = self
         register(CardCell.self, forCellReuseIdentifier: "CardCell")
         rowHeight = 50
         
@@ -48,7 +48,8 @@ extension PlayersCardsTableView {
     }
 }
 
-extension PlayersCardsTableView {
+// MARK: - PlayersCardsTableViewDelegate + PlayersCardsTableViewDataSource
+extension PlayersCardsTableView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playersCards.count
     }
@@ -64,6 +65,7 @@ extension PlayersCardsTableView {
     }
 }
 
+// MARK: - Fetching Data for PlayersCardsTableView
 extension PlayersCardsTableView {
     func fetchData() {
         self.playersCards = [

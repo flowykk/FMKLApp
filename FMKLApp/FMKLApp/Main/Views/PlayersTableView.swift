@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PlayersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {        
+final class PlayersTableView: UITableView {
     private var playerStats: [PlayerStats] = []
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -28,6 +28,7 @@ final class PlayersTableView: UITableView, UITableViewDelegate, UITableViewDataS
     }
 }
 
+// MARK: - Class functions
 extension PlayersTableView {
     private func loadData(dataNumber: Int) {
         if dataNumber == 1 {
@@ -56,7 +57,8 @@ extension PlayersTableView {
     }
 }
 
-extension PlayersTableView {
+// MARK: - PlayersTableViewDelegate + PlayersTableViewDataSource
+extension PlayersTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playerStats.count
     }
@@ -75,6 +77,7 @@ extension PlayersTableView {
     }
 }
 
+// MARK: - Fetching Data for PlayersTableView
 extension PlayersTableView {
     func fetchData1() {
         self.playerStats = [

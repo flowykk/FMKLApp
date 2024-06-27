@@ -21,13 +21,15 @@ final class DefaultCardView: UIView {
     }
 }
 
+// MARK: - Class functions
 extension DefaultCardView {
-    public func set(isRed: Bool) {
+    func set(isRed: Bool) {
         card.backgroundColor = isRed ? Constants.redCardColor : Constants.yellowCardColor
         card.layer.borderColor = Constants.secondColor?.cgColor
     }
 }
 
+// MARK: - UI Configuration
 extension DefaultCardView {
     private func configureUI() {
         configureCard()

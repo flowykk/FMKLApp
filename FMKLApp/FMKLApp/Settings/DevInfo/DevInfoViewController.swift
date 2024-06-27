@@ -37,6 +37,7 @@ final class DevInfoViewController: UIViewController {
     }
 }
 
+// MARK: - Class functions
 extension DevInfoViewController {
     @objc
     private func instButtonTapped() {
@@ -96,7 +97,7 @@ extension DevInfoViewController {
     }
 }
 
-// MARK: - Private funcs
+// MARK: - Gestures Configuration
 extension DevInfoViewController {
     @objc
     private func handleTapGesture(sender: UITapGestureRecognizer) {

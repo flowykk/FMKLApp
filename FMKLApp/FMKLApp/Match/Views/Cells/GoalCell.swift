@@ -39,7 +39,10 @@ final class GoalCell: UITableViewCell {
         
         configureCorners()
     }
-    
+}
+
+// MARK: - Class functions
+extension GoalCell {
     func set(goal: Goal) {
         teamNameLabel.text                  = goal.scoredTeamName
         scoredPlayerNameLabel.text          = goal.scoredPlayer
@@ -53,15 +56,14 @@ final class GoalCell: UITableViewCell {
         
         teamNameView.backgroundColor = Constants.accentColor
     }
-}
-
-extension GoalCell {
+    
     @objc
     private func deleteRowButtonTapped() {
         deleteButtonTapAction?()
     }
 }
 
+// MARK: - UI Configuration
 extension GoalCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor

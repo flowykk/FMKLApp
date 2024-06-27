@@ -46,6 +46,7 @@ final class MatchViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
+// MARK: - Class functions
 extension MatchViewController {
     @objc
     private func backButtonTapped() {
@@ -63,6 +64,7 @@ extension MatchViewController {
     }
 }
 
+// MARK: - UI Configuration
 extension MatchViewController {
     private func configureUI() {
         configureTitleView()
@@ -229,6 +231,7 @@ extension MatchViewController {
     }
 }
 
+// MARK: - Fetching Data for MatchViewController
 extension MatchViewController {
     private func fetchDataForTeam1PickerView() {
         firstTeamTextFieldPickerView.configureData(with: [

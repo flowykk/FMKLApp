@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TeamPlayersTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+final class TeamPlayersTableView: UITableView {
     weak var presenter: TeamPresenter?
     
     private var players: [Player] = []
@@ -30,11 +30,11 @@ final class TeamPlayersTableView: UITableView, UITableViewDelegate, UITableViewD
     }
 }
 
+// MARK: - UI Configuration
 extension TeamPlayersTableView {
     private func configure() {
         backgroundColor = Constants.backgroundColor
         delegate = self
-        dataSource = self
         register(PlayerCell.self, forCellReuseIdentifier: "PlayerCell")
         rowHeight = 50
         
@@ -50,7 +50,8 @@ extension TeamPlayersTableView {
     }
 }
 
-extension TeamPlayersTableView {
+// MARK: - TeamPlayersTableViewDelegate + TeamPlayersTableViewDataSource
+extension TeamPlayersTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return players.count
     }
@@ -70,6 +71,7 @@ extension TeamPlayersTableView {
     }
 }
 
+// MARK: - Fetching Data for TeamPlayersTableView
 extension TeamPlayersTableView {
     func fetchData() {
         self.players = [

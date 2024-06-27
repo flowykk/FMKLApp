@@ -33,6 +33,7 @@ final class RefereeView: UIView {
     }
 }
 
+// MARK: - Class functions
 extension RefereeView {
     @objc
     private func goButtonTapped() {
@@ -40,6 +41,7 @@ extension RefereeView {
     }
 }
 
+// MARK: - UI Configuration
 extension RefereeView {
     private func configureUI() {
         setWidth(UIScreen.main.bounds.width)

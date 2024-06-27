@@ -55,6 +55,7 @@ final class AddCardCell: UITableViewCell {
     }
 }
 
+// MARK: - Class functions
 extension AddCardCell {
     @objc
     private func deleteRowButtonTapped() {
@@ -62,6 +63,7 @@ extension AddCardCell {
     }
 }
 
+// MARK: - UI Configuration
 extension AddCardCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor

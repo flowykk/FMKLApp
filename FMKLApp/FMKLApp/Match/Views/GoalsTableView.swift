@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+final class GoalsTableView: UITableView {
     weak var presenter: MatchPresenter?
     
     private var goals: [Goal] = []
@@ -36,6 +36,7 @@ final class GoalsTableView: UITableView, UITableViewDelegate, UITableViewDataSou
     }
 }
 
+// MARK: - Class functions
 extension GoalsTableView {
     func deleteRow(rowIndex: Int) {
         goals.remove(at: rowIndex)
@@ -73,7 +74,8 @@ extension GoalsTableView {
     }
 }
 
-extension GoalsTableView {
+// MARK: - GoalsTableViewDelegate + GoalsTableViewDataSource
+extension GoalsTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return goals.count + 1
     }
@@ -119,6 +121,7 @@ extension GoalsTableView {
     }
 }
 
+// MARK: - Fetching Data for GoalsTableView
 extension GoalsTableView {
     func fetchData() {
         self.goals = [

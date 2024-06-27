@@ -40,6 +40,7 @@ final class PlayerCell: UITableViewCell {
     }
 }
 
+// MARK: - Class functions
 extension PlayerCell {
     func set(playerNumber: Int, player: Player) {
         teamPlaceLabel.text     = String(playerNumber)
@@ -63,6 +64,7 @@ extension PlayerCell {
     }
 }
 
+// MARK: - UI Configuration
 extension PlayerCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor
@@ -161,7 +163,10 @@ extension PlayerCell {
         birthView.addSubview(birthLabel)
         birthLabel.pinCenter(to: birthView)
     }
-    
+}
+
+// MARK: - Gestures Configuration
+extension PlayerCell {
     private func configureTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnPlayer))
         addGestureRecognizer(tapGesture)

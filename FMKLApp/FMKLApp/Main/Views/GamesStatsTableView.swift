@@ -30,6 +30,7 @@ final class GamesStatsTableView: UITableView {
     }
 }
 
+// MARK: - Class functions
 extension GamesStatsTableView {
     private func loadData(groupNumber: Int) {
         if groupNumber == 1 {
@@ -59,6 +60,7 @@ extension GamesStatsTableView {
     }
 }
 
+// MARK: - GamesStatsTableViewDelegate + GamesStatsTableViewDataSource
 extension GamesStatsTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return teamStats.count
@@ -79,6 +81,7 @@ extension GamesStatsTableView: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - Fetching Data for GamesStatsTableView
 extension GamesStatsTableView {
     func fetchGroup1() {
         self.teamStats = [

@@ -34,6 +34,7 @@ final class CardCell: UITableViewCell {
     }
 }
 
+// MARK: - Class functions
 extension CardCell {
     func set(playerCards: PlayerCards) {
         playerNameLabel.text        = playerCards.player
@@ -44,6 +45,7 @@ extension CardCell {
     }
 }
 
+// MARK: - UI Configuration
 extension CardCell {
     private func configureUI() {
         backgroundColor = Constants.backgroundColor
