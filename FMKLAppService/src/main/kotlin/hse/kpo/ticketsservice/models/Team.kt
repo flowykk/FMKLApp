@@ -22,6 +22,8 @@ class Team(
     private val goalsscored: Int,
     @Column("goalsmissed")
     private val goalsmissed: Int,
+    @Column("group")
+    private val group: String
 ) {
     fun getShortname(): String = shortname
     fun getFullname(): String = fullname
@@ -30,4 +32,5 @@ class Team(
     fun getLoses(): Int = loses
     fun getGoalsscored(): Int = goalsscored
     fun getGoalsmissed(): Int = goalsmissed
+    fun getGruop(): String = group
 }
