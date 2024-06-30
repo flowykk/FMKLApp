@@ -33,6 +33,7 @@ extension PlayersCardsTableView {
     private func configure() {
         backgroundColor = Constants.backgroundColor
         delegate = self
+        dataSource = self
         register(CardCell.self, forCellReuseIdentifier: "CardCell")
         rowHeight = 50
         
