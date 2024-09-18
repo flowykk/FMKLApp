@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,6 +43,13 @@
 		0D753B492C1B4F47002A2245 /* PlayerCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D753B482C1B4F47002A2245 /* PlayerCards.swift */; };
 		0D753B4C2C1B4FC9002A2245 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D753B4B2C1B4FC9002A2245 /* CardCell.swift */; };
 		0D753B4E2C1B5582002A2245 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D753B4D2C1B5582002A2245 /* CardView.swift */; };
+		0D97DBFD2C9B599700CABF4D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D97DBFC2C9B599700CABF4D /* WidgetKit.framework */; };
+		0D97DBFF2C9B599700CABF4D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D97DBFE2C9B599700CABF4D /* SwiftUI.framework */; };
+		0D97DC0A2C9B599800CABF4D /* RefereeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D97DBFA2C9B599700CABF4D /* RefereeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0D97DC112C9B59BE00CABF4D /* TimeTrackingAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D97DC102C9B59BE00CABF4D /* TimeTrackingAttributes.swift */; };
+		0D97DC122C9B59BE00CABF4D /* TimeTrackingAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D97DC102C9B59BE00CABF4D /* TimeTrackingAttributes.swift */; };
+		0D97DC132C9B5C2700CABF4D /* Jellee-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE704322BF659AB00315374 /* Jellee-Roman.otf */; };
+		0D97DC142C9B5FDB00CABF4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE704092BF6539700315374 /* Assets.xcassets */; };
 		0DCFF9502C0509E700DA858A /* TeamPlayersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF94F2C0509E700DA858A /* TeamPlayersTableView.swift */; };
 		0DCFF9522C050A0200DA858A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF9512C050A0200DA858A /* Player.swift */; };
 		0DCFF9542C050A1C00DA858A /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF9532C050A1C00DA858A /* PlayerCell.swift */; };
@@ -91,6 +98,30 @@
 		0DE704552BF7C9AA00315374 /* TeamGamesStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE704542BF7C9AA00315374 /* TeamGamesStats.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0D97DC082C9B599800CABF4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DE703F52BF6539600315374 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D97DBF92C9B599700CABF4D;
+			remoteInfo = RefereeWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0D97DC0B2C9B599800CABF4D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0D97DC0A2C9B599800CABF4D /* RefereeWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0D28F9A12C245774004FEB07 /* SocialMediaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaButton.swift; sourceTree = "<group>"; };
 		0D28F9A32C245B33004FEB07 /* DevInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevInfoPresenter.swift; sourceTree = "<group>"; };
@@ -122,6 +153,10 @@
 		0D753B482C1B4F47002A2245 /* PlayerCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCards.swift; sourceTree = "<group>"; };
 		0D753B4B2C1B4FC9002A2245 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardCell.swift; path = FMKLApp/Team/Views/Cells/CardCell.swift; sourceTree = SOURCE_ROOT; };
 		0D753B4D2C1B5582002A2245 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0D97DBFA2C9B599700CABF4D /* RefereeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RefereeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D97DBFC2C9B599700CABF4D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		0D97DBFE2C9B599700CABF4D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		0D97DC102C9B59BE00CABF4D /* TimeTrackingAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrackingAttributes.swift; sourceTree = "<group>"; };
 		0DCFF94F2C0509E700DA858A /* TeamPlayersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPlayersTableView.swift; sourceTree = "<group>"; };
 		0DCFF9512C050A0200DA858A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0DCFF9532C050A1C00DA858A /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
@@ -172,7 +207,30 @@
 		0DE704542BF7C9AA00315374 /* TeamGamesStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamGamesStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0D97DC0E2C9B599800CABF4D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0D97DBF92C9B599700CABF4D /* RefereeWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0D97DC002C9B599700CABF4D /* RefereeWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (0D97DC0E2C9B599800CABF4D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = RefereeWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		0D97DBF72C9B599700CABF4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D97DBFF2C9B599700CABF4D /* SwiftUI.framework in Frameworks */,
+				0D97DBFD2C9B599700CABF4D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0DE703FA2BF6539600315374 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -254,6 +312,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		0D97DBFB2C9B599700CABF4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D97DBFC2C9B599700CABF4D /* WidgetKit.framework */,
+				0D97DBFE2C9B599700CABF4D /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0DCFF96E2C064C4200DA858A /* Match */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +373,8 @@
 			isa = PBXGroup;
 			children = (
 				0DE703FF2BF6539600315374 /* FMKLApp */,
+				0D97DC002C9B599700CABF4D /* RefereeWidget */,
+				0D97DBFB2C9B599700CABF4D /* Frameworks */,
 				0DE703FE2BF6539600315374 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -314,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				0DE703FD2BF6539600315374 /* FMKLApp.app */,
+				0D97DBFA2C9B599700CABF4D /* RefereeWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,6 +424,7 @@
 				0DE704182BF655DF00315374 /* CustomTransitioning.swift */,
 				0DE7042F2BF6584C00315374 /* Constants.swift */,
 				0D2E65222C2312FE00704C1D /* AlertHelper.swift */,
+				0D97DC102C9B59BE00CABF4D /* TimeTrackingAttributes.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -470,6 +541,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0D97DBF92C9B599700CABF4D /* RefereeWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D97DC0F2C9B599800CABF4D /* Build configuration list for PBXNativeTarget "RefereeWidgetExtension" */;
+			buildPhases = (
+				0D97DBF62C9B599700CABF4D /* Sources */,
+				0D97DBF72C9B599700CABF4D /* Frameworks */,
+				0D97DBF82C9B599700CABF4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0D97DC002C9B599700CABF4D /* RefereeWidget */,
+			);
+			name = RefereeWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = RefereeWidgetExtension;
+			productReference = 0D97DBFA2C9B599700CABF4D /* RefereeWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		0DE703FC2BF6539600315374 /* FMKLApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DE704112BF6539700315374 /* Build configuration list for PBXNativeTarget "FMKLApp" */;
@@ -477,10 +570,12 @@
 				0DE703F92BF6539600315374 /* Sources */,
 				0DE703FA2BF6539600315374 /* Frameworks */,
 				0DE703FB2BF6539600315374 /* Resources */,
+				0D97DC0B2C9B599800CABF4D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0D97DC092C9B599800CABF4D /* PBXTargetDependency */,
 			);
 			name = FMKLApp;
 			productName = FMKLApp;
@@ -494,9 +589,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					0D97DBF92C9B599700CABF4D = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					0DE703FC2BF6539600315374 = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -516,11 +614,21 @@
 			projectRoot = "";
 			targets = (
 				0DE703FC2BF6539600315374 /* FMKLApp */,
+				0D97DBF92C9B599700CABF4D /* RefereeWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0D97DBF82C9B599700CABF4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D97DC132C9B5C2700CABF4D /* Jellee-Roman.otf in Resources */,
+				0D97DC142C9B5FDB00CABF4D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0DE703FB2BF6539600315374 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -534,6 +642,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0D97DBF62C9B599700CABF4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D97DC122C9B59BE00CABF4D /* TimeTrackingAttributes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0DE703F92BF6539600315374 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -586,6 +702,7 @@
 				0D2E652B2C23185A00704C1D /* PlayerCard.swift in Sources */,
 				0DE704452BF6679900315374 /* DevInfoBuilder.swift in Sources */,
 				0D753B4E2C1B5582002A2245 /* CardView.swift in Sources */,
+				0D97DC112C9B59BE00CABF4D /* TimeTrackingAttributes.swift in Sources */,
 				0DE704232BF6565C00315374 /* MainPresenter.swift in Sources */,
 				0DCFF9542C050A1C00DA858A /* PlayerCell.swift in Sources */,
 				0D3438492BFE5BCB000B20CC /* (null) in Sources */,
@@ -622,6 +739,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0D97DC092C9B599800CABF4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D97DBF92C9B599700CABF4D /* RefereeWidgetExtension */;
+			targetProxy = 0D97DC082C9B599800CABF4D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		0DE7040B2BF6539700315374 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -634,6 +759,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0D97DC0C2C9B599800CABF4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MV84AF3V6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RefereeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RefereeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flowykk.FMKLApp.RefereeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0D97DC0D2C9B599800CABF4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MV84AF3V6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RefereeWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RefereeWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flowykk.FMKLApp.RefereeWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		0DE7040F2BF6539700315374 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -765,6 +946,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FMKLApp/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
@@ -795,6 +977,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FMKLApp/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
@@ -816,6 +999,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0D97DC0F2C9B599800CABF4D /* Build configuration list for PBXNativeTarget "RefereeWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D97DC0C2C9B599800CABF4D /* Debug */,
+				0D97DC0D2C9B599800CABF4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0DE703F82BF6539600315374 /* Build configuration list for PBXProject "FMKLApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

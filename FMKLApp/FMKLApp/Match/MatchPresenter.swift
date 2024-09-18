@@ -5,7 +5,14 @@
 //  Created by Данила Рахманов on 22.05.2024.
 //
 
+import UIKit
+import Foundation
+import ActivityKit
+
 final class MatchPresenter {
+    private var startTime: Date? = nil
+    private var activity: Activity<TimeTrackingAttributes>? = nil
+    
     private weak var view: MatchViewController?
     
     weak var goalsTableView: GoalsTableView?
@@ -31,6 +38,8 @@ final class MatchPresenter {
     }
     
     func continueButtonTapped() {
+        stopTrackingMatch()
+        startTime = nil
         router.navigateToMain()
     }
     
@@ -56,5 +65,26 @@ final class MatchPresenter {
         }
         
         cardsTableView?.addRow(withCard: card)
+    }
+    
+    func startTrackingMatch() {
+        startTime = .now
+        
+        let attributes = TimeTrackingAttributes()
+        let state = TimeTrackingAttributes.ContentState(startTime: .now)
+        let content = ActivityContent(state: state, staleDate: nil)
+        
+        activity = try? Activity<TimeTrackingAttributes>.request(attributes: attributes, content: content, pushType: nil)
+    }
+    
+    func stopTrackingMatch() {
+        guard let startTime else { return }
+        
+        let state = TimeTrackingAttributes.ContentState(startTime: startTime)
+        let content = ActivityContent(state: state, staleDate: nil)
+        
+        Task {
+            await activity?.end(content, dismissalPolicy: .immediate)
+        }
     }
 }
