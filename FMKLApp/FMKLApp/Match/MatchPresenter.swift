@@ -11,12 +11,22 @@ import ActivityKit
 
 final class MatchPresenter {
     private var startTime: Date? = nil
-    private var activity: Activity<TimeTrackingAttributes>? = nil
+    private var team1Name: String? = nil
+    private var team2Name: String? = nil
+    private var team1Score: Int = 0
+    private var team2Score: Int = 0
+    private var lastGoalAuthor: String? = nil
+    private var lastCardAuthor: String? = nil
+    
+    private var activity: Activity<MatchTrackingAttributes>? = nil
     
     private weak var view: MatchViewController?
     
     weak var goalsTableView: GoalsTableView?
     weak var cardsTableView: AddCardTableView?
+    
+    weak var firstPickerView: TextFieldPickerView?
+    weak var secondPickerView: TextFieldPickerView?
     
     private var router: MatchRouter
     
@@ -70,21 +80,56 @@ final class MatchPresenter {
     func startTrackingMatch() {
         startTime = .now
         
-        let attributes = TimeTrackingAttributes()
-        let state = TimeTrackingAttributes.ContentState(startTime: .now)
+        let attributes = MatchTrackingAttributes()
+        let state = MatchTrackingAttributes.ContentState(
+            startTime: startTime!,
+            team1Score: 0,
+            team2Score: 0
+        )
         let content = ActivityContent(state: state, staleDate: nil)
-        
-        activity = try? Activity<TimeTrackingAttributes>.request(attributes: attributes, content: content, pushType: nil)
+                
+        activity = try? Activity<MatchTrackingAttributes>.request(attributes: attributes, content: content, pushType: nil)
     }
     
     func stopTrackingMatch() {
         guard let startTime else { return }
+        guard let lastGoalAuthor else { return }
+        guard let lastCardAuthor else { return }
         
-        let state = TimeTrackingAttributes.ContentState(startTime: startTime)
+        let state = MatchTrackingAttributes.ContentState(
+            startTime: startTime,
+            team1Name: team1Name,
+            team2Name: team2Name,
+            team1Score: team1Score,
+            team2Score: team2Score,
+            lastGoalAuthor: lastGoalAuthor,
+            lastCardAuthor: lastCardAuthor
+        )
         let content = ActivityContent(state: state, staleDate: nil)
         
         Task {
             await activity?.end(content, dismissalPolicy: .immediate)
+        }
+    }
+    
+    func updateTrackingMatchTeamNames() {
+        guard let startTime else { return }
+        team1Name = firstPickerView?.getTextFieldData()
+        team2Name = secondPickerView?.getTextFieldData()
+        
+        let state = MatchTrackingAttributes.ContentState(
+            startTime: startTime,
+            team1Name: TeamNames.names[team1Name!],
+            team2Name: TeamNames.names[team2Name!],
+            team1Score: team1Score,
+            team2Score: team2Score
+        )
+        let content = ActivityContent(state: state, staleDate: nil)
+        
+        print(state)
+        
+        Task {
+            await activity?.update(content)
         }
     }
 }

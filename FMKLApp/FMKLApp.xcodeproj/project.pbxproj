@@ -34,6 +34,10 @@
 		0D4F98082BF8BA2200E82383 /* PlayersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F98072BF8BA2200E82383 /* PlayersTableView.swift */; };
 		0D4F980A2BF8BA3200E82383 /* PlayerStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F98092BF8BA3200E82383 /* PlayerStatsCell.swift */; };
 		0D4F980C2BF8BA6200E82383 /* PlayerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F980B2BF8BA6200E82383 /* PlayerStats.swift */; };
+		0D58763E2C9CADC600C53A90 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D58763D2C9CADC600C53A90 /* UIImageExtension.swift */; };
+		0D58763F2C9CAEA700C53A90 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D58763D2C9CADC600C53A90 /* UIImageExtension.swift */; };
+		0D58765B2C9CB6A200C53A90 /* TeamNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D58765A2C9CB6A200C53A90 /* TeamNames.swift */; };
+		0D58765C2C9CB85D00C53A90 /* TeamNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D58765A2C9CB6A200C53A90 /* TeamNames.swift */; };
 		0D6A5C372C22275E0055178A /* TextField+PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A5C362C22275E0055178A /* TextField+PickerView.swift */; };
 		0D6A5C3A2C2230B50055178A /* GoalsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A5C392C2230B50055178A /* GoalsTableView.swift */; };
 		0D6A5C3D2C2230CA0055178A /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A5C3C2C2230CA0055178A /* GoalCell.swift */; };
@@ -46,8 +50,8 @@
 		0D97DBFD2C9B599700CABF4D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D97DBFC2C9B599700CABF4D /* WidgetKit.framework */; };
 		0D97DBFF2C9B599700CABF4D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D97DBFE2C9B599700CABF4D /* SwiftUI.framework */; };
 		0D97DC0A2C9B599800CABF4D /* RefereeWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D97DBFA2C9B599700CABF4D /* RefereeWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0D97DC112C9B59BE00CABF4D /* TimeTrackingAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D97DC102C9B59BE00CABF4D /* TimeTrackingAttributes.swift */; };
-		0D97DC122C9B59BE00CABF4D /* TimeTrackingAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D97DC102C9B59BE00CABF4D /* TimeTrackingAttributes.swift */; };
+		0D97DC112C9B59BE00CABF4D /* MatchTrackingAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D97DC102C9B59BE00CABF4D /* MatchTrackingAttributes.swift */; };
+		0D97DC122C9B59BE00CABF4D /* MatchTrackingAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D97DC102C9B59BE00CABF4D /* MatchTrackingAttributes.swift */; };
 		0D97DC132C9B5C2700CABF4D /* Jellee-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0DE704322BF659AB00315374 /* Jellee-Roman.otf */; };
 		0D97DC142C9B5FDB00CABF4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE704092BF6539700315374 /* Assets.xcassets */; };
 		0DCFF9502C0509E700DA858A /* TeamPlayersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCFF94F2C0509E700DA858A /* TeamPlayersTableView.swift */; };
@@ -144,6 +148,8 @@
 		0D4F98072BF8BA2200E82383 /* PlayersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTableView.swift; sourceTree = "<group>"; };
 		0D4F98092BF8BA3200E82383 /* PlayerStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsCell.swift; sourceTree = "<group>"; };
 		0D4F980B2BF8BA6200E82383 /* PlayerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStats.swift; sourceTree = "<group>"; };
+		0D58763D2C9CADC600C53A90 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		0D58765A2C9CB6A200C53A90 /* TeamNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNames.swift; sourceTree = "<group>"; };
 		0D6A5C362C22275E0055178A /* TextField+PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+PickerView.swift"; sourceTree = "<group>"; };
 		0D6A5C392C2230B50055178A /* GoalsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableView.swift; sourceTree = "<group>"; };
 		0D6A5C3C2C2230CA0055178A /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
@@ -156,7 +162,7 @@
 		0D97DBFA2C9B599700CABF4D /* RefereeWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RefereeWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D97DBFC2C9B599700CABF4D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		0D97DBFE2C9B599700CABF4D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		0D97DC102C9B59BE00CABF4D /* TimeTrackingAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTrackingAttributes.swift; sourceTree = "<group>"; };
+		0D97DC102C9B59BE00CABF4D /* MatchTrackingAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTrackingAttributes.swift; sourceTree = "<group>"; };
 		0DCFF94F2C0509E700DA858A /* TeamPlayersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPlayersTableView.swift; sourceTree = "<group>"; };
 		0DCFF9512C050A0200DA858A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0DCFF9532C050A1C00DA858A /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
@@ -424,7 +430,7 @@
 				0DE704182BF655DF00315374 /* CustomTransitioning.swift */,
 				0DE7042F2BF6584C00315374 /* Constants.swift */,
 				0D2E65222C2312FE00704C1D /* AlertHelper.swift */,
-				0D97DC102C9B59BE00CABF4D /* TimeTrackingAttributes.swift */,
+				0D97DC102C9B59BE00CABF4D /* MatchTrackingAttributes.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -435,6 +441,7 @@
 				0DE7041B2BF6561700315374 /* UIViewExtension.swift */,
 				0DE7044A2BF669F700315374 /* UILabelExtension.swift */,
 				0DDB12E42BFBB7FE00ADA2D1 /* UIViewControllerExtension.swift */,
+				0D58763D2C9CADC600C53A90 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -503,6 +510,7 @@
 				0D6A5C3E2C22310C0055178A /* Goal.swift */,
 				0D753B482C1B4F47002A2245 /* PlayerCards.swift */,
 				0D2E652A2C23185A00704C1D /* PlayerCard.swift */,
+				0D58765A2C9CB6A200C53A90 /* TeamNames.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -646,7 +654,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D97DC122C9B59BE00CABF4D /* TimeTrackingAttributes.swift in Sources */,
+				0D58765C2C9CB85D00C53A90 /* TeamNames.swift in Sources */,
+				0D97DC122C9B59BE00CABF4D /* MatchTrackingAttributes.swift in Sources */,
+				0D58763F2C9CAEA700C53A90 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,13 +706,14 @@
 				0DCFF96F2C064C4200DA858A /* MatchBuilder.swift in Sources */,
 				0DE704012BF6539600315374 /* AppDelegate.swift in Sources */,
 				0DCFF9722C064C4200DA858A /* MatchViewController.swift in Sources */,
+				0D58765B2C9CB6A200C53A90 /* TeamNames.swift in Sources */,
 				0D34384B2BFE5BD3000B20CC /* (null) in Sources */,
 				0D4F980C2BF8BA6200E82383 /* PlayerStats.swift in Sources */,
 				0D2E65252C23154F00704C1D /* AddCardTableView.swift in Sources */,
 				0D2E652B2C23185A00704C1D /* PlayerCard.swift in Sources */,
 				0DE704452BF6679900315374 /* DevInfoBuilder.swift in Sources */,
 				0D753B4E2C1B5582002A2245 /* CardView.swift in Sources */,
-				0D97DC112C9B59BE00CABF4D /* TimeTrackingAttributes.swift in Sources */,
+				0D97DC112C9B59BE00CABF4D /* MatchTrackingAttributes.swift in Sources */,
 				0DE704232BF6565C00315374 /* MainPresenter.swift in Sources */,
 				0DCFF9542C050A1C00DA858A /* PlayerCell.swift in Sources */,
 				0D3438492BFE5BCB000B20CC /* (null) in Sources */,
@@ -713,6 +724,7 @@
 				0DE704502BF7C88900315374 /* GamesStatsTableView.swift in Sources */,
 				0D3438452BFE5BBE000B20CC /* (null) in Sources */,
 				0DDB12DF2BFBB0A300ADA2D1 /* RefereeCodePresenter.swift in Sources */,
+				0D58763E2C9CADC600C53A90 /* UIImageExtension.swift in Sources */,
 				0DE704252BF6566100315374 /* MainRouter.swift in Sources */,
 				0DE7042C2BF6574400315374 /* SettingsPresenter.swift in Sources */,
 				0D46AC132C2B098F00DAC7FA /* AddCardViewController.swift in Sources */,
@@ -771,7 +783,7 @@
 				INFOPLIST_FILE = RefereeWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RefereeWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -799,7 +811,7 @@
 				INFOPLIST_FILE = RefereeWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RefereeWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

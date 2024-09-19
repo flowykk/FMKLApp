@@ -13,18 +13,32 @@ struct RefereeWidget: Widget {
     let kind: String = "MyWidget"
 
     var body: some WidgetConfiguration {
-        
-        ActivityConfiguration(for: TimeTrackingAttributes.self) { context in
+        ActivityConfiguration(for: MatchTrackingAttributes.self) { context in
             RefereeWidgetView(context: context)
         } dynamicIsland: { context in
             DynamicIsland {
+                let team1Name = context.state.team1Name
+                let team2Name = context.state.team2Name
+                
+                let team1NameEmpty = team1Name == nil
+                let team2NameEmpty = team2Name == nil
+                
                 DynamicIslandExpandedRegion(.leading) {
                     VStack {
-                        Image(.sBUSUS)
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .cornerRadius(30)
-                        Text("BUSUS")
+                        if team1NameEmpty {
+                            Text("?")
+                                .font(.custom("Jellee-Roman", size: 25))
+                                .frame(width: 60, height: 60)
+                                .background(Circle().fill(.gray))
+                                .foregroundColor(.black)
+                            
+                        } else {
+                            Image(uiImage: UIImage(named: team1Name!)!.resize(toDimension: 128))
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .cornerRadius(30)
+                        }
+                        Text(team1NameEmpty ? "-" : "\(team1Name!)")
                             .font(.custom("Jellee-Roman", size: 13))
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.white.gradient)
@@ -34,11 +48,20 @@ struct RefereeWidget: Widget {
                 }
                 DynamicIslandExpandedRegion(.trailing) {
                     VStack {
-                        Image(.sCSAK)
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .cornerRadius(30)
-                        Text("CSAK")
+                        if team2NameEmpty {
+                            Text("?")
+                                .font(.custom("Jellee-Roman", size: 25))
+                                .frame(width: 60, height: 60)
+                                .background(Circle().fill(.gray))
+                                .foregroundColor(.black)
+                            
+                        } else {
+                            Image(uiImage: UIImage(named: team2Name!)!.resize(toDimension: 128))
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .cornerRadius(30)
+                        }
+                        Text(team2NameEmpty ? "-" : "\(team2Name!)")
                             .font(.custom("Jellee-Roman", size: 13))
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.white.gradient)
@@ -52,7 +75,7 @@ struct RefereeWidget: Widget {
                             .font(.custom("Jellee-Roman", size: 14))
                             .foregroundColor(.green)
                             .multilineTextAlignment(.center)
-                        Text("2 - 1")
+                        Text("0 - 0")
                             .font(.custom("Jellee-Roman", size: 30))
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.white.gradient)
@@ -63,7 +86,7 @@ struct RefereeWidget: Widget {
                         Spacer()
                         HStack {
                             Image(systemName: "soccerball.inverse")
-                            Text("Kirill Filatov")
+                            Text("-")
                                 .font(.system(size: 15))
                                 .fontWeight(.semibold)
                         }
@@ -71,7 +94,7 @@ struct RefereeWidget: Widget {
                         HStack {
                             Image(systemName: "rectangle.portrait.fill")
                                 .foregroundColor(.red)
-                            Text("Abubakr Rakhimov")
+                            Text("-")
                                 .font(.system(size: 15))
                                 .fontWeight(.semibold)
                         }
@@ -80,24 +103,46 @@ struct RefereeWidget: Widget {
                     .padding(.top, 5)
                 }
             } compactLeading: {
+                let team1Name = context.state.team1Name
+                
                 HStack {
-                    Image(.sBUSUS)
-                        .resizable()
-                        .frame(width: 26, height: 26)
-                        .cornerRadius(13)
-                    Text("2")
+                    if team1Name == nil {
+                        Text("?")
+                            .font(.custom("Jellee-Roman", size: 18))
+                            .frame(width: 26, height: 26)
+                            .background(Circle().fill(.gray))
+                            .foregroundColor(.black)
+                    } else {
+                        Image(uiImage: UIImage(named: team1Name!)!.resize(toDimension: 128))
+                            .resizable()
+                            .frame(width: 26, height: 26)
+                            .cornerRadius(13)
+                    }
+                    
+                    Text("0")
                         .font(.custom("Jellee-Roman", size: 15))
                         .foregroundStyle(.white.gradient)
                 }
             } compactTrailing: {
+                let team2Name = context.state.team2Name
+                
                 HStack {
-                    Text("1")
+                    Text("0")
                         .font(.custom("Jellee-Roman", size: 15))
                         .foregroundStyle(.white.gradient)
-                    Image(.sCSAK)
-                        .resizable()
-                        .frame(width: 26, height: 26)
-                        .cornerRadius(13)
+                    
+                    if team2Name == nil {
+                        Text("?")
+                            .font(.custom("Jellee-Roman", size: 18))
+                            .frame(width: 26, height: 26)
+                            .background(Circle().fill(.gray))
+                            .foregroundColor(.black)
+                    } else {
+                        Image(uiImage: UIImage(named: team2Name!)!.resize(toDimension: 128))
+                            .resizable()
+                            .frame(width: 26, height: 26)
+                            .cornerRadius(13)
+                    }
                 }
             } minimal: {
                 Image(systemName: "soccerball.inverse")
@@ -109,7 +154,7 @@ struct RefereeWidget: Widget {
 }
 
 struct RefereeWidgetView: View {
-    let context: ActivityViewContext<TimeTrackingAttributes>
+    let context: ActivityViewContext<MatchTrackingAttributes>
     
     var body: some View {
         VStack {
