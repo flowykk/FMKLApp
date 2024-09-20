@@ -24,7 +24,7 @@
 
 ![605shots_so](https://github.com/flowykk/FMKLApp/assets/71427624/756b77bd-c16f-4a7a-a67d-a67cf1fe2808)
 
-# Live Activities
+# Teams' and Goal Scorer's/Assistant's Statistics
 
 ![476shots_so](https://github.com/flowykk/FMKLApp/assets/71427624/500084b0-1520-4acb-ab0d-072e68b53f36)
 
