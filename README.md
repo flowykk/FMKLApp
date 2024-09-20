@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="![138shots_so](https://github.com/user-attachments/assets/5ff4e557-2be8-4786-833d-47e821ca69a6)"> 
-  <img src="![699shots_so](https://github.com/user-attachments/assets/fd21c004-4c13-4fd5-97fb-9b26f0e7d3d7)"> 
+  <img src="https://github.com/user-attachments/assets/5ff4e557-2be8-4786-833d-47e821ca69a6"> 
+  <img src="https://github.com/user-attachments/assets/fd21c004-4c13-4fd5-97fb-9b26f0e7d3d7"> 
 </div>
 
 <div align="center">
