@@ -54,7 +54,7 @@ extension AddCardTableView {
         let num = Int(arc4random_uniform(2) + 1)
         if num == 1 {
             let card = PlayerCard(
-                team: "BUSUS",
+                team: "ZVZD",
                 player: "Filatov K.",
                 minute: 10,
                 isCardRed: true)
@@ -62,7 +62,7 @@ extension AddCardTableView {
             presenter?.updateTrackingMatchCard(withCard: card)
         } else {
             let card = PlayerCard(
-                team: "KUBN",
+                team: "CSAK",
                 player: "Nachinkin I.",
                 minute: 11,
                 isCardRed: false)

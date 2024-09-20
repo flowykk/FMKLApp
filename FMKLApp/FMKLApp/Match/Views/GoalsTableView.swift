@@ -73,7 +73,7 @@ extension GoalsTableView {
         let num = Int(arc4random_uniform(2) + 1)
         if num == 1 {
             let goal = Goal(
-                scoredTeamName: "BUSUS",
+                scoredTeamName: "ZVZD",
                 scoredPlayer: "Filatov K.",
                 assistedPlayer: "Rakhimov A.",
                 minute: 10
@@ -82,7 +82,7 @@ extension GoalsTableView {
             presenter?.updateTrackingMatchTeamScores(withGoal: goal)
         } else if num == 2 {
             let goal = Goal(
-                scoredTeamName: "KUBN",
+                scoredTeamName: "CSAK",
                 scoredPlayer: "Nachinkin I.",
                 assistedPlayer: "Martynov D.",
                 minute: 10

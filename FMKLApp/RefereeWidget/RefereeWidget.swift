@@ -165,14 +165,91 @@ struct RefereeWidgetView: View {
     let context: ActivityViewContext<MatchTrackingAttributes>
     
     var body: some View {
-        VStack {
-            Text(context.state.startTime, style: .timer)
-                .font(.custom("Jellee-Roman", size: 25))
-                .foregroundColor(.pink)
-                .multilineTextAlignment(.center)
-            
+        let team1Name = context.state.team1Name
+        let team2Name = context.state.team2Name
+        
+        let team1NameEmpty = team1Name == nil
+        let team2NameEmpty = team2Name == nil
+        
+        let team1Score = context.state.team1Score
+        let team2Score = context.state.team2Score
+        
+        ZStack {
+            HStack {
+                Spacer()
+                HStack {
+                    if team1NameEmpty {
+                        Text("?")
+                            .font(.custom("Jellee-Roman", size: 25))
+                            .frame(width: 50, height: 50)
+                            .background(Circle().fill(.gray))
+                            .foregroundColor(.black)
+                        
+                    } else {
+                        Image(uiImage: UIImage(named: team1Name!)!.resize(toDimension: 128))
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .cornerRadius(25)
+                    }
+                    VStack {
+                        Text(team1NameEmpty ? "-" : "\(team1Name!)")
+                            .font(.custom("Jellee-Roman", size: 12))
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.gray.gradient)
+                        Text(team1Score == nil ? "-" : "\(team1Score!)")
+                            .font(.custom("Jellee-Roman", size: 20))
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.white.gradient)
+                    }
+                }
+                Spacer()
+                Text(context.state.startTime, style: .timer)
+                    .font(.custom("Jellee-Roman", size: 20))
+                    .foregroundColor(.green)
+                    .multilineTextAlignment(.center)
+                Spacer()
+                HStack {
+                    VStack {
+                        Text(team2NameEmpty ? "-" : "\(team2Name!)")
+                            .font(.custom("Jellee-Roman", size: 12))
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.gray.gradient)
+                        Text(team2Score == nil ? "-" : "\(team2Score!)")
+                            .font(.custom("Jellee-Roman", size: 20))
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.white.gradient)
+                    }
+                    if team2NameEmpty {
+                        Text("?")
+                            .font(.custom("Jellee-Roman", size: 25))
+                            .frame(width: 50, height: 50)
+                            .background(Circle().fill(.gray))
+                            .foregroundColor(.black)
+                        
+                    } else {
+                        Image(uiImage: UIImage(named: team2Name!)!.resize(toDimension: 128))
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .cornerRadius(25)
+                    }
+                }
+                Spacer()
+            }
         }
         .containerRelativeFrame([.horizontal, .vertical])
-        .background(.white.gradient)
+        .background(.black)
+        //.background(Color(hex: 0x212121))
+    }
+}
+
+extension Color {
+    init(hex: UInt, alpha: Double = 1) {
+        self.init(
+            .sRGB,
+            red: Double((hex >> 16) & 0xff) / 255,
+            green: Double((hex >> 08) & 0xff) / 255,
+            blue: Double((hex >> 00) & 0xff) / 255,
+            opacity: alpha
+        )
     }
 }
