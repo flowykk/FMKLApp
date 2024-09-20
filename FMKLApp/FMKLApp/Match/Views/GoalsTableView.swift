@@ -70,7 +70,29 @@ extension GoalsTableView {
     }
     
     private func addRow(rowIndex: Int) {
-        presenter?.addGoalButtonTapped()
+        let num = Int(arc4random_uniform(2) + 1)
+        print(999, num)
+        if num == 1 {
+            let goal = Goal(
+                scoredTeamName: "BUSUS",
+                scoredPlayer: "Filatov K.",
+                assistedPlayer: "Rakhimov A.",
+                minute: 10
+            )
+            presenter?.addGoalToTable(withGoal: goal)
+            presenter?.updateTrackingMatchTeamScores(withGoal: goal)
+        } else if num == 2 {
+            let goal = Goal(
+                scoredTeamName: "KUBN",
+                scoredPlayer: "Nachinkin I.",
+                assistedPlayer: "Martynov D.",
+                minute: 10
+            )
+            presenter?.addGoalToTable(withGoal: goal)
+            presenter?.updateTrackingMatchTeamScores(withGoal: goal)
+        }
+        
+        //presenter?.addGoalButtonTapped()
     }
 }
 
@@ -89,7 +111,6 @@ extension GoalsTableView: UITableViewDelegate, UITableViewDataSource {
             guard let addButtonCell = cell as? AddCell else { return cell }
             
             addButtonCell.addButtonTapAction = { [weak self] in
-                
                 self?.addRow(rowIndex: indexPath.row)
                 self?.isScrollEnabled = true
             }
@@ -99,7 +120,6 @@ extension GoalsTableView: UITableViewDelegate, UITableViewDataSource {
             let cell = dequeueReusableCell(withIdentifier: "GoalCell") as! GoalCell
             
             cell.set(goal: goal)
-            
             cell.deleteButtonTapAction = { [weak self] in
                 self?.deleteRow(rowIndex: indexPath.row)
             }
@@ -124,10 +144,6 @@ extension GoalsTableView: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Fetching Data for GoalsTableView
 extension GoalsTableView {
     func fetchData() {
-        self.goals = [
-            Goal(scoredTeamName: "TEAM", scoredPlayer: "SExample P.", assistedPlayer: "AExample E.", minute: 10)
-        ]
-        
         DispatchQueue.main.async {
             self.reloadData()
         }

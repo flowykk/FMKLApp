@@ -17,8 +17,8 @@ struct MatchTrackingAttributes: ActivityAttributes {
         var team1Name: String?
         var team2Name: String?
         
-        var team1Score: Int
-        var team2Score: Int
+        var team1Score: Int?
+        var team2Score: Int?
         
         var lastGoalAuthor: String?
         var lastCardAuthor: String?

@@ -13,10 +13,12 @@ final class MatchPresenter {
     private var startTime: Date? = nil
     private var team1Name: String? = nil
     private var team2Name: String? = nil
-    private var team1Score: Int = 0
-    private var team2Score: Int = 0
+    private var team1Score: Int? = nil
+    private var team2Score: Int? = nil
     private var lastGoalAuthor: String? = nil
     private var lastCardAuthor: String? = nil
+    
+    private var goalAdded: Bool = false
     
     private var activity: Activity<MatchTrackingAttributes>? = nil
     
@@ -33,6 +35,11 @@ final class MatchPresenter {
     init(view: MatchViewController?, router: MatchRouter) {
         self.view = view
         self.router = router
+    }
+    
+    func toggleGoalAdded() {
+        print(0, goalAdded)
+        goalAdded.toggle()
     }
     
     func backButtonTapped() {
@@ -66,6 +73,7 @@ final class MatchPresenter {
             addGoalVC.dismiss(animated: true)
         }
         
+        toggleGoalAdded()
         goalsTableView?.addRow(withGoal: goal)
     }
     
@@ -82,9 +90,7 @@ final class MatchPresenter {
         
         let attributes = MatchTrackingAttributes()
         let state = MatchTrackingAttributes.ContentState(
-            startTime: startTime!,
-            team1Score: 0,
-            team2Score: 0
+            startTime: startTime!
         )
         let content = ActivityContent(state: state, staleDate: nil)
                 
@@ -120,14 +126,45 @@ final class MatchPresenter {
         let state = MatchTrackingAttributes.ContentState(
             startTime: startTime,
             team1Name: TeamNames.names[team1Name!],
-            team2Name: TeamNames.names[team2Name!],
+            team2Name: TeamNames.names[team2Name!]
+        )
+        let content = ActivityContent(state: state, staleDate: nil)
+                
+        Task {
+            await activity?.update(content)
+        }
+    }
+    
+    func updateTrackingMatchTeamScores(withGoal goal: Goal) {
+        guard let startTime else { return }
+        guard let team1Name else { return }
+        guard let team2Name else { return }
+        
+        let shortTeam1Name = TeamNames.names[team1Name]
+        let shortTeam2Name = TeamNames.names[team2Name]
+        
+        var state = MatchTrackingAttributes.ContentState(
+            startTime: startTime,
+            team1Name: TeamNames.names[team1Name],
+            team2Name: TeamNames.names[team2Name],
             team1Score: team1Score,
             team2Score: team2Score
         )
+        
+        guard goalAdded else { return }
+        if shortTeam1Name != nil && goal.scoredTeamName == shortTeam1Name {
+            team1Score = (team1Score == nil ? 0 : team1Score!) + 1
+            state.team1Score = team1Score
+        } else if shortTeam2Name != nil && goal.scoredTeamName == shortTeam2Name {
+            team2Score = (team2Score == nil ? 0 : team2Score!) + 1
+            state.team2Score = team2Score
+        }
+        lastGoalAuthor = goal.scoredPlayer
+        state.lastGoalAuthor = lastGoalAuthor
+        goalAdded = false
+                
         let content = ActivityContent(state: state, staleDate: nil)
-        
-        print(state)
-        
+                
         Task {
             await activity?.update(content)
         }

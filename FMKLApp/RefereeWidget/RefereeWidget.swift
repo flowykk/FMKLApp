@@ -23,6 +23,11 @@ struct RefereeWidget: Widget {
                 let team1NameEmpty = team1Name == nil
                 let team2NameEmpty = team2Name == nil
                 
+                let team1Score = context.state.team1Score
+                let team2Score = context.state.team2Score
+                
+                let lastGoalAuthor = context.state.lastGoalAuthor
+                
                 DynamicIslandExpandedRegion(.leading) {
                     VStack {
                         if team1NameEmpty {
@@ -75,7 +80,7 @@ struct RefereeWidget: Widget {
                             .font(.custom("Jellee-Roman", size: 14))
                             .foregroundColor(.green)
                             .multilineTextAlignment(.center)
-                        Text("0 - 0")
+                        Text("\(team1Score == nil ? 0 : team1Score!) - \(team2Score == nil ? 0 : team2Score!)")
                             .font(.custom("Jellee-Roman", size: 30))
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.white.gradient)
@@ -86,7 +91,7 @@ struct RefereeWidget: Widget {
                         Spacer()
                         HStack {
                             Image(systemName: "soccerball.inverse")
-                            Text("-")
+                            Text(lastGoalAuthor == nil ? "-" : String(lastGoalAuthor!))
                                 .font(.system(size: 15))
                                 .fontWeight(.semibold)
                         }
@@ -104,6 +109,7 @@ struct RefereeWidget: Widget {
                 }
             } compactLeading: {
                 let team1Name = context.state.team1Name
+                let team1Score = context.state.team1Score
                 
                 HStack {
                     if team1Name == nil {
@@ -119,15 +125,16 @@ struct RefereeWidget: Widget {
                             .cornerRadius(13)
                     }
                     
-                    Text("0")
+                    Text(team1Score == nil ? "-" : "\(team1Score!)")
                         .font(.custom("Jellee-Roman", size: 15))
                         .foregroundStyle(.white.gradient)
                 }
             } compactTrailing: {
                 let team2Name = context.state.team2Name
+                let team2Score = context.state.team2Score
                 
                 HStack {
-                    Text("0")
+                    Text(team2Score == nil ? "-" : "\(team2Score!)")
                         .font(.custom("Jellee-Roman", size: 15))
                         .foregroundStyle(.white.gradient)
                     
