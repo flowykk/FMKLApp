@@ -1,11 +1,11 @@
 ![267shots_so](https://github.com/user-attachments/assets/82662095-40b3-4b21-8b67-ebf0c48b300c)
 
-<div align="center">
+<div align="left">
   <img src="https://github.com/user-attachments/assets/5ff4e557-2be8-4786-833d-47e821ca69a6" width = "475"> 
   <img src="https://github.com/user-attachments/assets/fd21c004-4c13-4fd5-97fb-9b26f0e7d3d7" width = "475"> 
 </div>
 
-<div align="center">
+<div align="left">
   <img src="https://github.com/user-attachments/assets/e05f6c91-3d23-4d34-9543-48373ddfcd3b" width = "475"> 
   <img src="https://github.com/user-attachments/assets/ec1884be-ec39-4086-b59d-f1d27bc45ea5" width = "475"> 
 </div>
