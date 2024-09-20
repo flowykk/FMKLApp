@@ -1,11 +1,11 @@
-<div align="center">
+![163shots_so](https://github.com/user-attachments/assets/613ddd7f-16f3-49a9-8deb-b07c23b81ae4)<div align="center">
   <img src="https://github.com/user-attachments/assets/5ff4e557-2be8-4786-833d-47e821ca69a6" width = "300"> 
   <img src="https://github.com/user-attachments/assets/fd21c004-4c13-4fd5-97fb-9b26f0e7d3d7" width = "300"> 
 </div>
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/f44eb541-ace5-4098-917b-b49f8b3c6253" width = "300"> 
-  <img src="https://github.com/user-attachments/assets/6acffa90-f5a1-4b4a-aa83-8fe85b7f3eef" width = "300"> 
+  <img src="https://github.com/user-attachments/assets/e05f6c91-3d23-4d34-9543-48373ddfcd3b" width = "300"> 
+  <img src="https://github.com/user-attachments/assets/ec1884be-ec39-4086-b59d-f1d27bc45ea5" width = "300"> 
 </div>
 
 ![488shots_so](https://github.com/flowykk/FMKLApp/assets/71427624/a256fadf-2861-4bf7-8246-060c4d99e1e4)
