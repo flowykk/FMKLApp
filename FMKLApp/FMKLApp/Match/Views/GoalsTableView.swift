@@ -71,7 +71,6 @@ extension GoalsTableView {
     
     private func addRow(rowIndex: Int) {
         let num = Int(arc4random_uniform(2) + 1)
-        print(999, num)
         if num == 1 {
             let goal = Goal(
                 scoredTeamName: "BUSUS",

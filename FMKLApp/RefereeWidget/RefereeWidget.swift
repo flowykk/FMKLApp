@@ -27,6 +27,7 @@ struct RefereeWidget: Widget {
                 let team2Score = context.state.team2Score
                 
                 let lastGoalAuthor = context.state.lastGoalAuthor
+                let lastCardAuthor = context.state.lastCardAuthor
                 
                 DynamicIslandExpandedRegion(.leading) {
                     VStack {
@@ -99,7 +100,7 @@ struct RefereeWidget: Widget {
                         HStack {
                             Image(systemName: "rectangle.portrait.fill")
                                 .foregroundColor(.red)
-                            Text("-")
+                            Text(lastCardAuthor == nil ? "-" : String(lastCardAuthor!))
                                 .font(.system(size: 15))
                                 .fontWeight(.semibold)
                         }

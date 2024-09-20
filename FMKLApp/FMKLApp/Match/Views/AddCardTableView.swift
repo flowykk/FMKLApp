@@ -51,7 +51,25 @@ extension AddCardTableView {
     }
     
     func addRow(rowIndex: Int) {
-        presenter?.addCardButtonTapped()
+        let num = Int(arc4random_uniform(2) + 1)
+        if num == 1 {
+            let card = PlayerCard(
+                team: "BUSUS",
+                player: "Filatov K.",
+                minute: 10,
+                isCardRed: true)
+            presenter?.addCardToTable(withCard: card)
+            presenter?.updateTrackingMatchCard(withCard: card)
+        } else {
+            let card = PlayerCard(
+                team: "KUBN",
+                player: "Nachinkin I.",
+                minute: 11,
+                isCardRed: false)
+            presenter?.addCardToTable(withCard: card)
+            presenter?.updateTrackingMatchCard(withCard: card)
+        }
+        //presenter?.addCardButtonTapped()
     }
     
     private func configure() {

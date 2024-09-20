@@ -126,7 +126,11 @@ final class MatchPresenter {
         let state = MatchTrackingAttributes.ContentState(
             startTime: startTime,
             team1Name: TeamNames.names[team1Name!],
-            team2Name: TeamNames.names[team2Name!]
+            team2Name: TeamNames.names[team2Name!],
+            team1Score: team1Score,
+            team2Score: team2Score,
+            lastGoalAuthor: lastGoalAuthor,
+            lastCardAuthor: lastCardAuthor
         )
         let content = ActivityContent(state: state, staleDate: nil)
                 
@@ -139,6 +143,7 @@ final class MatchPresenter {
         guard let startTime else { return }
         guard let team1Name else { return }
         guard let team2Name else { return }
+        guard goalAdded else { return }
         
         let shortTeam1Name = TeamNames.names[team1Name]
         let shortTeam2Name = TeamNames.names[team2Name]
@@ -148,10 +153,11 @@ final class MatchPresenter {
             team1Name: TeamNames.names[team1Name],
             team2Name: TeamNames.names[team2Name],
             team1Score: team1Score,
-            team2Score: team2Score
+            team2Score: team2Score,
+            lastGoalAuthor: lastGoalAuthor,
+            lastCardAuthor: lastCardAuthor
         )
         
-        guard goalAdded else { return }
         if shortTeam1Name != nil && goal.scoredTeamName == shortTeam1Name {
             team1Score = (team1Score == nil ? 0 : team1Score!) + 1
             state.team1Score = team1Score
@@ -165,6 +171,29 @@ final class MatchPresenter {
                 
         let content = ActivityContent(state: state, staleDate: nil)
                 
+        Task {
+            await activity?.update(content)
+        }
+    }
+    
+    func updateTrackingMatchCard(withCard card: PlayerCard) {
+        guard let startTime else { return }
+        guard let team1Name else { return }
+        guard let team2Name else { return }
+        
+        lastCardAuthor = card.player
+        let state = MatchTrackingAttributes.ContentState(
+            startTime: startTime,
+            team1Name: TeamNames.names[team1Name],
+            team2Name: TeamNames.names[team2Name],
+            team1Score: team1Score,
+            team2Score: team2Score,
+            lastGoalAuthor: lastGoalAuthor,
+            lastCardAuthor: lastCardAuthor
+        )
+        let content = ActivityContent(state: state, staleDate: nil)
+         
+        print(state)
         Task {
             await activity?.update(content)
         }
