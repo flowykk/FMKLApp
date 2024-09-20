@@ -1,3 +1,5 @@
+## Live Activities
+
 ![267shots_so](https://github.com/user-attachments/assets/82662095-40b3-4b21-8b67-ebf0c48b300c)
 
 <div align="left">
@@ -9,6 +11,8 @@
   <img src="https://github.com/user-attachments/assets/e05f6c91-3d23-4d34-9543-48373ddfcd3b" width = "480"> 
   <img src="https://github.com/user-attachments/assets/ec1884be-ec39-4086-b59d-f1d27bc45ea5" width = "480"> 
 </div>
+
+## Live Activities
 
 ![488shots_so](https://github.com/flowykk/FMKLApp/assets/71427624/a256fadf-2861-4bf7-8246-060c4d99e1e4)
 
