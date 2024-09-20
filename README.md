@@ -1,4 +1,6 @@
-![163shots_so](https://github.com/user-attachments/assets/613ddd7f-16f3-49a9-8deb-b07c23b81ae4)<div align="center">
+![267shots_so](https://github.com/user-attachments/assets/82662095-40b3-4b21-8b67-ebf0c48b300c)
+
+<div align="center">
   <img src="https://github.com/user-attachments/assets/5ff4e557-2be8-4786-833d-47e821ca69a6" width = "400"> 
   <img src="https://github.com/user-attachments/assets/fd21c004-4c13-4fd5-97fb-9b26f0e7d3d7" width = "400"> 
 </div>
