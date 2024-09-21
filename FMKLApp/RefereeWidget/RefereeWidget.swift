@@ -99,8 +99,11 @@ struct RefereeWidget: Widget {
                         Spacer()
                         HStack {
                             Image(systemName: "rectangle.portrait.fill")
-                                .foregroundColor(.red)
-                            Text(lastCardAuthor == nil ? "-" : String(lastCardAuthor!))
+                                .foregroundColor(
+                                    lastCardAuthor == nil || (lastCardAuthor != nil && lastCardAuthor?.isCardRed == true) ?
+                                        .redCard : .yellowCard
+                                )
+                            Text(lastCardAuthor == nil ? "-" : String(lastCardAuthor!.playerName))
                                 .font(.system(size: 15))
                                 .fontWeight(.semibold)
                         }

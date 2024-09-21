@@ -21,6 +21,6 @@ struct MatchTrackingAttributes: ActivityAttributes {
         var team2Score: Int?
         
         var lastGoalAuthor: String?
-        var lastCardAuthor: String?
+        var lastCardAuthor: LastCardAuthor?
     }
 }

@@ -43,6 +43,9 @@
 		0D6A5C3D2C2230CA0055178A /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A5C3C2C2230CA0055178A /* GoalCell.swift */; };
 		0D6A5C3F2C22310C0055178A /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A5C3E2C22310C0055178A /* Goal.swift */; };
 		0D6A5C412C223A600055178A /* AddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A5C402C223A600055178A /* AddCell.swift */; };
+		0D7100C42C9ED3C300CB24B7 /* lastCardAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7100C32C9ED3C300CB24B7 /* lastCardAuthor.swift */; };
+		0D7100C52C9ED40B00CB24B7 /* lastCardAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7100C32C9ED3C300CB24B7 /* lastCardAuthor.swift */; };
+		0D7100C62C9ED60100CB24B7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7042F2BF6584C00315374 /* Constants.swift */; };
 		0D753B472C1B4DF2002A2245 /* PlayersCardsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D753B462C1B4DF2002A2245 /* PlayersCardsTableView.swift */; };
 		0D753B492C1B4F47002A2245 /* PlayerCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D753B482C1B4F47002A2245 /* PlayerCards.swift */; };
 		0D753B4C2C1B4FC9002A2245 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D753B4B2C1B4FC9002A2245 /* CardCell.swift */; };
@@ -155,6 +158,7 @@
 		0D6A5C3C2C2230CA0055178A /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		0D6A5C3E2C22310C0055178A /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		0D6A5C402C223A600055178A /* AddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCell.swift; sourceTree = "<group>"; };
+		0D7100C32C9ED3C300CB24B7 /* lastCardAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lastCardAuthor.swift; sourceTree = "<group>"; };
 		0D753B462C1B4DF2002A2245 /* PlayersCardsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersCardsTableView.swift; sourceTree = "<group>"; };
 		0D753B482C1B4F47002A2245 /* PlayerCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCards.swift; sourceTree = "<group>"; };
 		0D753B4B2C1B4FC9002A2245 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardCell.swift; path = FMKLApp/Team/Views/Cells/CardCell.swift; sourceTree = SOURCE_ROOT; };
@@ -511,6 +515,7 @@
 				0D753B482C1B4F47002A2245 /* PlayerCards.swift */,
 				0D2E652A2C23185A00704C1D /* PlayerCard.swift */,
 				0D58765A2C9CB6A200C53A90 /* TeamNames.swift */,
+				0D7100C32C9ED3C300CB24B7 /* lastCardAuthor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -654,7 +659,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D7100C52C9ED40B00CB24B7 /* lastCardAuthor.swift in Sources */,
 				0D58765C2C9CB85D00C53A90 /* TeamNames.swift in Sources */,
+				0D7100C62C9ED60100CB24B7 /* Constants.swift in Sources */,
 				0D97DC122C9B59BE00CABF4D /* MatchTrackingAttributes.swift in Sources */,
 				0D58763F2C9CAEA700C53A90 /* UIImageExtension.swift in Sources */,
 			);
@@ -667,6 +674,7 @@
 				0DE7043E2BF663C500315374 /* CustomTableViewCell.swift in Sources */,
 				0DCFF9502C0509E700DA858A /* TeamPlayersTableView.swift in Sources */,
 				0DE704212BF6564B00315374 /* MainBuilder.swift in Sources */,
+				0D7100C42C9ED3C300CB24B7 /* lastCardAuthor.swift in Sources */,
 				0DE7044E2BF6912000315374 /* RefereeView.swift in Sources */,
 				0DE7044B2BF669F700315374 /* UILabelExtension.swift in Sources */,
 				0D46AC0D2C2B096400DAC7FA /* AddCardBuilder.swift in Sources */,

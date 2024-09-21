@@ -16,7 +16,7 @@ final class MatchPresenter {
     private var team1Score: Int? = nil
     private var team2Score: Int? = nil
     private var lastGoalAuthor: String? = nil
-    private var lastCardAuthor: String? = nil
+    private var lastCardAuthor: LastCardAuthor? = nil
     
     private var goalAdded: Bool = false
     
@@ -197,7 +197,7 @@ final class MatchPresenter {
         guard let team1Name else { return }
         guard let team2Name else { return }
         
-        lastCardAuthor = card.player
+        lastCardAuthor = LastCardAuthor(playerName: card.player, isCardRed: card.isCardRed)
         let state = MatchTrackingAttributes.ContentState(
             startTime: startTime,
             team1Name: TeamNames.names[team1Name],
