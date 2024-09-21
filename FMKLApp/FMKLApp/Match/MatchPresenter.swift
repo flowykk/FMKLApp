@@ -37,8 +37,14 @@ final class MatchPresenter {
         self.router = router
     }
     
+    private func teamNamesEmpty() -> Bool {
+        team1Name = firstPickerView?.getTextFieldData()
+        team2Name = secondPickerView?.getTextFieldData()
+        
+        return team1Name == nil || team2Name == nil || team1Name == "" || team2Name == "" || team1Name == team2Name
+    }
+    
     func toggleGoalAdded() {
-        print(0, goalAdded)
         goalAdded.toggle()
     }
     
@@ -61,10 +67,18 @@ final class MatchPresenter {
     }
     
     func addGoalButtonTapped() {
+        if teamNamesEmpty() {
+            AlertHelper.showAlert(from: view, withTitle: "Error", message: "Team Names can't be empty!")
+        }
+        
         router.presentAddGoalView()
     }
     
     func addCardButtonTapped() {
+        if teamNamesEmpty() {
+            AlertHelper.showAlert(from: view, withTitle: "Error", message: "Team Names can't be empty!")
+        }
+        
         router.presentAddCardView()
     }
     
@@ -74,6 +88,7 @@ final class MatchPresenter {
         }
         
         toggleGoalAdded()
+        updateTrackingMatchTeamScores(withGoal: goal)
         goalsTableView?.addRow(withGoal: goal)
     }
     
@@ -82,6 +97,7 @@ final class MatchPresenter {
             addCardVC.dismiss(animated: true)
         }
         
+        updateTrackingMatchCard(withCard: card)
         cardsTableView?.addRow(withCard: card)
     }
     
@@ -193,7 +209,6 @@ final class MatchPresenter {
         )
         let content = ActivityContent(state: state, staleDate: nil)
          
-        print(state)
         Task {
             await activity?.update(content)
         }

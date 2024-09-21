@@ -70,28 +70,7 @@ extension GoalsTableView {
     }
     
     private func addRow(rowIndex: Int) {
-        let num = Int(arc4random_uniform(2) + 1)
-        if num == 1 {
-            let goal = Goal(
-                scoredTeamName: "ZVZD",
-                scoredPlayer: "Filatov K.",
-                assistedPlayer: "Rakhimov A.",
-                minute: 10
-            )
-            presenter?.addGoalToTable(withGoal: goal)
-            presenter?.updateTrackingMatchTeamScores(withGoal: goal)
-        } else if num == 2 {
-            let goal = Goal(
-                scoredTeamName: "CSAK",
-                scoredPlayer: "Nachinkin I.",
-                assistedPlayer: "Martynov D.",
-                minute: 10
-            )
-            presenter?.addGoalToTable(withGoal: goal)
-            presenter?.updateTrackingMatchTeamScores(withGoal: goal)
-        }
-        
-        //presenter?.addGoalButtonTapped()
+        presenter?.addGoalButtonTapped()
     }
 }
 

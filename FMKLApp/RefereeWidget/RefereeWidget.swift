@@ -238,7 +238,6 @@ struct RefereeWidgetView: View {
         }
         .containerRelativeFrame([.horizontal, .vertical])
         .background(.black)
-        //.background(Color(hex: 0x212121))
     }
 }
 
