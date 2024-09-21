@@ -89,7 +89,6 @@ extension GoalsTableView: UITableViewDelegate, UITableViewDataSource {
             guard let addButtonCell = cell as? AddCell else { return cell }
             
             addButtonCell.addButtonTapAction = { [weak self] in
-                
                 self?.addRow(rowIndex: indexPath.row)
                 self?.isScrollEnabled = true
             }
@@ -99,7 +98,6 @@ extension GoalsTableView: UITableViewDelegate, UITableViewDataSource {
             let cell = dequeueReusableCell(withIdentifier: "GoalCell") as! GoalCell
             
             cell.set(goal: goal)
-            
             cell.deleteButtonTapAction = { [weak self] in
                 self?.deleteRow(rowIndex: indexPath.row)
             }
@@ -124,10 +122,6 @@ extension GoalsTableView: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Fetching Data for GoalsTableView
 extension GoalsTableView {
     func fetchData() {
-        self.goals = [
-            Goal(scoredTeamName: "TEAM", scoredPlayer: "SExample P.", assistedPlayer: "AExample E.", minute: 10)
-        ]
-        
         DispatchQueue.main.async {
             self.reloadData()
         }

@@ -8,6 +8,7 @@
 import UIKit
 
 final class TextFieldPickerView: UIView, UITextFieldDelegate {
+    weak var presenter: MatchPresenter?
     private var data: [String] = [String]()
     
     public var textField: UITextField = UITextField()
@@ -99,6 +100,7 @@ extension TextFieldPickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         textField.text = data[row]
+        presenter?.updateTrackingMatchTeamNames()
         self.endEditing(true)
     }
 }

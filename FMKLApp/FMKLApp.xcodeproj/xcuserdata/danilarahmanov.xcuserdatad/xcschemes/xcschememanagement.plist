@@ -7,7 +7,25 @@
 		<key>FMKLApp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>RefereeWidgetExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0D97DBF92C9B599700CABF4D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0DE703FC2BF6539600315374</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

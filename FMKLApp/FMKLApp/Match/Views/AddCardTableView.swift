@@ -124,10 +124,6 @@ extension AddCardTableView: UITableViewDelegate, UITableViewDataSource {
 // MARK: - Fetching Data for AddCardTableView
 extension AddCardTableView {
     func fetchData() {
-        self.playersCards = [
-            PlayerCard(team: "TEAM", player: "Example E.", minute: 10, isCardRed: true)
-        ]
-        
         DispatchQueue.main.async {
             self.reloadData()
         }

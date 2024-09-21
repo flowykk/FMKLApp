@@ -28,6 +28,14 @@ final class AddGoalPresenter {
             return
         }
         
-        self.view?.matchVC?.presenter?.addGoalToTable(withGoal: goal)
+        let shortTeam1Name = TeamNames.names[(view?.matchVC?.presenter?.firstPickerView?.getTextFieldData())!]
+        let shortTeam2Name = TeamNames.names[(view?.matchVC?.presenter?.secondPickerView?.getTextFieldData())!]
+        
+        if  shortTeam1Name != goal.scoredTeamName && shortTeam2Name != goal.scoredTeamName {
+            AlertHelper.showAlert(from: view, withTitle: "Error", message: "Scored Team must be equal to Team 1 or Team 2!")
+            return
+        }
+        
+        view?.matchVC?.presenter?.addGoalToTable(withGoal: goal)
     }
 }

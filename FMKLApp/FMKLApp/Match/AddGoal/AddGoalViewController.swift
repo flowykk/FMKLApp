@@ -66,8 +66,6 @@ extension AddGoalViewController: UITextFieldDelegate {
     
     @objc
     private func continueButtonTapped() {
-        print(1)
-        
         presenter?.continuteButtonTapped(
             withGoal: Goal (
                 scoredTeamName: teamTextFieldPickerView.getTextFieldData(),
